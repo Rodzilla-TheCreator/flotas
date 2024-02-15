@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Orden de Salida</title>
+</head>
+<body>
+    <h1>Crear Orden de Salida</h1>
+
+    {% if message %}
+        <div style="color: red;">{{ message }}</div>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('add_departure_order', company=company) }}">
+        <label for="vehicle_id">Vehículo:</label>
+        <select id="vehicle_id" name="vehicle_id" required>
+            {% for vehicle in available_vehicles %}
+                <option value="{{ vehicle[0] }}">{{ vehicle[1] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="operator_id">Operador:</label>
+        <select id="operator_id" name="operator_id" required>
+            {% for operator in operadores %}
+                <option value="{{ operator[0] }}">{{ operator[1] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="location">Ubicación:</label>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <label for="comments">Comentarios:</label>
+        <textarea id="comments" name="comments"></textarea><br><br>
+
+        <input type="submit" value="Crear Orden de Salida">
+    </form>
+</body>
+</html>

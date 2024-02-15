@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Orden</title>
+</head>
+<body>
+    <h1>Crear Orden</h1>
+
+    {% if message %}
+        <div style="color: red;">{{ message }}</div><br>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('add_work_order', company=company) }}">
+        <label for="vehicle_id">ID Vehiculo:</label>
+        <select id="vehicle_id" name="vehicle_id" required>
+            {% for vehicle in vehicles %}
+                <option value="{{ vehicle[0] }}">{{ vehicle[0] }} - {{ vehicle[1] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="work_type">Tipo de Trabajo:</label>
+        <select id="work_type" name="work_type" required>
+            <option value="Repair">Reparo</option>
+            <option value="Maintenance">Mantenimiento</option>
+        </select><br><br>
+        
+        <label for="lugar">Lugar:</label>
+        <input type="text" id="lugar" name="lugar" required><br><br>
+
+        <label for="dueno">Dueño:</label>
+        <input type="text" id="dueno" name="dueno" required><br><br>
+
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" name="marca" required><br><br>
+
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

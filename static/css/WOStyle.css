@@ -1,0 +1,361 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #008ece;
+  color: #333;
+  padding: 20px;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+/* Navigation bar styles */
+.navbar {
+  background-color: #333; /* Dark background color */
+  overflow: hidden; /* Clear floats */
+  position: fixed; /* Make it stick at the top */
+  top: 0; /* Position at the top */
+  width: 100%; /* Full width */
+  z-index: 1000; /* Sit on top of other content */
+}
+
+/* Navigation links */
+.navbar a {
+  float: left; /* Position the links to the left */
+  display: block; /* Change from inline to block */
+  color: #f2f2f2; /* White color for links */
+  text-align: center; /* Center text */
+  padding: 14px 16px; /* Some padding */
+  text-decoration: none; /* No underline */
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd; /* Light grey background on hover */
+  color: black; /* Black text on hover */
+}
+
+/* Add padding to body to make space for fixed navbar */
+body {
+  padding-top: 50px; /* Equal to the height of the navbar */
+}
+
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 70%;
+}
+
+.search-form label, .search-form input[type="text"], .search-form input[type="date"], .search-form select, .search-form input[type="submit"] {
+  margin-bottom: 10px;
+  flex: 1 1 auto;
+}
+
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.btn-secondary {
+  background-color: #555;
+}
+
+.btn-secondary:hover {
+  background-color: #444;
+}
+
+.btn-primary {
+  background-color: #6dbd98;
+}
+
+.btn-primary:hover {
+  background-color: #0077b3;
+}
+
+.work-order-container {
+  background-color: #6dbd98;
+  border: 3px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid #eee;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.info-box {
+  flex: 1;
+  padding: 10px;
+  margin: 5px;
+  background-color:#6dbd98;
+  border: 3px solid #ddd;
+  border-radius: 4px;
+}
+
+.info-box p {
+  font-weight: bold;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 3px solid #ddd;
+  border-radius: 4px;
+  background-color: #ffffff;
+  resize: vertical;
+}
+
+.split-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.split-container > div, .split-container > form {
+  flex: 0 0 30%;
+  min-width: 0;
+}
+
+.split-container > .list-container {
+  flex: 0 0 70%;
+  min-width: 0;
+}
+
+.split-container form {
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.split-container form label, .split-container form select, .split-container form input[type="number"], .split-container form input[type="submit"] {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.work-order-container form {
+  padding: 15px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.work-order-record-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the space between work order records */
+}
+
+.work-order-record {
+  flex: 1 0 calc(50% - 20px); /* Adjust the flex basis to fit 2 records per row, accounting for the gap */
+  background-color: #f1f1f1; /* Light grey background */
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-decoration: none; /* Remove underline from links */
+}
+
+.work-order-record-link {
+  text-decoration: none; /* Ensure text inside the link is not underlined */
+  color: inherit; /* Use the text color inherited from the parent */
+}
+
+@media (max-width: 768px) {
+  .work-order-record {
+      flex: 1 0 100%; /* Full width on smaller screens */
+  }
+}
+
+.work-order-container form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.assigned-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.assigned-list li {
+  flex: 1 0 calc(25% - 10px); /* Adjust the flex basis */
+  max-width: calc(25% - 10px); /* Add a max-width */
+  box-sizing: border-box; 
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: calc(25% - 10px);
+}
+
+@media (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .split-container > div, .split-container > form {
+    flex: 1 0 auto;
+  }
+
+  .search-form, .buttons-container {
+    width: 100%;
+  }
+
+  .search-form label, .search-form input[type="text"], .search-form select, .buttons-container {
+    flex: 1 0 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .assigned-list li {
+    width: 100%; /* Adjust for smaller screens */
+  }
+}
+/* Style for the quality check buttons */
+.quality-check-buttons {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+  margin-bottom: 20px;
+}
+
+.btn-quality-check {
+  background-color: #fff; /* White background */
+  color: #333; /* Dark text */
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-quality-check:hover {
+  background-color: #f1f1f1; /* Light grey on hover */
+}
+
+.complete-work-order {
+  text-align: center; /* Center the button */
+  margin-top: 20px;
+  background-color: transparent; /* Ensure no background color */
+  border: none; /* Remove any border */
+  padding: 0; /* Remove padding if not needed */
+}
+
+/* Style for the complete work order button */
+.btn-complete {
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: none; /* Remove any box-shadow if present */
+}
+
+.btn-complete:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.supply-wait-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.btn-wait-start, .btn-wait-stop {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-wait-start {
+  background-color: #28a745; /* Verde */
+}
+
+.btn-wait-start:hover {
+  background-color: #218838;
+}
+
+.btn-wait-stop {
+  background-color: #dc3545; /* Rojo */
+}
+
+.btn-wait-stop:hover {
+  background-color: #c82333;
+}
+
+
+/* Responsive adjustments if needed */
+@media (max-width: 768px) {
+  .btn-complete {
+      width: 100%; /* Full width on smaller screens */
+  }
+}
+
+/* Responsive adjustments as needed */
+@media (max-width: 768px) {
+  .quality-check-buttons {
+      flex-direction: column;
+  }
+
+  .btn-quality-check,
+  .btn-complete {
+      width: 100%; /* Full width on smaller screens */
+  }
+}

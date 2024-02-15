@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assign Mechanic</title>
+</head>
+<body>
+    <h1>Assign Mechanic to Work Order</h1>
+
+    {% if work_orders %}
+        {% for order in work_orders %}
+            <form method="post" action="/assign_mechanic">
+                <div>
+                    <h2>Work Order ID: {{ order[0] }} - {{ order[2] }}</h2> <!-- Assuming Description is at index 2 -->
+                    <input type="hidden" name="order_id" value="{{ order[0] }}">
+                    <label for="mechanic_id_{{ order[0] }}">Select Mechanic:</label>
+                    <select name="mechanic_id" id="mechanic_id_{{ order[0] }}">
+                        {% for mechanic in mechanics %}
+                            <option value="{{ mechanic[0] }}">{{ mechanic[1] }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Assign Mechanic">
+                </div>
+            </form>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No unassigned work orders.</p>
+    {% endif %}
+</body>
+</html>
+	

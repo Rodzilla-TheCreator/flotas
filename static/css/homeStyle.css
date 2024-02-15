@@ -1,0 +1,46 @@
+/* Estilo general para la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.home-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.center-logo {
+    display: block;
+    margin: 0 auto 20px; /* Centra el logo y añade espacio debajo */
+    max-width: 500px; /* Ajusta este valor según el tamaño deseado para el logo */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px; /* Espacio debajo del título */
+}
+
+.company-selection {
+    display: flex;
+    justify-content: space-around; /* Distribuye los botones uniformemente */
+}
+
+.company-link {
+    background-color: #007bff; /* Color de fondo de los botones */
+    color: white; /* Color del texto de los botones */
+    padding: 10px 20px; /* Espaciado interno de los botones */
+    border-radius: 5px; /* Bordes redondeados de los botones */
+    text-decoration: none; /* Elimina el subrayado del texto */
+    transition: background-color 0.3s; /* Transición suave al cambiar de color */
+}
+
+.company-link:hover {
+    background-color: #0056b3; /* Color de fondo de los botones al pasar el mouse */
+}

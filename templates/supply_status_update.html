@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supply Status Update</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/pedidos.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{url_for('mechanic_work_hours_summary',company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+        <a href="/">Inicio</a>
+        <!-- Add more links as needed -->
+      </div>
+    
+    <h1>Pedidos</h1>
+
+
+    <div class="tables-container">
+
+        <!-- Main Table -->
+        <div class="table-wrapper">
+            <table class="main-table">
+                <tr>
+                    <th>Order ID</th>
+                    <th>Supply ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Mechanic</th>
+                </tr>
+                {% for order_id, supply_id, codigo_sap, description, quantity, status, mechanic_id, mechanic_name in supplies %}
+                <tr>
+                    <td>{{ order_id }}</td>
+                    <td>{{ supply_id }}</td>
+                    <td>{{ description }}</td>
+                    <td>{{ status }}</td>
+                    <td>{{ mechanic_name or 'N/A' }}</td>
+                    <td>
+                        {% if status == 'Esperando' %}
+                            <form method="post" action="{{ url_for('supply_status_update',company=company) }}">
+                                <input type="hidden" name="order_id" value="{{ order_id }}">
+                                <input type="hidden" name="supply_id" value="{{ supply_id }}">
+                                <input type="hidden" name="new_status" value="Listo">
+                                <input type="submit" value="Marcar como Listo">
+                            </form>
+                        {% elif status == 'Listo' %}
+                            <input type="checkbox" class="supply-checkbox" data-order-id="{{ order_id }}" data-supply-id="{{ supply_id }}">
+                        {% else %}
+                            Recibido
+                        {% endif %}
+                    </td>            
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    
+        <!-- CodigoSap Table -->
+        <div class="table-wrapper">
+            <table class="codigo-sap-table">
+                <tr>
+                    <th>Código SAP</th>
+                </tr>
+                {% for order_id, supply_id, codigo_sap, description, quantity, status, mechanic_id, mechanic_name in supplies %}
+                <tr>
+                    <td>{{ codigo_sap }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    
+        <!-- Quantity Table -->
+        <div class="table-wrapper">
+            <table class="quantity-table">
+                <tr>
+                    <th>Cantidad</th>
+                </tr>
+                {% for order_id, supply_id, codigo_sap, description, quantity, status, mechanic_id, mechanic_name in supplies %}
+                <tr>
+                    <td>{{ quantity }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    
+    </div>
+
+
+    <form method="post" action="{{ url_for('supply_status_update',company=company) }}" id="mechanic-pin-form">
+        <input type="password" name="mechanic_pin" id="MechanicPinCode" placeholder="Mechanic PIN" required>
+        <input type="submit" value="Submit Received Supplies">
+    </form>
+    
+
+
+
+
+    <script>
+        document.getElementById('mechanic-pin-form').addEventListener('submit', function(event) {
+            const checkedSupplies = document.querySelectorAll('.supply-checkbox:checked');
+            checkedSupplies.forEach((checkbox) => {
+                const orderId = checkbox.getAttribute('data-order-id');
+                const supplyId = checkbox.getAttribute('data-supply-id');
+        
+                // Append these values as hidden fields to the form
+                const orderField = document.createElement('input');
+                orderField.type = 'hidden';
+                orderField.name = 'order_ids[]';
+                orderField.value = orderId;
+                this.appendChild(orderField);
+        
+                const supplyField = document.createElement('input');
+                supplyField.type = 'hidden';
+                supplyField.name = 'supply_ids[]';
+                supplyField.value = supplyId;
+                this.appendChild(supplyField);
+            });
+        });
+        </script>
+        
+</body>
+</html>

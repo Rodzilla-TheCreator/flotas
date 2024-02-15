@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Work Order Detail</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/WOStyle.css">
+</head>
+<body>
+    <h1>Work Order Detail</h1>
+
+    <div class="work-order-detail">
+
+        <h2>Work Order ID: {{ order['order_id'] }}</h2>
+        <div class="info-row">
+            <div class="info-box">
+                <p>Vehicle ID: {{ order['vehicle_id'] }}</p>
+            </div>
+            <div class="info-box">
+                <p>Vehicle Name: {{ order['vehicle_name'] }}</p>
+            </div>
+            <div class="info-box">
+                <p>Work Type: {{ order['work_type'] }}</p>
+            </div>
+            <div class="info-box">
+                <p>Tiempo de espera actual: {{ wait_time }}</p>
+            </div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-box">
+                <p>Lugar: {{ order['Lugar'] }}</p>
+            </div>
+            <div class="info-box">
+                <p>Dueño: {{ order['Dueno'] }}</p>
+            </div>
+            <div class="info-box">
+                <p>Marca: {{ order['Marca'] }}</p>
+            </div>
+            <div class="info-box">
+            <p>Fecha de Creación: {{ order['created_time'] }}</p>
+            </div>
+        </div>
+
+        <p>Description:</p>
+        <textarea readonly>{{ order['description'] }}</textarea>
+
+        <form method="post" action="{{ url_for('update_work_order', order_id=order['order_id']) }}">
+            <p>Diagnostico:</p>
+            <textarea name="diagnostico">{{ order['diagnostico'] }}</textarea>
+            <p>Trabajo Realizado:</p>
+            <textarea name="trabajoRealizado">{{ order['trabajoRealizado'] }}</textarea>
+            <input type="submit" value="Save Changes"><p></p>
+        </form>
+
+        <div class="split-container">
+            <form method="post" action="{{ url_for('assign_mechanic', order_id=order['order_id']) }}">
+                <input type="hidden" name="order_id" value="{{ order['order_id'] }}">
+                <select name="mechanic_id" required>
+                    <option value="">Select a Mechanic</option>
+                    {% for mechanic in all_mechanics %}
+                        <option value="{{ mechanic[0] }}">{{ mechanic[1] }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Assign Mechanic">
+            </form>
+
+            <div class="list-container">    
+                <ul class="assigned-list">
+                    {% for mechanic in mechanics %}
+                    <li>
+                        {{ mechanic[1] }} (ID: {{ mechanic[0] }})
+                        <form method="post" action="{{ url_for('unassign_mechanic', order_id=order['order_id'], mechanic_id=mechanic[0]) }}">
+                            <input type="hidden" name="order_id" value="{{ order['order_id'] }}">
+                            <input type="hidden" name="mechanic_id" value="{{ mechanic[0] }}">
+                            <input type="submit" value="Unassign">
+                        </form>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <form method="post" action="{{ url_for('assign_supply', order_id=order['order_id']) }}">
+            <div class="dropdown">
+                <input type="text" placeholder="Buscar por Código o Descripción..." id="myInput" onkeyup="filterFunction()">
+                <select id="supply-dropdown" name="supply_code">
+                    <option value="">Seleccione un Insumo</option>
+                    <!-- Las opciones se llenarán con JavaScript -->
+                </select>
+                <input type="number" name="quantity" min="1" placeholder="Cantidad" required>
+                <button type="submit">Asignar Insumo</button>
+            </div>
+            
+            <script>
+            var supplies = [
+                {% for supply in available_supplies %}
+                { code: "{{ supply[0] }}", description: "{{ supply[1] }}" },
+                {% endfor %}
+            ];
+            
+            function filterFunction() {
+                var input, filter, select, option, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                select = document.getElementById("supply-dropdown");
+                select.innerHTML = '<option value="">Seleccione un Insumo</option>'; // Limpiar el select antes de agregar opciones filtradas
+            
+                for (i = 0; i < supplies.length; i++) {
+                    txtValue = supplies[i].code + " - " + supplies[i].description;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        option = new Option(txtValue, supplies[i].code);
+                        select.options.add(option);
+                    }
+                }
+            }
+            </script>
+            
+        </form>
+        
+        <div class="list-container">
+            <ul class="assigned-list">
+                {% for supply in assigned_supplies %}
+                <li>
+                    {{ supply[0] }} - {{ supply[1] }} - Cantidad: {{ supply[2] }}, Estado: {{ supply[3] }}
+                    {% if supply[3] != 'Recibido' %}
+                    <form method="post" action="{{ url_for('unassign_supply', order_id=order['order_id'], supply_code=supply[0]) }}" style="display: inline;">
+                        <input type="submit" value="Desasignar">
+                    </form>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            <button id="refresh-sap-supplies" type="button">Refresh SAP Supplies</button>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        {% if order['currently_waiting'] %}
+        <!-- Si currently_waiting es True, muestra el botón para detener la espera -->
+        <form method="post" action="{{ url_for('stop_supply_wait', order_id=order['order_id']) }}">
+            <input type="submit" value="Detener Espera de Suministro" class="btn-stop-wait">
+        </form><p></p>
+    {% else %}
+        <!-- Si currently_waiting es False, muestra el botón para iniciar la espera -->
+        <form method="post" action="{{ url_for('start_supply_wait', order_id=order['order_id']) }}">
+            <input type="submit" value="Iniciar Espera de Suministro" class="btn-start-wait">
+        </form><p></p>
+    {% endif %}
+    
+        
+        <div class="quality-check-buttons">
+            <form action="{{ url_for('mechanic_quality_check', order_id=order['order_id']) }}" method="get">
+                <button type="submit" class="btn-quality-check">Mechanic Quality Checklist</button>
+            </form>
+
+            <form action="{{ url_for('logistics_quality_check', order_id=order['order_id']) }}" method="get"> <!-- Replace '#' with actual URL when available -->
+                <button type="submit" class="btn-quality-check">Logistics Mechanic Quality Checklist</button>
+            </form>
+        </div>
+
+        <div class="complete-work-order">
+            <form method="post" action="{{ url_for('complete_work_order', order_id=order['order_id']) }}">
+                <input type="hidden" name="order_id" value="{{ order['order_id'] }}">
+                <input type="submit" value="Complete Work Order" class="btn-complete">
+            </form>
+        </div>
+    </div>
+    <hr>
+    
+
+    <a href="{{ url_for('work_orders', company=company) }}">Back to Active Work Orders</a>
+</body>
+</html>

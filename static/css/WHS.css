@@ -1,0 +1,116 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input[type="date"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 60px; /* Espacio para la barra de navegación fija */
+    background-color: #f4f4f4;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input[type="date"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: #333; /* Color de fondo oscuro */
+    overflow: hidden; /* Limpiar flotantes */
+    position: fixed; /* Fijar en la parte superior */
+    top: 0; /* Posición en la parte superior */
+    width: 100%; /* Ancho completo */
+    z-index: 1000; /* Situar encima del resto del contenido */
+}
+
+.navbar a {
+    float: left; /* Posicionar los enlaces a la izquierda */
+    display: block; /* Cambiar de en línea a bloque */
+    color: #f2f2f2; /* Color blanco para los enlaces */
+    text-align: center; /* Centrar el texto */
+    padding: 14px 16px; /* Algún relleno */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.navbar a:hover {
+    background-color: #ddd; /* Fondo gris claro al pasar el ratón */
+    color: black; /* Texto negro al pasar el ratón */
+}

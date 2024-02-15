@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mechanic Work Hours Summary</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/WHS.css') }}">
+
+
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{url_for('mechanic_work_hours_summary',company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+        <a href="/">Inicio</a>
+        <!-- Add more links as needed -->
+      </div>
+      
+    <h1>Mechanic Work Hours Summary</h1>
+
+    <!-- Date filter form -->
+    <form action="{{ url_for('mechanic_work_hours_summary',company=company) }}" method="get">
+        <label for="filter_date">Select Date:</label>
+        <input type="date" name="filter_date" id="filter_date" value="{{ filter_date }}" onchange="this.form.submit()">
+    </form>
+
+    <h2>Daily Summary</h2>
+    {% if daily_summary %}
+        <table>
+            <tr>
+                <th>Mechanic ID</th>
+                <th>Date</th>
+                <th>Total Hours</th>
+            </tr>
+            {% for entry in daily_summary %}
+            <tr>
+                <td>{{ entry[0] }}</td>
+                <td>{{ entry[1] }}</td>
+                <td>{{ entry[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No entries for daily summary.</p>
+    {% endif %}
+
+    <h2>Weekly Summary</h2>
+    {% if weekly_summary %}
+        <table>
+            <tr>
+                <th>Mechanic ID</th>
+                <th>Week Start Date</th>
+                <th>Total Hours</th>
+            </tr>
+            {% for entry in weekly_summary %}
+            <tr>
+                <td>{{ entry[0] }}</td>
+                <td>{{ entry[1] }}</td>
+                <td>{{ entry[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No entries for weekly summary.</p>
+    {% endif %}
+
+    <h2>Monthly Summary</h2>
+    {% if monthly_summary %}
+        <table>
+            <tr>
+                <th>Mechanic ID</th>
+                <th>Month</th>
+                <th>Total Hours</th>
+            </tr>
+            {% for entry in monthly_summary %}
+            <tr>
+                <td>{{ entry[0] }}</td>
+                <td>{{ entry[1] }}</td>
+                <td>{{ entry[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No entries for monthly summary.</p>
+    {% endif %}
+
+</body>
+</html>

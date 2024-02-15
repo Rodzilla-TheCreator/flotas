@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mechanics</title>
+</head>
+<body>
+    <h1>Mechanics List</h1>
+    <ul>
+        {% for mechanic in mechanics %}
+            <li>ID: {{ mechanic[0] }}, Name: {{ mechanic[1] }}, Contact: {{ mechanic[2] }}</li>
+        {% else %}
+            <li>No mechanics found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mechanic Work Hours</title>
+</head>
+<body>
+    
+    <h1>Mechanic Work Hours</h1>
+    
+    <form action="{{ url_for('mechanic_work_hours') }}" method="get">
+        <label for="mechanic_id">Select Mechanic:</label>
+        <select name="filter_mechanic_id" id="mechanic_id">
+            <option value="">All Mechanics</option>
+            {% for mechanic in mechanics %}
+            <option value="{{ mechanic[0] }}" {% if request.args.get('filter_mechanic_id') == mechanic[0] %}selected{% endif %}>{{ mechanic[1] }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Order Number Search -->
+        <input type="text" name="search_query" placeholder="Search Order Number..." value="{{ request.args.get('search_query') }}">
+        <button type="submit">Search</button>
+    </form>
+    
+    <table>
+        <tr>
+            <th>Mechanic Name</th>
+            <th>Order Number</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Duration</th>
+        </tr>
+        {% for entry in work_hours %}
+        <tr>
+            <td>{{ entry[0] }}</td>
+            <td>{{ entry[1] }}</td>
+            <td>{{ entry[2] }}</td>
+            <td>{{ entry[3] }}</td>
+            <td>{{ entry[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

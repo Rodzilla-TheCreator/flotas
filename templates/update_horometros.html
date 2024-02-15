@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Horometros</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.full.min.js"></script>
+</head>
+<body>
+    <h1>Update Vehicle Horometros</h1>
+
+    {% if error_message %}
+    <div style="color: red;">{{ error_message }}</div>
+    {% endif %}
+    <!-- Search Bar as a Dropdown -->
+    <form method="GET" action="{{ url_for('update_horometros') }}">
+        <select id="vehicle_search" name="search">
+            <option value="">Search Vehicle</option>
+            {% for vehicle in vehicles %}
+                <option value="{{ vehicle[1] }}">{{ vehicle[1] }} (ID: {{ vehicle[0] }})</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Search">
+    </form>
+
+    <!-- Vehicle List -->
+    <div>
+        {% for vehicle in vehicles %}
+            <div>
+                <h3>{{ vehicle[1] }} (ID: {{ vehicle[0] }})</h3>
+                <p>Horometro: {{ vehicle[4] }}</p>
+                <p>Desde el ultimo Mantenimiento: {{ vehicle[5] }}</p>
+                <p>Ultima Actualizacion: {{ vehicle[6] }}</p>
+                <form method="POST" action="{{ url_for('update_horometros') }}">
+                    <input type="hidden" name="vehicle_id" value="{{ vehicle[0] }}">
+                    <input type="number" name="new_horometro" placeholder="introducir horometro">
+                    <input type="submit" value="Actualizar Horometro">
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#vehicle_search').select2({
+                width: '100%',
+                placeholder: "Search for a vehicle",
+                allowClear: true
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ordenes de Trabajo Activas</title>
+    <!-- Consider adding some CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/css/WOStyle.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{url_for('mechanic_work_hours_summary',company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+        <a href="/">Inicio</a>
+      </div>
+      
+
+
+    <h1>Ordenes de Trabajo Activas</h1>
+
+    <div class="top-section">
+        <!-- Search Form for Active Work Orders -->
+        <form method="GET" action="{{ url_for('work_orders', company=company) }}" class="search-form">
+            <label for="order_id">ID Orden de Trabajo:</label>
+            <select id="order_id" name="order_id">
+                <option value="">Seleccione una orden</option>
+                {% for order in active_order_ids %}
+                    <option value="{{ order.OrderID }}" {% if order.OrderID == order_id_query %} selected {% endif %}>{{ order.OrderID }}</option>
+                {% endfor %}
+            </select>
+        
+            <label for="vehicle_name">Vehículo:</label>
+            <select id="vehicle_name" name="vehicle_name">
+                <option value="">Seleccione un vehículo</option>
+                {% for vehicle in active_vehicle_names %}
+                    <option value="{{ vehicle.VehicleName }}" {% if vehicle.VehicleName == vehicle_name_query %} selected {% endif %}>{{ vehicle.VehicleName }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="description">Descripcion:</label>
+            <input type="text" id="description" name="description" placeholder="Search by Description">
+
+            <label for="start_date">Desde Fecha:</label>
+            <input type="date" id="start_date" name="start_date" value="{{ start_date }}">
+        
+            <label for="end_date">Hasta Fecha:</label>
+            <input type="date" id="end_date" name="end_date" value="{{ end_date }}">
+
+            <input type="submit" value="Buscar">
+        </form>
+    
+        <!-- Buttons -->
+        <div class="buttons-container">
+            <a href="{{ url_for('add_work_order', company=company) }}" class="btn btn-primary">Crear Orden</a>
+            
+            <a href="{{ url_for('work_orders_record', company=company) }}" class="btn btn-secondary">Historial de Ordenes</a>
+
+        </div>
+    </div>
+    
+      
+
+    {% for order in work_orders %}
+        <div class="work-order-container">
+            <div class="work-order-list">
+                <a href="{{ url_for('work_order_detail', order_id=order['OrderID']) }}" class="work-order-link">
+                    <div class="work-order-summary">
+                        <h2>ID Orden: {{ order['OrderID'] }}</h2>
+                        <p>Vehículo: {{ order['VehicleName'] }}</p>
+                        <p>Trabajo: {{ order['WorkType'] }}</p>
+                        <p>Descripcion: {{ order['Description'] }}</p>
+                        <p>Creado: {{ order['CreatedTime'] }}</p>
+                        <!-- Add more summary info as needed -->
+                    </div>
+                </a>
+            </div>
+        </div>
+    {% else %}
+        <p>No hay órdenes activas.</p>
+    {% endfor %}
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.full.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize Select2 for all select elements
+            $('select').select2();
+
+            // Example functionality for adding assigned supply to the list without refreshing the page
+            // Adapt this according to your actual backend logic
+            $('form').submit(function(e) {
+                e.preventDefault();
+                var orderID = $(this).attr('action').split('=')[1];
+                var supplyID = $(this).find('select[name="supply_id"]').val();
+                var quantity = $(this).find('input[name="quantity"]').val();
+                var supplyText = $(this).find('select option:selected').text();
+    
+                if (supplyID && quantity) {
+                    $('#assigned-supplies-' + orderID).append('<li>' + supplyText + ' - Quantity: ' + quantity + '</li>');
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicles</title>
+     <link rel="stylesheet" type="text/css" href="/static/css/VehicleStyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        .vehicle-container {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{url_for('mechanic_work_hours_summary',company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+
+        <a href="/">Inicio</a>
+        <!-- Add more links as needed -->
+      </div>
+    <h1>Vehiculos</h1>
+    <div class="vehicle-stats">
+        <div class="stat">
+            <h3>Disponible</h3>
+            <p>{{ disponible_count }} vehículos ({{ disponible_percentage|round(2) }}%)</p>
+        </div>
+        <div class="stat">
+            <h3>En Renta</h3>
+            <p>{{ en_renta_count }} vehículos ({{ en_renta_percentage|round(2) }}%)</p>
+        </div>
+        <div class="stat">
+            <h3>En Taller</h3>
+            <p>{{ en_taller_count }} vehículos ({{ en_taller_percentage|round(2) }}%)</p>
+        </div>
+        <div class="stat">
+            <h3>Reparación Externa</h3>
+            <p>{{ reparacion_externa_count }} vehículos ({{ reparacion_externa_percentage|round(2) }}%)</p>
+        </div>
+    </div>
+    
+    {% if error_message %}
+    <div style="color: red;">{{ error_message }}</div>
+    {% endif %}
+
+
+    <!-- Search Bar as a Dropdown -->
+    <form method="GET" action="{{ url_for('vehicles_list') }}">
+        <select id="vehicle_search" name="vehicle_id">
+            <option value="">Select Vehicle</option>
+            {% for vehicle in vehicles %}
+                <option value="{{ vehicle[0] }}">{{ vehicle[6] }} (ID: {{ vehicle[0] }})</option>
+            {% endfor %}
+        </select>
+        <select id="availability_search" name="availability">
+            <option value="">Select Availability</option>
+            <option value="En Renta">En Renta</option>
+            <option value="Disponible">Disponible</option>
+            <option value="En Taller">En Taller</option>
+        </select>
+        <input type="submit" value="Search">
+    </form>
+
+
+<!-- Vehicle List with Details -->
+<div class="vehicle-list">
+    {% for vehicle in vehicles %}
+    <div class="vehicle-container 
+        {% if vehicle[9] == 'En Taller' %}EnTaller
+        {% elif vehicle[9] == 'En Renta' %}EnRenta
+        {% elif vehicle[9] == 'Disponible' %}Disponible
+        {% elif vehicle[9] == 'Reparación Externa' %}ReparacionExterna
+        {% endif %}">
+        <h3>{{ vehicle[6] }} (ID: {{ vehicle[0] }})</h3>
+        <div class="vehicle-info-grid">
+            <p><strong>Tipo:</strong> {{ vehicle[1] }}</p>
+            <p><strong>Marca:</strong> {{ vehicle[2] }}</p>
+            <p><strong>Modelo:</strong> {{ vehicle[3] }}</p>
+            <p><strong>Año:</strong> {{ vehicle[4] }}</p>
+            <p><strong>Serie:</strong> {{ vehicle[5] }}</p>
+            <p><strong>Observación:</strong> {{ vehicle[7] }}</p>
+            <p><strong>Capacidad KG:</strong> {{ vehicle[8] }}</p>
+            <p><strong>Status:</strong> {{ vehicle[9] }}</p>
+            <p><strong>Horómetro:</strong> {{ vehicle[10] }}</p>
+            <p><strong>Horas Desde Últ. Mant.:</strong> {{ vehicle[11] }}</p>
+            <p><strong>Fecha Act. Horómetro:</strong> {{ vehicle[12] }}</p>
+            <p><strong>Ubicación:</strong> {{ vehicle[13] }}</p>
+        </div>
+        
+        <form method="POST" action="{{ url_for('update_horometros', vehicle_id=vehicle[0]) }}" class="horometro-update-form">
+            <input type="hidden" name="vehicle_id" value="{{ vehicle[0] }}">
+            <input type="number" name="new_horometro" placeholder="Introducir nuevo horómetro">
+            <input type="submit" value="Actualizar Horómetro">
+        </form>
+    </div>
+    {% else %}
+    <p>No vehicles found.</p>
+    {% endfor %}
+</div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.full.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#vehicle_search, #availability_search').select2({
+                width: '100%',
+                placeholder: "Select an option",
+                allowClear: true
+            });
+        });
+    </script>
+     
+</body>
+</html>

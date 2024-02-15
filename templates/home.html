@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio - Selección de Empresa</title>
+    <link rel="stylesheet" href="/static/css/homeStyle.css">
+</head>
+<body>
+
+    <div class="home-container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Company Logo" class="center-logo">
+
+        <h1>Bienvenido, seleccione su empresa</h1>
+        <div class="company-selection">
+            <a href="/vehicles?company=MontasaHN" class="company-link">MontasaHN</a>
+            <a href="/vehicles?company=MontasaCR" class="company-link">MontasaCR</a>
+            <a href="/vehicles?company=Monhaco" class="company-link">Monhaco</a>
+        </div>
+    </div>
+</body>
+</html>

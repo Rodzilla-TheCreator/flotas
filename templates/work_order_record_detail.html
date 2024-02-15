@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle de Orden</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/WOStyle.css">
+</head>
+<body>
+    <h1>Detalle de Orden</h1>
+
+    <div class="work-order-detail">
+
+        <h2>ID Orden: {{ order['order_id'] }}</h2>
+        <div class="info-row">
+            <div class="info-box">
+                <p>ID Vehiculo: {{ order['vehicle_id'] }}</p>
+            </div>
+            <div class="info-box">
+                <p>Vehiculo: {{ order['vehicle_name'] }}</p>
+            </div>
+            <div class="info-box">
+                <p>Tipo de Trabajo: {{ order['work_type'] }}</p>
+            </div>
+            <div class="info-box">
+                <p>Inicio: {{ order['start_date'] }}</p>
+            </div>
+
+        </div>
+
+        <div class="info-row">
+            <div class="info-box">
+                <p>Lugar: {{ order['Lugar'] }}</p>
+            </div>
+            <div class="info-box">
+                <p>Dueño: {{ order['Dueno'] }}</p>
+            </div>
+            <div class="info-box">
+                <p>Marca: {{ order['Marca'] }}</p>
+            </div>
+            <div class="info-box">
+                <p>Final: {{ order['end_date'] }}</p>
+            </div>
+        </div>
+
+        <p>Descripcion:</p>
+        <textarea readonly>{{ order['description'] }}</textarea>
+
+        <p>Diagnostico:</p>
+        <textarea readonly>{{ order['diagnostico'] }}</textarea>
+
+        <p>Trabajo Realizado:</p>
+        <textarea readonly>{{ order['trabajoRealizado'] }}</textarea>
+
+  
+
+        <div class="quality-check-buttons">
+            <form action="{{ url_for('mechanic_quality_check', order_id=order['order_id']) }}" method="get">
+                <button type="submit" class="btn-quality-check">Checklist Mecanicos</button>
+            </form>
+
+            <!-- Replace '#' with actual URL when available -->
+            <form action="#" method="get">
+                <button type="submit" class="btn-quality-check">Checklist Logistica</button>
+            </form>
+        </div>
+
+        <!-- Back to Work Orders Record List -->
+        <a href="{{ url_for('work_orders_record', company=company) }}" class="btn btn-primary">Regresar a Historial de Ordenes</a>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Orden de Salida {{ order['IdOrdenSalida'] }}</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/WOStyle.css">
+</head>
+<body>
+    <div class="navbar">
+        <!-- Agrega aquí tus enlaces de navegación -->
+    </div>
+
+    <div class="work-order-detail">
+        <h1>Detalle de Orden de Salida {{ order['IdOrdenSalida'] }}</h1>
+
+        <div class="info-row">
+            <div class="info-box">
+                <p>ID de Orden: {{ order[0] }}</p>
+                <p>Nombre del Vehículo: {{ order[2] }}</p>
+                <p>Nombre del Operador: {{ order[4] }}</p>
+                <p>Ubicación: {{ order[7] }}</p>
+            </div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-box">
+                <p>Horómetro de Salida: {{ order[8] }}</p>
+                <p>Horómetro de Regreso: {{ order[9] }}</p>
+            </div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-box">
+                <p>Hora Creado: {{ order[5] }}</p>
+                <p>Hora Regresado: {{ order[10] }}</p>
+                <p>Comentarios: {{ order[6] }}</p>
+            </div>
+        </div>
+
+        <!-- Añade más detalles según sea necesario -->
+    </div>
+
+    <a href="{{ url_for('departure_orders_record',company=company) }}" class="btn btn-primary">Volver al registro de órdenes de salida</a>
+</body>
+</html>

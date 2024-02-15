@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logistics Quality Checklist</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/MQCStyle.css">
+</head>
+<body>
+
+    <header>
+        <img src="/static/logo.png" alt="Company Logo" class="center-logo">
+    </header>
+
+    <h1>Logistics Quality Checklist for Work Order #{{ order_id }}</h1>
+
+    <form action="{{ url_for('update_logistics_quality_checklist', order_id=order_id) }}" method="post">
+        <!-- Add a hidden field for the order ID -->
+        <input type="hidden" name="order_id" value="{{ order_id }}">
+
+        <div class="checkbox-section">
+            <h3 class="section-header">Sistema Electrico</h3>
+            <div class="checkbox-container">
+                <input type="checkbox" name="AlarmaDePrecaucion" id="AlarmaDePrecaucion" {% if checklist["AlarmaDePrecaucion"] %}checked{% endif %}>
+                <label for="AlarmaDePrecaucion">Alarma De Precaución</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="BotonDeEmergencia" id="BotonDeEmergencia" {% if checklist["BotonDeEmergencia"] %}checked{% endif %}>
+                <label for="BotonDeEmergencia">Botón De Emergencia</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="LuzEstroboscopica" id="LuzEstroboscopica" {% if checklist["LuzEstroboscopica"] %}checked{% endif %}>
+                <label for="LuzEstroboscopica">Luz Estroboscópica</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="LucesDeTrabajo" id="LucesDeTrabajo" {% if checklist["LucesDeTrabajo"] %}checked{% endif %}>
+                <label for="LucesDeTrabajo">Luces De Trabajo</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="LucesDeStop" id="LucesDeStop" {% if checklist["LucesDeStop"] %}checked{% endif %}>
+                <label for="LucesDeStop">Luces De Stop</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="LucesDeVias" id="LucesDeVias" {% if checklist["LucesDeVias"] %}checked{% endif %}>
+                <label for="LucesDeVias">Luces De Vías</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Baterias" id="Baterias" {% if checklist["Baterias"] %}checked{% endif %}>
+                <label for="Baterias">Baterías</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Pito" id="Pito" {% if checklist["Pito"] %}checked{% endif %}>
+                <label for="Pito">Pito</label>
+            </div>
+            <!-- Additional sections for other categories of the checklist -->
+        </div>
+        <div class="checkbox-section">
+            <h3 class="section-header">Revisión General</h3>
+            <!-- Items for Revision General -->
+            <div class="checkbox-container">
+                <input type="checkbox" name="TaponDeCombustible" id="TaponDeCombustible" {% if checklist["TaponDeCombustible"] %}checked{% endif %}>
+                <label for="TaponDeCombustible">Tapón De Combustible</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="LubricacionYEngrase" id="LubricacionYEngrase" {% if checklist["LubricacionYEngrase"] %}checked{% endif %}>
+                <label for="LubricacionYEngrase">Lubricación Y Engrase</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="SistemaHidraulico" id="SistemaHidraulico" {% if checklist["SistemaHidraulico"] %}checked{% endif %}>
+                <label for="SistemaHidraulico">Sistema Hidráulico</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="BandasDeMotor" id="BandasDeMotor" {% if checklist["BandasDeMotor"] %}checked{% endif %}>
+                <label for="BandasDeMotor">Bandas De Motor</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="FugasDeAceites" id="FugasDeAceites" {% if checklist["FugasDeAceites"] %}checked{% endif %}>
+                <label for="FugasDeAceites">Fugas De Aceites</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="TorreCompleta" id="TorreCompleta" {% if checklist["TorreCompleta"] %}checked{% endif %}>
+                <label for="TorreCompleta">Torre Completa</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="LavadoGeneral" id="LavadoGeneral" {% if checklist["LavadoGeneral"] %}checked{% endif %}>
+                <label for="LavadoGeneral">Lavado General</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="FrenosGeneral" id="FrenosGeneral" {% if checklist["FrenosGeneral"] %}checked{% endif %}>
+                <label for="FrenosGeneral">Frenos General</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="CilindroDeGas" id="CilindroDeGas" {% if checklist["CilindroDeGas"] %}checked{% endif %}>
+                <label for="CilindroDeGas">Cilindro De Gas</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Mangueras" id="Mangueras" {% if checklist["Mangueras"] %}checked{% endif %}>
+                <label for="Mangueras">Mangueras</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Cuchillas" id="Cuchillas" {% if checklist["Cuchillas"] %}checked{% endif %}>
+                <label for="Cuchillas">Cuchillas</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Balineras" id="Balineras" {% if checklist["Balineras"] %}checked{% endif %}>
+                <label for="Balineras">Balineras</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Palancas" id="Palancas" {% if checklist["Palancas"] %}checked{% endif %}>
+                <label for="Palancas">Palancas</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Pistones" id="Pistones" {% if checklist["Pistones"] %}checked{% endif %}>
+                <label for="Pistones">Pistones</label>
+            </div>
+
+            <div class="checkbox-container">
+                <input type="checkbox" name="Shifter" id="Shifter" {% if checklist["Shifter"] %}checked{% endif %}>
+                <label for="Shifter">Shifter</label>
+            </div>
+        </div>
+        <div class="checkbox-section">
+            <h3 class="section-header">Estructura</h3>
+            <!-- Items for Estructura -->
+            <div class="checkbox-container">
+                <input type="checkbox" name="GolpesOAbolladuras" id="GolpesOAbolladuras" {% if checklist["GolpesOAbolladuras"] %}checked{% endif %}>
+                <label for="GolpesOAbolladuras">Golpes o Abolladuras</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="IndicadoresTablero" id="IndicadoresTablero" {% if checklist["IndicadoresTablero"] %}checked{% endif %}>
+                <label for="IndicadoresTablero">Indicadores del Tablero</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="CamaraFrontal" id="CamaraFrontal" {% if checklist["CamaraFrontal"] %}checked{% endif %}>
+                <label for="CamaraFrontal">Cámara Frontal</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="CamaraTrasera" id="CamaraTrasera" {% if checklist["CamaraTrasera"] %}checked{% endif %}>
+                <label for="CamaraTrasera">Cámara Trasera</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="PantallaVisual" id="PantallaVisual" {% if checklist["PantallaVisual"] %}checked{% endif %}>
+                <label for="PantallaVisual">Pantalla Visual</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="PinturaGeneral" id="PinturaGeneral" {% if checklist["PinturaGeneral"] %}checked{% endif %}>
+                <label for="PinturaGeneral">Pintura General</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Cinturones" id="Cinturones" {% if checklist["Cinturones"] %}checked{% endif %}>
+                <label for="Cinturones">Cinturones</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Asientos" id="Asientos" {% if checklist["Asientos"] %}checked{% endif %}>
+                <label for="Asientos">Asientos</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Extintor" id="Extintor" {% if checklist["Extintor"] %}checked{% endif %}>
+                <label for="Extintor">Extintor</label>
+            </div>
+        </div>
+        <div class="checkbox-section">
+            <h3 class="section-header">Accesorios</h3>
+            <!-- Items for Accesorios -->
+            <div class="checkbox-container">
+                <input type="checkbox" name="ExtensionesHorquilla" id="ExtensionesHorquilla" {% if checklist["ExtensionesHorquilla"] %}checked{% endif %}>
+                <label for="ExtensionesHorquilla">Extensiones Horquilla</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="LlavesDeEncendido" id="LlavesDeEncendido" {% if checklist["LlavesDeEncendido"] %}checked{% endif %}>
+                <label for="LlavesDeEncendido">Llaves de Encendido</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="KitAntiderrame" id="KitAntiderrame" {% if checklist["KitAntiderrame"] %}checked{% endif %}>
+                <label for="KitAntiderrame">Kit Antiderrame</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Cadenas" id="Cadenas" {% if checklist["Cadenas"] %}checked{% endif %}>
+                <label for="Cadenas">Cadenas</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Conos" id="Conos" {% if checklist["Conos"] %}checked{% endif %}>
+                <label for="Conos">Conos</label>
+            </div>
+        </div>
+        <div class="checkbox-section">
+            <h3 class="section-header">Accesorios</h3>
+            <!-- Items for Accesorios -->
+            <div class="checkbox-container">
+                <input type="checkbox" name="ExtensionesHorquilla" id="ExtensionesHorquilla" {% if checklist["ExtensionesHorquilla"] %}checked{% endif %}>
+                <label for="ExtensionesHorquilla">Extensiones Horquilla</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="LlavesDeEncendido" id="LlavesDeEncendido" {% if checklist["LlavesDeEncendido"] %}checked{% endif %}>
+                <label for="LlavesDeEncendido">Llaves de Encendido</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="KitAntiderrame" id="KitAntiderrame" {% if checklist["KitAntiderrame"] %}checked{% endif %}>
+                <label for="KitAntiderrame">Kit Antiderrame</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Conos" id="Conos" {% if checklist["Conos"] %}checked{% endif %}>
+                <label for="Conos">Conos</label>
+            </div>
+        </div>
+        <div class="checkbox-section">
+            <h3 class="section-header">Niveles</h3>
+            <!-- Items for Niveles -->
+            <div class="checkbox-container">
+                <input type="checkbox" name="RefrigeranteCoolant" id="RefrigeranteCoolant" {% if checklist["RefrigeranteCoolant"] %}checked{% endif %}>
+                <label for="RefrigeranteCoolant">Refrigerante/Coolant</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="LiquidoDeFrenos" id="LiquidoDeFrenos" {% if checklist["LiquidoDeFrenos"] %}checked{% endif %}>
+                <label for="LiquidoDeFrenos">Líquido de Frenos</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="AceiteHidraulico" id="AceiteHidraulico" {% if checklist["AceiteHidraulico"] %}checked{% endif %}>
+                <label for="AceiteHidraulico">Aceite Hidráulico</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="AceiteMotor" id="AceiteMotor" {% if checklist["AceiteMotor"] %}checked{% endif %}>
+                <label for="AceiteMotor">Aceite Motor</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Combustible" id="Combustible" {% if checklist["Combustible"] %}checked{% endif %}>
+                <label for="Combustible">Combustible</label>
+            </div>
+        </div>
+        <div class="checkbox-section">
+            <h3 class="section-header">Genies</h3>
+            <!-- Items for Electrical Components -->
+            <div class="checkbox-container">
+                <input type="checkbox" name="ConectoresDeCorriente" id="ConectoresDeCorriente" {% if checklist["ConectoresDeCorriente"] %}checked{% endif %}>
+                <label for="ConectoresDeCorriente">Conectores de Corriente</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="CableDeEmergencia" id="CableDeEmergencia" {% if checklist["CableDeEmergencia"] %}checked{% endif %}>
+                <label for="CableDeEmergencia">Cable de Emergencia</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Cargador" id="Cargador" {% if checklist["Cargador"] %}checked{% endif %}>
+                <label for="Cargador">Cargador</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Botones" id="Botones" {% if checklist["Botones"] %}checked{% endif %}>
+                <label for="Botones">Botones</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Canasta" id="Canasta" {% if checklist["Canasta"] %}checked{% endif %}>
+                <label for="Canasta">Canasta</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Joystick" id="Joystick" {% if checklist["Joystick"] %}checked{% endif %}>
+                <label for="Joystick">Joystick</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="Switch" id="Switch" {% if checklist["Switch"] %}checked{% endif %}>
+                <label for="Switch">Switch</label>
+            </div>
+        </div>
+                                        
+        <div>
+            <label for="AdditionalNotes">Comentarios:</label><br>
+            <textarea name="AdditionalNotes" id="AdditionalNotes" rows="4" cols="50">{{ checklist["AdditionalNotes"] }}</textarea>
+            <p></p>
+            <label for="OperatorPinCode">Operator PIN Code:</label><br>
+            <input type="password" name="OperatorPinCode" id="OperatorPinCode" maxlength="3">
+            <span id="operatorName" style="margin-left: 10px;"></span>
+            <input type="hidden" name="OperatorID" id="OperatorID">
+        </div>
+        
+
+   
+        
+
+
+        <input type="submit" value="Submit Checklist">
+    </form>
+    <script>
+        document.getElementById('OperatorPinCode').addEventListener('input', function() {
+            var pin = this.value;
+            if (pin.length === 3) {  // Asumiendo que el PIN tiene 3 dígitos
+                fetch(`/validate_operator_pin?pin=${pin}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.id && data.name) {
+                            document.getElementById('OperatorID').value = data.id;
+                            document.getElementById('operatorName').textContent = data.name;
+                        } else {
+                            document.getElementById('OperatorID').value = '';
+                            document.getElementById('operatorName').textContent = 'Invalid PIN';
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            } else {
+                document.getElementById('OperatorID').value = '';
+                document.getElementById('operatorName').textContent = '';
+            }
+        });
+    </script>
+    
+</body>
+</html>

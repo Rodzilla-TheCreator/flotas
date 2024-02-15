@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #008ece; 
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    grid-gap: 1rem;
+   }
+
+
+.center-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+   }
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="password"],
+input[type="checkbox"],
+textarea {
+    
+    padding: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    grid-column: 1 / 3;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.checkbox-section {
+    margin-bottom: 10px; /* Space between sections */
+    padding: 10px; /* Padding inside each section */
+    border: 1px solid #ccc; /* Border around each section */
+    border-radius: 5px; /* Rounded corners for the section */
+    background-color: #6dbd98; /* Background color for the section */
+}
+
+.section-header {
+    font-size: 1.2em; /* Larger text for headers */
+    margin-bottom: 10px; /* Space below the header */
+    color: #333; /* Color for the header text */
+    text-align: center; /* Center the section headers */
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure content is spaced out evenly */
+    margin-bottom: 30px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    /* Align checkbox to the start */
+    margin-right: 10px; /* Space between the checkbox and the label */
+}
+
+.checkbox-container label {
+    margin: 0;
+    flex-grow: 1; /* Label takes up remaining space */
+    text-align: left;
+    font-size: 23px; /* Adjust the size as needed */
+}
+
+
+textarea {
+    resize: vertical;
+}
+
+@media (max-width: 600px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+}

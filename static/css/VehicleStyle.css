@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+.vehicle-container {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.vehicle-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre contenedores de vehículos */
+    justify-content: center;
+}
+
+.vehicle-container {
+    width: 100%;
+    max-width: 500px; /* Ajusta según tus necesidades */
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.vehicle-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 10px; /* Espacio entre celdas de la cuadrícula */
+    margin-bottom: 20px; /* Espacio antes del formulario */
+}
+
+.horometro-update-form {
+    display: flex;
+    gap: 10px; /* Espacio entre el input y el botón */
+}
+
+input[type="number"], input[type="submit"] {
+    flex: 1; /* Distribuye el espacio disponible */
+}
+
+.vehicle-container.Disponible {
+    background-color: #e0f8d8; /* Verde claro para vehículos disponibles */
+}
+
+.vehicle-container.EnTaller {
+    background-color: #f8d7da; /* Rojo claro para vehículos en taller */
+}
+
+.vehicle-container.EnRenta {
+    background-color: #fff3cd; /* Amarillo claro para vehículos en renta */
+}
+
+form {
+    margin-top: 20px;
+}
+
+select, input[type="number"], input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para Select2 */
+.select2-container--default .select2-selection--single {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 38px;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    line-height: 36px;
+}
+
+.select2-container .select2-selection--single .select2-selection__arrow {
+    height: 36px;
+}
+.vehicle-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h3 {
+    margin: 0;
+    color: #0077b3;
+}
+
+.stat p {
+    margin: 5px 0 0;
+    color: #333;
+}
+.ReparacionExterna {
+    background-color: #007bff; /* Azul */
+  }
+/* Navigation bar styles */
+.navbar {
+    background-color: #333; /* Dark background color */
+    overflow: hidden; /* Clear floats */
+    position: fixed; /* Make it stick at the top */
+    top: 0; /* Position at the top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Sit on top of other content */
+  }
+  
+  /* Navigation links */
+  .navbar a {
+    float: left; /* Position the links to the left */
+    display: block; /* Change from inline to block */
+    color: #f2f2f2; /* White color for links */
+    text-align: center; /* Center text */
+    padding: 14px 16px; /* Some padding */
+    text-decoration: none; /* No underline */
+  }
+  
+  /* Change color on hover */
+  .navbar a:hover {
+    background-color: #ddd; /* Light grey background on hover */
+    color: black; /* Black text on hover */
+  }
+  
+  /* Add padding to body to make space for fixed navbar */
+  body {
+    padding-top: 50px; /* Equal to the height of the navbar */
+  }

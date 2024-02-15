@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Work Orders Record</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/css/WOStyle.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar">
+            <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+            <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+            <a href="{{url_for('mechanic_work_hours_summary',company=company) }}">Resumen de Mecanicos</a>
+            <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+            <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+            <a href="/">Inicio</a>
+        </div>
+        </div>
+    <h1>Work Orders Record</h1>
+    <div class="top-section">
+        <form method="GET" action="{{ url_for('work_orders_record', company=company) }}" class="search-form">
+            <div>
+                <label for="order_id">Order ID:</label>
+                <select id="order_id" name="order_id">
+                    <option value="">Select Order ID</option>
+                    {% for id in order_ids %}
+                    <option value="{{ id }}" {% if selected_order_id == id %} selected {% endif %}>{{ id }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Vehicle Name Dropdown -->
+            <div>
+                <label for="vehicle_name">Vehicle Name:</label>
+                <select id="vehicle_name" name="vehicle_name">
+                    <option value="">Select Vehicle Name</option>
+                    {% for name in vehicle_names %}
+                    <option value="{{ name }}" {% if selected_vehicle_name == name %} selected {% endif %}>{{ name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" placeholder="Search by Description">
+            </div>
+            
+            <div>
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date">
+            </div>
+            
+            <div>
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" name="end_date">
+            </div>
+            
+
+            <input type="submit" value="Search" class="btn btn-primary">
+        </form>
+
+        <a href="{{ url_for('work_orders', company=company) }}" class="btn btn-secondary">Regresar a Ordenes de Trabajo Activas</a>
+
+    </div>
+    <div class="work-order-record-list">
+        {% for order in work_orders %}
+            <div class="work-order-record">
+                <a href="{{ url_for('work_order_record_detail', company=company, order_id=order[0]) }}" class="work-order-record-link">
+                    <h2>Work Order ID: {{ order[0] }}</h2>
+                    <p>Vehicle Name: {{ order[2] }}</p>
+                    <p>Work Type: {{ order[3] }}</p>
+                    <p>Description: {{ order[4] }}</p>
+                    <p>Start Date: {{ order[5] }}</p>
+                    <p>End Date: {{ order[6] }}</p>
+                </a>
+            </div>
+        {% else %}
+            <p>No work orders found.</p>
+        {% endfor %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.full.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('select').select2();
+        });
+    </script>
+</body>
+</html>

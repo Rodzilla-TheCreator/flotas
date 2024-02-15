@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Órdenes de Salida Activas</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/css/WOStyle.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary',company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+        <a href="/">Inicio</a>
+        <!-- Add more links as needed -->
+      </div>
+      
+    <h1>Órdenes de Salida Activas</h1>
+
+    <!-- Agregar un formulario de búsqueda si es necesario -->
+
+    <div class="top-section">
+        <form action="{{ url_for('active_departure_orders', company=company) }}" method="get">
+            <label for="vehicle_name">Nombre del Vehículo:</label>
+            <select id="vehicle_name" name="vehicle_name">
+                <option value="">Todos los vehículos</option>
+                {% for vehicle in vehicle_names %}
+                <option value="{{ vehicle.VehicleName }}" {% if selected_vehicle_name == vehicle.VehicleName %}selected{% endif %}>{{ vehicle.VehicleName }}</option>
+                {% endfor %}
+            </select>
+            <label for="start_date">Desde:</label>
+            <input type="date" name="start_date" id="start_date" value="{{ start_date }}">
+        
+            <label for="end_date">Hasta:</label>
+            <input type="date" name="end_date" id="end_date" value="{{ end_date }}">
+            <input type="submit" value="Buscar">
+        </form>
+        <!-- Botones u opciones adicionales -->
+        <div class="buttons-container">
+            <!-- Botón existente para crear una nueva orden de salida -->
+            <form action="{{ url_for('add_departure_order',company=company) }}" method="get">
+                <input type="submit" value="Crear Orden de Salida" class="btn btn-primary" />
+            </form>
+        
+            <!-- Nuevo botón para ir al registro de órdenes de salida -->
+            <a href="{{ url_for('departure_orders_record',company=company) }}" class="btn btn-secondary">Registro de Órdenes de Salida</a>
+        </div>
+    </div>
+
+    {% for order in active_departure_orders %}
+        <div class="work-order-container">
+            <!-- Puedes cambiar 'work_order_detail' por la ruta que muestre detalles de la orden de salida -->
+            <a href="{{ url_for('departure_order_detail', company=company, order_id=order['IdOrdenSalida']) }}" class="work-order-link">
+                <div class="work-order-summary">
+                    <h2>ID Orden: {{ order['IdOrdenSalida'] }}</h2>
+                    <p>Vehículo: {{ order['VehicleName'] }}</p>
+                    <p>Operador: {{ order['NombreOperador'] }}</p>
+                    <!-- Añade más información de resumen si es necesario -->
+                </div>
+            </a>
+        </div>
+    {% else %}
+        <p>No hay órdenes de salida activas.</p>
+    {% endfor %}
+
+    <!-- Scripts para Select2 y otras funcionalidades -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.full.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('select').select2();
+        });
+    </script>
+</body>
+</html>
