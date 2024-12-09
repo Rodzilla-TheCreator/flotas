@@ -1,100 +1,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Supply Status Update</title>
+    <title>Actualización de Estado de Suministros</title>
     <link rel="stylesheet" type="text/css" href="/static/css/pedidos.css">
 </head>
 <body>
     <div class="navbar">
-        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('work_orders', company=company) }}">Órdenes de Trabajo</a>
         <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
-        <a href="{{url_for('mechanic_work_hours_summary',company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=company) }}">Resumen de Mecánicos</a>
         <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
-        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Órdenes de Salida</a>
         <a href="/">Inicio</a>
-        <!-- Add more links as needed -->
-      </div>
+    </div>
     
     <h1>Pedidos</h1>
 
+    <form class="filter-form" method="get" action="{{ url_for('supply_status_update', company=company) }}">
+        <input type="text" name="search_order_id" placeholder="ID de Orden" value="{{ request.args.get('search_order_id', '') }}">
+        <input type="text" name="search_codigo_sap" placeholder="Código SAP" value="{{ request.args.get('search_codigo_sap', '') }}">
+        <input type="text" name="search_name" placeholder="Nombre" value="{{ request.args.get('search_name', '') }}">
+        <input type="submit" value="Filtrar">
+    </form>
+
+    <form method="post" action="{{ url_for('refresh_supplies', company=company) }}">
+        <input type="hidden" name="company" value="{{ company }}">
+        <input type="submit" value="Refrescar Suministros">
+    </form>
+    
+
+    <div class="form-container">
+        <form method="post" action="{{ url_for('supply_status_update', company=company) }}" id="mechanic-pin-form">
+            <input type="password" name="mechanic_pin" id="MechanicPinCode" placeholder="PIN de Mecánico" required>
+            <span id="mechanicName"></span>
+            <input type="hidden" name="MechanicID" id="MechanicID">
+            <input type="submit" value="Marcar como Recibido">
+        </form>
+
+        <form method="post" action="{{ url_for('supply_status_update', company=company) }}" id="boss-pin-form">
+            <input type="password" name="boss_pin" id="BossPinCode" placeholder="PIN de Jefe" required>
+            <span id="bossName"></span>
+            <input type="hidden" name="BossID" id="BossID">
+            <input type="submit" value="Aprobar">
+        </form>
+    </div>
 
     <div class="tables-container">
-
-        <!-- Main Table -->
         <div class="table-wrapper">
             <table class="main-table">
                 <tr>
-                    <th>Order ID</th>
-                    <th>Supply ID</th>
-                    <th>Name</th>
-                    <th>Status</th>
-                    <th>Mechanic</th>
+                    <th>ID Orden</th>
+                    <th>ID Suministro</th>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th>Mecánico</th>
+                    <th>Aprobado por</th>
+                    <th>Acción</th>
                 </tr>
-                {% for order_id, supply_id, codigo_sap, description, quantity, status, mechanic_id, mechanic_name in supplies %}
+                {% for supply in supplies %}
                 <tr>
-                    <td>{{ order_id }}</td>
-                    <td>{{ supply_id }}</td>
-                    <td>{{ description }}</td>
-                    <td>{{ status }}</td>
-                    <td>{{ mechanic_name or 'N/A' }}</td>
+                    <td>{{ supply.OrderID }}</td>
+                    <td>{{ supply.SupplyID }}</td>
+                    <td>{{ supply.Description }}</td>
+                    <td>{{ supply.Status }}</td>
+                    <td>{{ supply.MechanicName or '' }}</td>
                     <td>
-                        {% if status == 'Esperando' %}
-                            <form method="post" action="{{ url_for('supply_status_update',company=company) }}">
-                                <input type="hidden" name="order_id" value="{{ order_id }}">
-                                <input type="hidden" name="supply_id" value="{{ supply_id }}">
+                        {% if not supply.BossName or supply.BossName == 'N/A' %}
+                            <input type="checkbox" class="boss-checkbox" data-order-id="{{ supply.OrderID }}" data-supply-id="{{ supply.SupplyID }}">
+                        {% else %}
+                            {{ supply.BossName }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if supply.Status == 'Esperando' %}
+                            <form method="post" action="{{ url_for('supply_status_update', company=company) }}">
+                                <input type="hidden" name="order_id" value="{{ supply.OrderID }}">
+                                <input type="hidden" name="supply_id" value="{{ supply.SupplyID }}">
                                 <input type="hidden" name="new_status" value="Listo">
                                 <input type="submit" value="Marcar como Listo">
                             </form>
-                        {% elif status == 'Listo' %}
-                            <input type="checkbox" class="supply-checkbox" data-order-id="{{ order_id }}" data-supply-id="{{ supply_id }}">
-                        {% else %}
+                        {% elif supply.Status == 'Listo' and not supply.MechanicName and supply.BossName and supply.BossName != 'N/A' %}
+                            <input type="checkbox" class="supply-checkbox" data-order-id="{{ supply.OrderID }}" data-supply-id="{{ supply.SupplyID }}">
+                        {% elif supply.Status == 'Listo' and supply.MechanicName and supply.BossName and supply.BossName != 'N/A' %}
+                            Recibido
+                        {% elif supply.Status == 'Recibido' %}
                             Recibido
                         {% endif %}
-                    </td>            
+                    </td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
     
-        <!-- CodigoSap Table -->
         <div class="table-wrapper">
             <table class="codigo-sap-table">
                 <tr>
                     <th>Código SAP</th>
                 </tr>
-                {% for order_id, supply_id, codigo_sap, description, quantity, status, mechanic_id, mechanic_name in supplies %}
+                {% for supply in supplies %}
                 <tr>
-                    <td>{{ codigo_sap }}</td>
+                    <td>{{ supply.CodigoSap }}</td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
     
-        <!-- Quantity Table -->
         <div class="table-wrapper">
             <table class="quantity-table">
                 <tr>
                     <th>Cantidad</th>
                 </tr>
-                {% for order_id, supply_id, codigo_sap, description, quantity, status, mechanic_id, mechanic_name in supplies %}
+                {% for supply in supplies %}
                 <tr>
-                    <td>{{ quantity }}</td>
+                    <td>{{ supply.Quantity }}</td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
-    
     </div>
 
-
-    <form method="post" action="{{ url_for('supply_status_update',company=company) }}" id="mechanic-pin-form">
-        <input type="password" name="mechanic_pin" id="MechanicPinCode" placeholder="Mechanic PIN" required>
-        <input type="submit" value="Submit Received Supplies">
-    </form>
-    
-
-
-
+    <div class="pagination">
+        {% if current_page > 1 %}
+            <a href="{{ url_for('supply_status_update', company=company, offset=0) }}"><<</a>
+            <a href="{{ url_for('supply_status_update', company=company, offset=(current_page-2)*limit) }}"><</a>
+        {% endif %}
+        {% for page in range(1, total_pages+1) %}
+            {% if page == current_page %}
+                <span class="current-page">{{ page }}</span>
+            {% else %}
+                <a href="{{ url_for('supply_status_update', company=company, offset=(page-1)*limit) }}">{{ page }}</a>
+            {% endif %}
+        {% endfor %}
+        {% if current_page < total_pages %}
+            <a href="{{ url_for('supply_status_update', company=company, offset=(current_page)*limit) }}">></a>
+            <a href="{{ url_for('supply_status_update', company=company, offset=(total_pages-1)*limit) }}">>></a>
+        {% endif %}
+    </div>
 
     <script>
         document.getElementById('mechanic-pin-form').addEventListener('submit', function(event) {
@@ -117,7 +158,57 @@
                 this.appendChild(supplyField);
             });
         });
-        </script>
+
+        document.getElementById('boss-pin-form').addEventListener('submit', function(event) {
+            const checkedSupplies = document.querySelectorAll('.boss-checkbox:checked');
+            checkedSupplies.forEach((checkbox) => {
+                const orderId = checkbox.getAttribute('data-order-id');
+                const supplyId = checkbox.getAttribute('data-supply-id');
         
+                // Append these values as hidden fields to the form
+                const orderField = document.createElement('input');
+                orderField.type = 'hidden';
+                orderField.name = 'boss_order_ids[]';
+                orderField.value = orderId;
+                this.appendChild(orderField);
+        
+                const supplyField = document.createElement('input');
+                supplyField.type = 'hidden';
+                supplyField.name = 'boss_supply_ids[]';
+                supplyField.value = supplyId;
+                this.appendChild(supplyField);
+            });
+        });
+
+        document.getElementById('MechanicPinCode').addEventListener('input', function() {
+            var pinCode = this.value;
+            if (pinCode.length === 3) {
+                fetch('/validate_mechanic_pin?pin=' + pinCode)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('mechanicName').textContent = data.name || 'PIN inválido';
+                        document.getElementById('MechanicID').value = data.id || '';
+                    });
+            } else {
+                document.getElementById('mechanicName').textContent = '';
+                document.getElementById('MechanicID').value = '';
+            }
+        });
+
+        document.getElementById('BossPinCode').addEventListener('input', function() {
+            var pinCode = this.value;
+            if (pinCode.length === 4) {
+                fetch('/validate_boss_pin?pin=' + pinCode)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('bossName').textContent = data.name || 'PIN inválido';
+                        document.getElementById('BossID').value = data.id || '';
+                    });
+            } else {
+                document.getElementById('bossName').textContent = '';
+                document.getElementById('BossID').value = '';
+            }
+        });
+    </script>
 </body>
 </html>

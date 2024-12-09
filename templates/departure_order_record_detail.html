@@ -8,7 +8,12 @@
 </head>
 <body>
     <div class="navbar">
-        <!-- Agrega aquí tus enlaces de navegación -->
+        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+        <a href="/">Inicio</a>
     </div>
 
     <div class="work-order-detail">
@@ -17,9 +22,11 @@
         <div class="info-row">
             <div class="info-box">
                 <p>ID de Orden: {{ order[0] }}</p>
-                <p>Nombre del Vehículo: {{ order[2] }}</p>
-                <p>Nombre del Operador: {{ order[4] }}</p>
+                <p>Vehículo: {{ order[2] }}</p>
+                <p>Operador: {{ order[4] }}</p>
+                <p>Cliente: {{ order[12] }}</p>
                 <p>Ubicación: {{ order[7] }}</p>
+                <p>Orden de SAP: {{ order[11] }}</p>
             </div>
         </div>
 
@@ -38,9 +45,10 @@
             </div>
         </div>
 
-        <!-- Añade más detalles según sea necesario -->
     </div>
-
-    <a href="{{ url_for('departure_orders_record',company=company) }}" class="btn btn-primary">Volver al registro de órdenes de salida</a>
+    <p></p><p></p>
+    <button class="btn-quality-check" onclick="window.location.href='{{ url_for('operator_quality_check', order_id=order_id) }}'">Checklist de Operadores</button>
+    <p></p><p></p>
+    <a href="{{ url_for('departure_orders_record', company=company) }}" class="btn btn-primary">Volver al registro de órdenes de salida</a>
 </body>
 </html>

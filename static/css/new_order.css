@@ -1,0 +1,81 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #008ece;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+  
+  /* Navigation bar styles */
+  .navbar {
+    background-color: #333; /* Dark background color */
+    overflow: hidden; /* Clear floats */
+    position: fixed; /* Make it stick at the top */
+    top: 0; /* Position at the top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Sit on top of other content */
+  }
+  
+  /* Navigation links */
+  .navbar a {
+    float: left; /* Position the links to the left */
+    display: block; /* Change from inline to block */
+    color: #f2f2f2; /* White color for links */
+    text-align: center; /* Center text */
+    padding: 14px 16px; /* Some padding */
+    text-decoration: none; /* No underline */
+  }
+  
+  /* Change color on hover */
+  .navbar a:hover {
+    background-color: #ddd; /* Light grey background on hover */
+    color: black; /* Black text on hover */
+  }
+  
+  /* Add padding to body to make space for fixed navbar */
+  body {
+    padding-top: 50px; /* Equal to the height of the navbar */
+  }
+  
+  .container {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .btn {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #45a049;
+  }
+  

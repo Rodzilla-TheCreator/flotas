@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Detalle de Orden</title>
+    <title>Detalle de Orden de Trabajo</title>
     <link rel="stylesheet" type="text/css" href="/static/css/WOStyle.css">
 </head>
 <body>
-    <h1>Detalle de Orden</h1>
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=company) }}">Órdenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=company) }}">Resumen de Mecánicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Órdenes de Salida</a>
+        <a href="/">Inicio</a>
+    </div>
+
+    <a href="{{ url_for('work_orders_record', company=company) }}" class="return-button">Regresar a Órdenes de Trabajo Completadas</a>
+    <h1>Detalle de Orden de Trabajo {{ order['order_id'] }} </h1>
 
     <div class="work-order-detail">
-
-        <h2>ID Orden: {{ order['order_id'] }}</h2>
         <div class="info-row">
             <div class="info-box">
                 <p>ID Vehiculo: {{ order['vehicle_id'] }}</p>
             </div>
             <div class="info-box">
-                <p>Vehiculo: {{ order['vehicle_name'] }}</p>
+                <p>Nombre Vehiculo: {{ order['vehicle_name'] }}</p>
             </div>
             <div class="info-box">
-                <p>Tipo de Trabajo: {{ order['work_type'] }}</p>
+                <p>Tipo de Trabajo: {% if order['work_type'] == 'Repair' %}Reparo por Defecto{% elif order['work_type'] == 'Maintenance' %}Mantenimiento Preventivo{% else %}{{ order['work_type'] }}{% endif %}</p>
             </div>
-            <div class="info-box">
-                <p>Inicio: {{ order['start_date'] }}</p>
-            </div>
-
-        </div>
-
-        <div class="info-row">
             <div class="info-box">
                 <p>Lugar: {{ order['Lugar'] }}</p>
             </div>
+        </div>
+
+        <div class="info-row">
+
             <div class="info-box">
                 <p>Dueño: {{ order['Dueno'] }}</p>
             </div>
@@ -37,8 +42,13 @@
                 <p>Marca: {{ order['Marca'] }}</p>
             </div>
             <div class="info-box">
-                <p>Final: {{ order['end_date'] }}</p>
+                <p>Fecha de Creación: {{ order['start_date'] }}</p>
             </div>
+            <div class="info-box">
+                <p>Fecha de Finalización: {{ order['end_date'] }}</p>
+            </div>
+            <a href="{{ url_for('download_record_order', company=company, order_id=order.order_id) }}" class="btn btn-primary">Descargar Orden</a>
+
         </div>
 
         <p>Descripcion:</p>
@@ -46,27 +56,39 @@
 
         <p>Diagnostico:</p>
         <textarea readonly>{{ order['diagnostico'] }}</textarea>
-
         <p>Trabajo Realizado:</p>
-        <textarea readonly>{{ order['trabajoRealizado'] }}</textarea>
+        <textarea readonly>{{ order['trabajorealizado'] }}</textarea>
 
-  
-
-        <div class="quality-check-buttons">
-            <form action="{{ url_for('mechanic_quality_check', order_id=order['order_id']) }}" method="get">
-                <button type="submit" class="btn-quality-check">Checklist Mecanicos</button>
-            </form>
-
-            <!-- Replace '#' with actual URL when available -->
-            <form action="#" method="get">
-                <button type="submit" class="btn-quality-check">Checklist Logistica</button>
-            </form>
+        <h2>Detalles de Mecánicos</h2>
+        <div class="info-row">
+            {% for mechanic in mechanics %}
+            <div class="info-box">
+                <p>{{ mechanic['name'] }}: {{ mechanic['time'] }}</p>
+            </div>
+            {% endfor %}
         </div>
 
-        <!-- Back to Work Orders Record List -->
-        <a href="{{ url_for('work_orders_record', company=company) }}" class="btn btn-primary">Regresar a Historial de Ordenes</a>
-
+        <h2>Insumos Recibidos</h2>
+        <div class="info-row">
+            {% for supply in supplies %}
+            <div class="info-box">
+                <p>{{ supply['description'] }} - Cantidad: {{ supply['quantity'] }} - Fecha de Recepción: {{ supply['received_date'] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="quality-check-buttons">
+            <form action="{{ url_for('mechanic_quality_check_record', order_id=order['order_id'], company=company) }}" method="get">
+                <button type="submit" class="btn-quality-check">Checklist de Mecanicos</button>
+            </form>
+        
+            <form action="{{ url_for('logistics_quality_check_record', order_id=order['order_id'], company=company) }}" method="get">
+                <button type="submit" class="btn-quality-check">Checklist de Logistica</button>
+            </form>
+        </div>
+        
+        
     </div>
-
+    <hr>
+    <a href="{{ url_for('work_orders_record', company=company) }}" class="return-button">Regresar a Órdenes de Trabajo Completadas</a>
 </body>
 </html>

@@ -2,105 +2,115 @@
 <html>
 <head>
     <title>Vehicles</title>
-     <link rel="stylesheet" type="text/css" href="/static/css/VehicleStyle.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/VehicleStyle.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
-    <style>
-        .vehicle-container {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-    </style>
 </head>
 <body>
     <div class="navbar">
         <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
         <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
-        <a href="{{url_for('mechanic_work_hours_summary',company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=company) }}">Resumen de Mecanicos</a>
         <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
         <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
-
         <a href="/">Inicio</a>
-        <!-- Add more links as needed -->
-      </div>
+    </div>
     <h1>Vehiculos</h1>
+    <div>
+        <button onclick="window.location.href='{{ url_for('vehicles_client_list', company=company) }}'">Vehículo Cliente</button>
+    </div>
+    
     <div class="vehicle-stats">
         <div class="stat">
             <h3>Disponible</h3>
-            <p>{{ disponible_count }} vehículos ({{ disponible_percentage|round(2) }}%)</p>
+            <p>{{ disponible_count }} vehículos ({{ disponible_percentage|default(0)|round(2) }}%)</p>
         </div>
         <div class="stat">
             <h3>En Renta</h3>
-            <p>{{ en_renta_count }} vehículos ({{ en_renta_percentage|round(2) }}%)</p>
+            <p>{{ en_renta_count }} vehículos ({{ en_renta_percentage|default(0)|round(2) }}%)</p>
         </div>
         <div class="stat">
             <h3>En Taller</h3>
-            <p>{{ en_taller_count }} vehículos ({{ en_taller_percentage|round(2) }}%)</p>
+            <p>{{ en_taller_count }} vehículos ({{ en_taller_percentage|default(0)|round(2) }}%)</p>
         </div>
         <div class="stat">
             <h3>Reparación Externa</h3>
-            <p>{{ reparacion_externa_count }} vehículos ({{ reparacion_externa_percentage|round(2) }}%)</p>
+            <p>{{ reparacion_externa_count }} vehículos ({{ reparacion_externa_percentage|default(0)|round(2) }}%)</p>
+        </div>
+        <div class="stat">
+            <h3>Deshabilitado</h3>
+            <p>{{ deshabilitado_count }} vehículos ({{ deshabilitado_percentage|default(0)|round(2) }}%)</p>
+        </div>
+        <div class="stat">
+            <h3>Vendido</h3>
+            <p>{{ vendido_count }} vehículos ({{ vendido_percentage|default(0)|round(2) }}%)</p>
         </div>
     </div>
+    
+
     
     {% if error_message %}
     <div style="color: red;">{{ error_message }}</div>
     {% endif %}
-
-
-    <!-- Search Bar as a Dropdown -->
     <form method="GET" action="{{ url_for('vehicles_list') }}">
         <select id="vehicle_search" name="vehicle_id">
-            <option value="">Select Vehicle</option>
-            {% for vehicle in vehicles %}
-                <option value="{{ vehicle[0] }}">{{ vehicle[6] }} (ID: {{ vehicle[0] }})</option>
+            <option value="">Todos los Vehiculos</option>
+            {% for vehicle in all_vehicles %}
+                <option value="{{ vehicle[0] }}" {% if vehicle_id and vehicle_id == vehicle[0] %}selected{% endif %}>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ vehicle[6] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Modelo:&nbsp;{{ vehicle[3] }}
+                </option>
             {% endfor %}
         </select>
         <select id="availability_search" name="availability">
-            <option value="">Select Availability</option>
+            <option value="">Disponibilidad</option>
             <option value="En Renta">En Renta</option>
             <option value="Disponible">Disponible</option>
             <option value="En Taller">En Taller</option>
+            <option value="Reparación Externa">Reparación Externa</option>
+            <option value="Deshabilitado">Deshabilitado</option>
+            <option value="Vendido">Vendido</option>
         </select>
-        <input type="submit" value="Search">
+        <input type="hidden" name="company" value="{{ company }}">
+        <input type="submit" value="Buscar">
     </form>
+    
+    
 
-
-<!-- Vehicle List with Details -->
-<div class="vehicle-list">
-    {% for vehicle in vehicles %}
-    <div class="vehicle-container 
-        {% if vehicle[9] == 'En Taller' %}EnTaller
-        {% elif vehicle[9] == 'En Renta' %}EnRenta
-        {% elif vehicle[9] == 'Disponible' %}Disponible
-        {% elif vehicle[9] == 'Reparación Externa' %}ReparacionExterna
-        {% endif %}">
-        <h3>{{ vehicle[6] }} (ID: {{ vehicle[0] }})</h3>
-        <div class="vehicle-info-grid">
-            <p><strong>Tipo:</strong> {{ vehicle[1] }}</p>
-            <p><strong>Marca:</strong> {{ vehicle[2] }}</p>
-            <p><strong>Modelo:</strong> {{ vehicle[3] }}</p>
-            <p><strong>Año:</strong> {{ vehicle[4] }}</p>
-            <p><strong>Serie:</strong> {{ vehicle[5] }}</p>
-            <p><strong>Observación:</strong> {{ vehicle[7] }}</p>
-            <p><strong>Capacidad KG:</strong> {{ vehicle[8] }}</p>
-            <p><strong>Status:</strong> {{ vehicle[9] }}</p>
-            <p><strong>Horómetro:</strong> {{ vehicle[10] }}</p>
-            <p><strong>Horas Desde Últ. Mant.:</strong> {{ vehicle[11] }}</p>
-            <p><strong>Fecha Act. Horómetro:</strong> {{ vehicle[12] }}</p>
-            <p><strong>Ubicación:</strong> {{ vehicle[13] }}</p>
+    <div class="vehicle-list">
+        {% for vehicle in vehicles %}
+        <div class="vehicle-container {% if vehicle[9] == 'En Taller' %}EnTaller
+            {% elif vehicle[9] == 'En Renta' %}EnRenta
+            {% elif vehicle[9] == 'Disponible' %}Disponible
+            {% elif vehicle[9] == 'Reparación Externa' %}ReparacionExterna
+            {% elif vehicle[9] == 'Deshabilitado' %}Deshabilitado
+            {% elif vehicle[9] == 'Vendido' %}Vendido
+            {% endif %}">
+            <a href="{{ url_for('vehicle_detail', company=company, vehicle_name=vehicle[6]) }}" class="vehicle-button">{{ vehicle[6] }} (ID: {{ vehicle[0] }})</a>
+            <div class="vehicle-info-grid">
+                <p><strong>Tipo:</strong> {{ vehicle[2] }}</p>
+                <p><strong>Marca:</strong> {{ vehicle[1] }}</p>
+                <p><strong>Modelo:</strong> {{ vehicle[3] }}</p>
+                <p><strong>Año:</strong> {{ vehicle[4] }}</p>
+                <p><strong>Serie:</strong> {{ vehicle[5] }}</p>
+                <p><strong>Observación:</strong> {{ vehicle[7] }}</p>
+                <p><strong>Capacidad KG:</strong> {{ vehicle[8] }}</p>
+                <p><strong>Status:</strong> {{ vehicle[9] }}</p>
+                <p><strong>Horómetro/Kilometraje:</strong> {{ vehicle[10] }}</p>
+                <p><strong>Horas Desde Últ. Mant.:</strong> {{ vehicle[11] }}</p>
+                <p><strong>Fecha Act. Horómetro:</strong> {{ vehicle[12] }}</p>
+                <p><strong>Ubicación:</strong> {{ vehicle[13] }}</p>
+            </div>
+            <form method="POST" action="{{ url_for('update_horometros', vehicle_id=vehicle[0]) }}" class="horometro-update-form">
+                <input type="hidden" name="vehicle_id" value="{{ vehicle[0] }}">
+                <input type="hidden" name="company" value="{{ company }}">
+                <input type="hidden" name="vehicle_name" value="{{ vehicle[6] }}">
+                <input type="number" name="new_horometro" placeholder="Introducir nuevo horómetro">
+                <input type="submit" value="Actualizar Horómetro">
+            </form>
         </div>
-        
-        <form method="POST" action="{{ url_for('update_horometros', vehicle_id=vehicle[0]) }}" class="horometro-update-form">
-            <input type="hidden" name="vehicle_id" value="{{ vehicle[0] }}">
-            <input type="number" name="new_horometro" placeholder="Introducir nuevo horómetro">
-            <input type="submit" value="Actualizar Horómetro">
-        </form>
+        {% else %}
+        <p>No vehicles found.</p>
+        {% endfor %}
     </div>
-    {% else %}
-    <p>No vehicles found.</p>
-    {% endfor %}
-</div>
 
     </div>
 
@@ -115,6 +125,5 @@
             });
         });
     </script>
-     
 </body>
 </html>

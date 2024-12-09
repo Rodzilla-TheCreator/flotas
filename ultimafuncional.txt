@@ -1,0 +1,89 @@
+
+@app.route('/assign_mechanic', methods=['POST'])
+def assign_mechanic():
+    order_id = request.form['order_id']
+    mechanic_id = request.form['mechanic_id']
+    start_time = datetime.now()
+
+    conn = get_db_connection()
+    try:
+        cursor = conn.cursor()
+        
+        cursor.execute('SELECT VehicleID FROM WorkOrders WHERE OrderID = %s', (order_id,))
+        vehicle_id = cursor.fetchone()[0]
+
+        cursor.execute('REPLACE INTO MechanicWorkOrder (OrderID, MechanicID) VALUES (%s, %s)', (order_id, mechanic_id))
+
+        cursor.execute('INSERT INTO TimeTracking (OrderID, MechanicID, StartTime, VehicleID) VALUES (%s, %s, %s, %s)', (order_id, mechanic_id, start_time, vehicle_id))
+
+        cursor.execute('SELECT CreatedTime, NonWorkingTime FROM WorkOrders WHERE OrderID = %s', (order_id,))
+        order = cursor.fetchone()
+        created_time = order[0]
+        existing_non_working_time = order[1]
+
+        cursor.execute('SELECT MAX(EndTime) FROM TimeTracking WHERE OrderID = %s', (order_id,))
+        latest_end_time = cursor.fetchone()[0]
+
+        if latest_end_time is None:
+            latest_end_time = created_time
+
+        non_working_time_seconds = calculate_non_working_time(latest_end_time, start_time, existing_non_working_time)
+
+        cursor.execute('''
+            UPDATE WorkOrders 
+            SET NonWorkingTime = %s 
+            WHERE OrderID = %s
+        ''', (non_working_time_seconds, order_id))
+        
+        conn.commit()
+        update_mechanic_work_hour_summary(mechanic_id, start_time.date())
+    except mysql.connector.Error as err:
+        print("SQL Error: ", err)
+    finally:
+        cursor.close()
+        conn.close()
+
+    return redirect(url_for('work_order_detail', order_id=order_id))
+
+@app.route('/unassign_mechanic', methods=['POST'])
+def unassign_mechanic():
+    order_id = request.form['order_id']
+    mechanic_id = request.form['mechanic_id']
+    end_time = datetime.now()
+
+    conn = get_db_connection()
+    try:
+        cursor = conn.cursor()
+
+        cursor.execute('UPDATE TimeTracking SET EndTime = %s WHERE OrderID = %s AND MechanicID = %s AND EndTime IS NULL', (end_time, order_id, mechanic_id))
+        
+        cursor.execute('DELETE FROM MechanicWorkOrder WHERE OrderID = %s AND MechanicID = %s', (order_id, mechanic_id))
+
+        cursor.execute('SELECT CreatedTime, NonWorkingTime FROM WorkOrders WHERE OrderID = %s', (order_id,))
+        order = cursor.fetchone()
+        created_time = order[0]
+        existing_non_working_time = order[1]
+
+        cursor.execute('SELECT MAX(EndTime) FROM TimeTracking WHERE OrderID = %s', (order_id,))
+        latest_end_time = cursor.fetchone()[0]
+
+        if latest_end_time is None:
+            latest_end_time = created_time
+
+        non_working_time_seconds = calculate_non_working_time(latest_end_time, end_time, existing_non_working_time)
+
+        cursor.execute('''
+            UPDATE WorkOrders 
+            SET NonWorkingTime = %s 
+            WHERE OrderID = %s
+        ''', (non_working_time_seconds, order_id))
+        
+        conn.commit()
+        update_mechanic_work_hour_summary(mechanic_id, end_time.date())
+    except mysql.connector.Error as err:
+        print("SQL Error: ", err)
+    finally:
+        cursor.close()
+        conn.close()
+
+    return redirect(url_for('work_order_detail', order_id=order_id))

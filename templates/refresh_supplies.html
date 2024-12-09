@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actualizar Suministros</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Actualizar Suministros desde SAP</h1>
+        <form id="refreshForm" action="{{ url_for('refresh_supplies', company=company) }}" method="post">
+            <div class="form-group">
+                <label for="codigo_sap">Código SAP:</label>
+                <input type="text" class="form-control" id="codigo_sap" name="codigo_sap" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Actualizar Suministro</button>
+        </form>
+        <button onclick="window.location.href='{{ url_for('supply_status_update', company=company) }}'" class="btn btn-secondary">Regresar a Pedidos</button>
+        
+        <div id="supply_info" style="margin-top: 20px;">
+            <!-- Aquí se mostrarán los mensajes y la descripción del suministro -->
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="list-unstyled">
+                    {% for category, message in messages %}
+                        <li class="alert alert-{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('codigo_sap').addEventListener('input', function() {
+            var codigoSap = this.value;
+            if (codigoSap) {
+                fetch(`/check_supply/${codigoSap}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        var supplyInfo = document.getElementById('supply_info');
+                        if (data.exists) {
+                            supplyInfo.innerHTML = `<div class="alert alert-danger">El suministro ya existe en la base de datos: ${data.description}</div>`;
+                        } else if (data.inSAP) {
+                            supplyInfo.innerHTML = `<div class="alert alert-info">Descripción del suministro en SAP: ${data.description}</div>`;
+                        } else {
+                            supplyInfo.innerHTML = `<div class="alert alert-warning">Suministro no encontrado en SAP HANA.</div>`;
+                        }
+                    });
+            } else {
+                document.getElementById('supply_info').innerHTML = '';
+            }
+        });
+    </script>
+</body>
+</html>

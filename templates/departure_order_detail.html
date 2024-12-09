@@ -5,10 +5,19 @@
     <link rel="stylesheet" type="text/css" href="/static/css/WOStyle.css">
 </head>
 <body>
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+        <a href="/">Inicio</a>
+    </div>
+    <button class="return-button" onclick="window.location.href='{{ url_for('active_departure_orders', company=company) }}'">Volver a Órdenes de Salida Activas</button>
+
     <h1>Detalle de Orden de Salida</h1>
 
     <div class="work-order-detail">
-
         <h2>ID de Orden de Salida: {{ order['IdOrdenSalida'] }}</h2>
         <div class="info-row">
             <div class="info-box">
@@ -19,6 +28,9 @@
             </div>
             <div class="info-box">
                 <p>Ubicación: {{ order['Ubicacion'] }}</p>
+            </div>
+            <div class="info-box">
+                <p>Cliente: {{ order['ClienteNombre'] }}</p>
             </div>
         </div>
 
@@ -34,38 +46,59 @@
             </div>
         </div>
 
-        <div class="info-row">
-            <div class="info-box">
-                <p>Horómetro de Regreso: {{ order['HorometroRegreso'] }}</p>
-            </div>
-        </div>
-
-        <form method="post" action="{{ url_for('update_departure_order', company=company, order_id=order['IdOrdenSalida']) }}">
+        <form method="post" action="{{ url_for('departure_order_detail', company=company, order_id=order['IdOrdenSalida']) }}">
             <input type="hidden" name="company" value="{{ company }}">
-        
-            <!-- Campos para editar horómetros y comentarios -->
-            <label for="horometroSalida">Horómetro de Salida:</label>
-            <input type="text" id="horometroSalida" name="horometroSalida" value="{{ order['HorometroSalida'] }}"><br><br>
-            
-            <label for="horometroRegreso">Horómetro de Regreso:</label>
-            <input type="text" id="horometroRegreso" name="horometroRegreso" value="{{ order['HorometroRegreso'] }}"><br><br>
-        
+
+            <!-- Campos para editar comentarios y operador -->
             <label for="comentarios">Comentarios:</label>
             <textarea id="comentarios" name="comentarios">{{ order['Comentarios'] }}</textarea><br><br>
-        
+
+            <!-- Dropdown para seleccionar operador -->
+            <label for="operador">Operador:</label>
+            <select id="operador" name="operador">
+                {% for operador in operadores %}
+                    <option value="{{ operador['NombreOperador'] }}" {% if operador['NombreOperador'] == order['NombreOperador'] %}selected{% endif %}>{{ operador['NombreOperador'] }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <!-- Campo para actualizar la ubicación -->
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" id="ubicacion" name="ubicacion" value="{{ order['Ubicacion'] }}"><br><br>
+
             <input type="submit" value="Guardar Cambios"><p></p><p></p>
         </form>
-        
-
+        <p></p><p></p>
+        <button class="btn-quality-check" onclick="window.location.href='{{ url_for('operator_quality_check', order_id=order_id) }}'">Checklist de Operadores</button>
+        <p></p><p></p>
         <form method="post" action="{{ url_for('complete_departure_order', order_id=order['IdOrdenSalida'], company=company) }}">
             <input type="hidden" name="company" value="{{ company }}">
+            <input type="hidden" id="horometroRegreso" name="horometroRegreso">
             <input type="submit" value="Completar Orden de Salida" class="btn-complete">
         </form>
-        
     </div>
 
     <hr>
 
-    <a href="{{ url_for('active_departure_orders',company=company) }}">Volver a Órdenes de Salida Activas</a>
+    <button class="return-button" onclick="window.location.href='{{ url_for('active_departure_orders', company=company) }}'">Volver a Órdenes de Salida Activas</button>
+
+    <script>
+        document.querySelector('.btn-complete').addEventListener('click', function(event) {
+            event.preventDefault();
+            var horometroSalida = parseFloat("{{ order['HorometroSalida'] }}");
+            var horometroRegreso = prompt("Ingrese el horómetro de regreso:");
+            if (horometroRegreso !== null && horometroRegreso !== "") {
+                horometroRegreso = parseFloat(horometroRegreso);
+                if (horometroRegreso < horometroSalida) {
+                    alert("El horómetro de regreso no puede ser menor que el horómetro de salida.");
+                } else {
+                    document.getElementById('horometroRegreso').value = horometroRegreso;
+                    this.closest('form').submit();
+                }
+            } else {
+                alert("Debe ingresar el horómetro de regreso para completar la orden de salida.");
+            }
+        });
+    </script>
+    
 </body>
 </html>

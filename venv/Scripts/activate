@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\rodm_\Documents\Flotas\venv"
+VIRTUAL_ENV="C:\Users\rodm_\Documents\Flotas Main Folder\flotas 5 5 2024\Flotas\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

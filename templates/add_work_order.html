@@ -1,43 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Orden</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/new_order.css') }}">
 </head>
 <body>
-    <h1>Crear Orden</h1>
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+        <a href="/">Inicio</a>
+    </div>
 
-    {% if message %}
-        <div style="color: red;">{{ message }}</div><br>
-    {% endif %}
+    <div class="container">
+        <h1>Crear Orden</h1>
 
-    <form method="post" action="{{ url_for('add_work_order', company=company) }}">
-        <label for="vehicle_id">ID Vehiculo:</label>
-        <select id="vehicle_id" name="vehicle_id" required>
-            {% for vehicle in vehicles %}
-                <option value="{{ vehicle[0] }}">{{ vehicle[0] }} - {{ vehicle[1] }}</option>
-            {% endfor %}
-        </select><br><br>
+        {% if message %}
+            <div class="alert alert-danger">{{ message }}</div>
+        {% endif %}
 
-        <label for="work_type">Tipo de Trabajo:</label>
-        <select id="work_type" name="work_type" required>
-            <option value="Repair">Reparo</option>
-            <option value="Maintenance">Mantenimiento</option>
-        </select><br><br>
-        
-        <label for="lugar">Lugar:</label>
-        <input type="text" id="lugar" name="lugar" required><br><br>
+        <form method="post" action="{{ url_for('add_work_order', company=company) }}">
+            <div class="form-group">
+                <label for="vehicle_id">Vehículo</label>
+                <input type="text" id="myInputVehicle" onkeyup="filterFunction('vehicle-dropdown', 'myInputVehicle')" class="form-control" placeholder="Buscar vehículo...">
+                <select class="form-control" id="vehicle-dropdown" name="vehicle_id" required>
+                    {% for vehicle in vehicles %}
+                        <option value="{{ vehicle[0] }}">{{ vehicle[0] }} - {{ vehicle[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-        <label for="dueno">Dueño:</label>
-        <input type="text" id="dueno" name="dueno" required><br><br>
+            <div class="form-group">
+                <label for="work_type">Tipo de Trabajo</label>
+                <select class="form-control" id="work_type" name="work_type" required>
+                    <option value="Repair">Reparo</option>
+                    <option value="Maintenance">Mantenimiento</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="lugar">Lugar</label>
+                <input type="text" class="form-control" id="lugar" name="lugar" required>
+            </div>
 
-        <label for="marca">Marca:</label>
-        <input type="text" id="marca" name="marca" required><br><br>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <textarea class="form-control" id="description" name="description" required></textarea>
+            </div>
 
+            <button type="submit" class="btn btn-primary">Crear Orden</button>
+        </form>
+    </div>
+    <script>
+        function filterFunction(dropdownId, inputId) {
+            var input, filter, select, options, i;
+            input = document.getElementById(inputId);
+            filter = input.value.toUpperCase();
+            select = document.getElementById(dropdownId);
+            options = select.getElementsByTagName("option");
 
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea><br><br>
-
-        <input type="submit" value="Submit">
-    </form>
+            for (i = 0; i < options.length; i++) {
+                txtValue = options[i].textContent || options[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    options[i].style.display = "";
+                } else {
+                    options[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>

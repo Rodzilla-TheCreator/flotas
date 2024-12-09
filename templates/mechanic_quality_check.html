@@ -6,12 +6,25 @@
 </head>
 <body>
 
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=checklist['Empresa']) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=checklist['Empresa']) }}">Vehículos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=checklist['Empresa']) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=checklist['Empresa']) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=checklist['Empresa']) }}">Ordenes de Salida</a>
+        <a href="/">Inicio</a>
+    </div>
+
+    <button class="return-button" onclick="window.location.href='{{ url_for('work_order_detail', order_id=order_id) }}'">Regresar a Orden de Trabajo</button>
+
+
     <header>
         <img src="/static/logo.png" alt="Company Logo" class="center-logo">
 
     </header>
 
-    <h1>Mechanic Quality Checklist for Work Order #{{ order_id }}</h1>
+    <h1>Checklist de Mecanicos #{{ order_id }}</h1>
+    <h2>Vehículo: {{ vehicle_name }}</h2> 
 
     <form action="{{ url_for('update_mechanic_quality_checklist', order_id=order_id) }}" method="post">
         <!-- Add a hidden field for the order ID -->
@@ -21,260 +34,429 @@
     <div class="checkbox-section">
         <h3 class="section-header">Motor</h3>
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioAceiteMotor" id="CambioAceiteMotor" {% if checklist["CambioAceiteMotor"] == 1 %}checked{% endif %}>
-            <label for="CambioAceiteMotor">Cambio de Aceite del Motor</label>
+            <label for="CambioAceiteMotor">Cambio de Aceite del Motor:</label>
+            <input type="radio" name="CambioAceiteMotor" value="si" {% if checklist['CambioAceiteMotor'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioAceiteMotor" value="no" {% if checklist['CambioAceiteMotor'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioAceiteMotor" value="na" {% if checklist['CambioAceiteMotor'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioFiltroMotor" id="CambioFiltroMotor" {% if checklist["CambioFiltroMotor"] == 1 %}checked{% endif %}>
-            <label for="CambioFiltroMotor">Cambio de Filtro del Motor</label>
+            <label for="CambioFiltroMotor">Cambio de Filtro del Motor:</label>
+            <input type="radio" name="CambioFiltroMotor" value="si" {% if checklist['CambioFiltroMotor'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioFiltroMotor" value="no" {% if checklist['CambioFiltroMotor'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioFiltroMotor" value="na" {% if checklist['CambioFiltroMotor'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioFiltroAire" id="CambioFiltroAire" {% if checklist["CambioFiltroAire"] == 1 %}checked{% endif %}>
-            <label for="CambioFiltroAire">Cambio de Filtro de Aire</label>
+            <label for="CambioFiltroAire">Cambio de Filtro de Aire:</label>
+            <input type="radio" name="CambioFiltroAire" value="si" {% if checklist['CambioFiltroAire'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioFiltroAire" value="no" {% if checklist['CambioFiltroAire'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioFiltroAire" value="na" {% if checklist['CambioFiltroAire'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioFiltroCombustible" id="CambioFiltroCombustible" {% if checklist["CambioFiltroCombustible"] == 1 %}checked{% endif %}>
-            <label for="CambioFiltroCombustible">Cambio de Filtro de Combustible</label>
+            <label for="CambioFiltroCombustible">Cambio de Filtro de Combustible:</label>
+            <input type="radio" name="CambioFiltroCombustible" value="si" {% if checklist['CambioFiltroCombustible'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioFiltroCombustible" value="no" {% if checklist['CambioFiltroCombustible'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioFiltroCombustible" value="na" {% if checklist['CambioFiltroCombustible'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionCambioBandaMotor" id="RevisionCambioBandaMotor" {% if checklist["RevisionCambioBandaMotor"] == 1 %}checked{% endif %}>
-            <label for="RevisionCambioBandaMotor">Revisión y Cambio de Banda del Motor</label>
+            <label for="RevisionCambioBandaMotor">Revisión y Cambio de Banda del Motor:</label>
+            <input type="radio" name="RevisionCambioBandaMotor" value="si" {% if checklist['RevisionCambioBandaMotor'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionCambioBandaMotor" value="no" {% if checklist['RevisionCambioBandaMotor'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionCambioBandaMotor" value="na" {% if checklist['RevisionCambioBandaMotor'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioRefrigeranteRadiador" id="CambioRefrigeranteRadiador" {% if checklist["CambioRefrigeranteRadiador"] == 1 %}checked{% endif %}>
-            <label for="CambioRefrigeranteRadiador">Cambio de Refrigerante del Radiador</label>
+            <label for="CambioRefrigeranteRadiador">Cambio de Refrigerante del Radiador:</label>
+            <input type="radio" name="CambioRefrigeranteRadiador" value="si" {% if checklist['CambioRefrigeranteRadiador'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioRefrigeranteRadiador" value="no" {% if checklist['CambioRefrigeranteRadiador'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioRefrigeranteRadiador" value="na" {% if checklist['CambioRefrigeranteRadiador'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioTapaderaDistribuidorRotor" id="CambioTapaderaDistribuidorRotor" {% if checklist["CambioTapaderaDistribuidorRotor"] == 1 %}checked{% endif %}>
-            <label for="CambioTapaderaDistribuidorRotor">Cambio de Tapadera y Distribuidor del Rotor</label>
+            <label for="CambioTapaderaDistribuidorRotor">Cambio de Tapadera y Distribuidor del Rotor:</label>
+            <input type="radio" name="CambioTapaderaDistribuidorRotor" value="si" {% if checklist['CambioTapaderaDistribuidorRotor'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioTapaderaDistribuidorRotor" value="no" {% if checklist['CambioTapaderaDistribuidorRotor'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioTapaderaDistribuidorRotor" value="na" {% if checklist['CambioTapaderaDistribuidorRotor'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioCandelas" id="CambioCandelas" {% if checklist["CambioCandelas"] == 1 %}checked{% endif %}>
-            <label for="CambioCandelas">Cambio de Candelas</label>
+            <label for="CambioCandelas">Cambio de Candelas:</label>
+            <input type="radio" name="CambioCandelas" value="si" {% if checklist['CambioCandelas'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioCandelas" value="no" {% if checklist['CambioCandelas'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioCandelas" value="na" {% if checklist['CambioCandelas'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioCableCandela" id="CambioCableCandela" {% if checklist["CambioCableCandela"] == 1 %}checked{% endif %}>
-            <label for="CambioCableCandela">Cambio de Cable de Candela</label>
+            <label for="CambioCableCandela">Cambio de Cable de Candela:</label>
+            <input type="radio" name="CambioCableCandela" value="si" {% if checklist['CambioCableCandela'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioCableCandela" value="no" {% if checklist['CambioCableCandela'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioCableCandela" value="na" {% if checklist['CambioCableCandela'] is none %} checked {% endif %}> N/A
         </div>
     </div>
     <div class="checkbox-section">
         <h3 class="section-header">Sistema Hidraulico</h3>
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioDeAceiteHidraulico" id="CambioDeAceiteHidraulico" {% if checklist['CambioDeAceiteHidraulico'] == 1 %}checked{% endif %}>
-            <label for="CambioDeAceiteHidraulico">Cambio de Aceite Hidráulico</label>
+            <label for="CambioDeAceiteHidraulico">Cambio de Aceite Hidráulico:</label>
+            <input type="radio" name="CambioDeAceiteHidraulico" value="si" {% if checklist['CambioDeAceiteHidraulico'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioDeAceiteHidraulico" value="no" {% if checklist['CambioDeAceiteHidraulico'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioDeAceiteHidraulico" value="na" {% if checklist['CambioDeAceiteHidraulico'] is none %} checked {% endif %}> N/A
+        </div>
+        
+        <div class="checkbox-container">
+            <label for="CambioDeFiltroHidraulico">Cambio de Filtro Hidráulico:</label>
+            <input type="radio" name="CambioDeFiltroHidraulico" value="si" {% if checklist['CambioDeFiltroHidraulico'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioDeFiltroHidraulico" value="no" {% if checklist['CambioDeFiltroHidraulico'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioDeFiltroHidraulico" value="na" {% if checklist['CambioDeFiltroHidraulico'] is none %} checked {% endif %}> N/A
         </div>
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioDeFiltroHidraulico" id="CambioDeFiltroHidraulico" {% if checklist['CambioDeFiltroHidraulico'] == 1 %}checked{% endif %}>
-            <label for="CambioDeFiltroHidraulico">Cambio de Filtro Hidráulico</label>
+            <label for="LimpiezaDeFiltroDeMalla">Limpieza del Filtro de Malla:</label>
+            <input type="radio" name="LimpiezaDeFiltroDeMalla" value="si" {% if checklist["LimpiezaDeFiltroDeMalla"] == 1 %}checked{% endif %}> Sí
+            <input type="radio" name="LimpiezaDeFiltroDeMalla" value="no" {% if checklist["LimpiezaDeFiltroDeMalla"] == 0 %}checked{% endif %}> No
+            <input type="radio" name="LimpiezaDeFiltroDeMalla" value="na" {% if checklist["LimpiezaDeFiltroDeMalla"] is none %}checked{% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="LimpiezaDeFiltroDeMalla" id="LimpiezaDeFiltroDeMalla" {% if checklist["LimpiezaDeFiltroDeMalla"] == 1 %}checked{% endif %}>
-            <label for="LimpiezaDeFiltroDeMalla">Limpieza del Filtro de Malla</label>
+            <label for="CambioDeEmpaqueDeTapadera">Cambio de Empaque de Tapadera:</label>
+            <input type="radio" name="CambioDeEmpaqueDeTapadera" value="si" {% if checklist["CambioDeEmpaqueDeTapadera"] == 1 %}checked{% endif %}> Sí
+            <input type="radio" name="CambioDeEmpaqueDeTapadera" value="no" {% if checklist["CambioDeEmpaqueDeTapadera"] == 0 %}checked{% endif %}> No
+            <input type="radio" name="CambioDeEmpaqueDeTapadera" value="na" {% if checklist["CambioDeEmpaqueDeTapadera"] is none %}checked{% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioDeEmpaqueDeTapadera" id="CambioDeEmpaqueDeTapadera" {% if checklist["CambioDeEmpaqueDeTapadera"] == 1 %}checked{% endif %}>
-            <label for="CambioDeEmpaqueDeTapadera">Cambio de Empaque de Tapadera</label>
+            <label for="RevisarYPruebaDeSistemaHidraulico">Revisar y Prueba del Sistema Hidráulico:</label>
+            <input type="radio" name="RevisarYPruebaDeSistemaHidraulico" value="si" {% if checklist["RevisarYPruebaDeSistemaHidraulico"] == 1 %}checked{% endif %}> Sí
+            <input type="radio" name="RevisarYPruebaDeSistemaHidraulico" value="no" {% if checklist["RevisarYPruebaDeSistemaHidraulico"] == 0 %}checked{% endif %}> No
+            <input type="radio" name="RevisarYPruebaDeSistemaHidraulico" value="na" {% if checklist["RevisarYPruebaDeSistemaHidraulico"] is none %}checked{% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisarYPruebaDeSistemaHidraulico" id="RevisarYPruebaDeSistemaHidraulico" {% if checklist["RevisarYPruebaDeSistemaHidraulico"] == 1 %}checked{% endif %}>
-            <label for="RevisarYPruebaDeSistemaHidraulico">Revisar y Prueba del Sistema Hidráulico</label>
+            <label for="RevisionGeneralDeManguerasHidraulicas">Revisión General de Mangueras Hidráulicas:</label>
+            <input type="radio" name="RevisionGeneralDeManguerasHidraulicas" value="si" {% if checklist["RevisionGeneralDeManguerasHidraulicas"] == 1 %}checked{% endif %}> Sí
+            <input type="radio" name="RevisionGeneralDeManguerasHidraulicas" value="no" {% if checklist["RevisionGeneralDeManguerasHidraulicas"] == 0 %}checked{% endif %}> No
+            <input type="radio" name="RevisionGeneralDeManguerasHidraulicas" value="na" {% if checklist["RevisionGeneralDeManguerasHidraulicas"] is none %}checked{% endif %}> N/A
         </div>
-        <div class="checkbox-container">
-            <input type="checkbox" name="RevisionGeneralDeManguerasHidraulicas" id="RevisionGeneralDeManguerasHidraulicas" {% if checklist["RevisionGeneralDeManguerasHidraulicas"] == 1 %}checked{% endif %}>
-            <label for="RevisionGeneralDeManguerasHidraulicas">Revisión General de Mangueras Hidráulicas</label>
-        </div>
+        
     </div>
     <div class="checkbox-section">
         <h3 class="section-header">Revision</h3>    
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionSoporteMotor" id="RevisionSoporteMotor" {% if checklist["RevisionSoporteMotor"] == 1 %}checked{% endif %}>
-            <label for="RevisionSoporteMotor">Revisión de Soporte del Motor</label>
+            <label for="RevisionSoporteMotor">Revisión de Soporte del Motor:</label>
+            <input type="radio" name="RevisionSoporteMotor" value="si" {% if checklist['RevisionSoporteMotor'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionSoporteMotor" value="no" {% if checklist['RevisionSoporteMotor'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionSoporteMotor" value="na" {% if checklist['RevisionSoporteMotor'] is none %} checked {% endif %}> N/A
+        </div>
+        
+        <div class="checkbox-container">
+            <label for="RevisionInyectores">Revisión de Inyectores:</label>
+            <input type="radio" name="RevisionInyectores" value="si" {% if checklist['RevisionInyectores'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionInyectores" value="no" {% if checklist['RevisionInyectores'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionInyectores" value="na" {% if checklist['RevisionInyectores'] is none %} checked {% endif %}> N/A
+        </div>
+        
+        <div class="checkbox-container">
+            <label for="RevisionTiempoMotor">Revisión del Tiempo del Motor:</label>
+            <input type="radio" name="RevisionTiempoMotor" value="si" {% if checklist['RevisionTiempoMotor'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionTiempoMotor" value="no" {% if checklist['RevisionTiempoMotor'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionTiempoMotor" value="na" {% if checklist['RevisionTiempoMotor'] is none %} checked {% endif %}> N/A
+        </div>
+        
+        <div class="checkbox-container">
+            <label for="RevisionTermostato">Revisión del Termostato:</label>
+            <input type="radio" name="RevisionTermostato" value="si" {% if checklist['RevisionTermostato'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionTermostato" value="no" {% if checklist['RevisionTermostato'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionTermostato" value="na" {% if checklist['RevisionTermostato'] is none %} checked {% endif %}> N/A
+        </div>
+        
+        <div class="checkbox-container">
+            <label for="RevisionMultipleAdmision">Revisión del Múltiple de Admisión:</label>
+            <input type="radio" name="RevisionMultipleAdmision" value="si" {% if checklist['RevisionMultipleAdmision'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionMultipleAdmision" value="no" {% if checklist['RevisionMultipleAdmision'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionMultipleAdmision" value="na" {% if checklist['RevisionMultipleAdmision'] is none %} checked {% endif %}> N/A
+        </div>
+        
+        <div class="checkbox-container">
+            <label for="RevisionTornillosManifold">Revisión de Tornillos del Manifold:</label>
+            <input type="radio" name="RevisionTornillosManifold" value="si" {% if checklist['RevisionTornillosManifold'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionTornillosManifold" value="no" {% if checklist['RevisionTornillosManifold'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionTornillosManifold" value="na" {% if checklist['RevisionTornillosManifold'] is none %} checked {% endif %}> N/A
         </div>
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionInyectores" id="RevisionInyectores" {% if checklist["RevisionInyectores"] == 1 %}checked{% endif %}>
-            <label for="RevisionInyectores">Revisión de Inyectores</label>
+            <label for="RevisionRPM">Revisión de RPM:</label>
+            <input type="radio" name="RevisionRPM" value="si" {% if checklist['RevisionRPM'] == 1 %}checked{% endif %}> Sí
+            <input type="radio" name="RevisionRPM" value="no" {% if checklist['RevisionRPM'] == 0 %}checked{% endif %}> No
+            <input type="radio" name="RevisionRPM" value="na" {% if checklist['RevisionRPM'] is none %}checked{% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionTiempoMotor" id="RevisionTiempoMotor" {% if checklist["RevisionTiempoMotor"] == 1 %}checked{% endif %}>
-            <label for="RevisionTiempoMotor">Revisión del Tiempo del Motor</label>
-        </div>
-        <div class="checkbox-container">
-            <input type="checkbox" name="RevisionTermostato" id="RevisionTermostato" {% if checklist["RevisionTermostato"] == 1 %}checked{% endif %}>
-            <label for="RevisionTermostato">Revisión del Termostato</label>
-        </div>
-        <div class="checkbox-container">
-            <input type="checkbox" name="RevisionMultipleAdmision" id="RevisionMultipleAdmision" {% if checklist["RevisionMultipleAdmision"] == 1 %}checked{% endif %}>
-            <label for="RevisionMultipleAdmision">Revisión del Múltiple de Admisión</label>
-        </div>
-        <div class="checkbox-container">
-            <input type="checkbox" name="RevisionTornillosManifold" id="RevisionTornillosManifold" {% if checklist["RevisionTornillosManifold"] == 1 %}checked{% endif %}>
-            <label for="RevisionTornillosManifold">Revisión de Tornillos del Manifold</label>
-        </div>
-        <div class="checkbox-container">
-            <input type="checkbox" name="RevisionRPM" id="RevisionRPM" {% if checklist["RevisionRPM"] == 1 %}checked{% endif %}>
-            <label for="RevisionRPM">Revisión de RPM</label>
-        </div>
-        <div class="checkbox-container">
-            <input type="checkbox" name="RevisionCargaAlternador" id="RevisionCargaAlternador" {% if checklist["RevisionCargaAlternador"] == 1 %}checked{% endif %}>
-            <label for="RevisionCargaAlternador">Revisión de Carga del Alternador</label>
+            <label for="RevisionCargaAlternador">Revisión de Carga del Alternador:</label>
+            <input type="radio" name="RevisionCargaAlternador" value="si" {% if checklist['RevisionCargaAlternador'] == 1 %}checked{% endif %}> Sí
+            <input type="radio" name="RevisionCargaAlternador" value="no" {% if checklist['RevisionCargaAlternador'] == 0 %}checked{% endif %}> No
+            <input type="radio" name="RevisionCargaAlternador" value="na" {% if checklist['RevisionCargaAlternador'] is none %}checked{% endif %}> N/A
         </div>
     </div>
+    
     <div class="checkbox-section">
         <h3 class="section-header">Transmision</h3>
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioAceiteTransmision" id="CambioAceiteTransmision" {% if checklist["CambioAceiteTransmision"] == 1 %}checked{% endif %}>
-            <label for="CambioAceiteTransmision">Cambio de Aceite de Transmisión</label>
+            <label for="CambioAceiteTransmision">Cambio de Aceite de Transmisión:</label>
+            <input type="radio" name="CambioAceiteTransmision" value="si" {% if checklist['CambioAceiteTransmision'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioAceiteTransmision" value="no" {% if checklist['CambioAceiteTransmision'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioAceiteTransmision" value="na" {% if checklist['CambioAceiteTransmision'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioFiltroTransmision" id="CambioFiltroTransmision" {% if checklist["CambioFiltroTransmision"] == 1 %}checked{% endif %}>
-            <label for="CambioFiltroTransmision">Cambio de Filtro de Transmisión</label>
+            <label for="CambioFiltroTransmision">Cambio de Filtro de Transmisión:</label>
+            <input type="radio" name="CambioFiltroTransmision" value="si" {% if checklist['CambioFiltroTransmision'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioFiltroTransmision" value="no" {% if checklist['CambioFiltroTransmision'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioFiltroTransmision" value="na" {% if checklist['CambioFiltroTransmision'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="CambioAceiteDiferencial" id="CambioAceiteDiferencial" {% if checklist["CambioAceiteDiferencial"] == 1 %}checked{% endif %}>
-            <label for="CambioAceiteDiferencial">Cambio de Aceite del Diferencial</label>
+            <label for="CambioAceiteDiferencial">Cambio de Aceite del Diferencial:</label>
+            <input type="radio" name="CambioAceiteDiferencial" value="si" {% if checklist['CambioAceiteDiferencial'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CambioAceiteDiferencial" value="no" {% if checklist['CambioAceiteDiferencial'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CambioAceiteDiferencial" value="na" {% if checklist['CambioAceiteDiferencial'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionCambioManguera" id="RevisionCambioManguera" {% if checklist["RevisionCambioManguera"] ==1 %}checked{% endif %}>
-            <label for="RevisionCambioManguera">Revisión y Cambio de Manguera</label>
+            <label for="RevisionCambioManguera">Revisión y Cambio de Manguera:</label>
+            <input type="radio" name="RevisionCambioManguera" value="si" {% if checklist['RevisionCambioManguera'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionCambioManguera" value="no" {% if checklist['RevisionCambioManguera'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionCambioManguera" value="na" {% if checklist['RevisionCambioManguera'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionFugas" id="RevisionFugas" {% if checklist["RevisionFugas"] == 1 %}checked{% endif %}>
-            <label for="RevisionFugas">Revisión de Fugas</label>
+            <label for="RevisionFugas">Revisión de Fugas:</label>
+            <input type="radio" name="RevisionFugas" value="si" {% if checklist['RevisionFugas'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionFugas" value="no" {% if checklist['RevisionFugas'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionFugas" value="na" {% if checklist['RevisionFugas'] is none %} checked {% endif %}> N/A
         </div>
+        
     </div>
     
     <div class="checkbox-section">
         <h3 class="section-header">Sistema Electrico</h3>
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisarFuncionamientoIndicadores" id="RevisarFuncionamientoIndicadores" {% if checklist["RevisarFuncionamientoIndicadores"] %}checked{% endif %}>
-            <label for="RevisarFuncionamientoIndicadores">Revisar Funcionamiento de Indicadores</label>
+            <label for="RevisarFuncionamientoIndicadores">Revisar Funcionamiento de Indicadores:</label>
+            <input type="radio" name="RevisarFuncionamientoIndicadores" value="si" {% if checklist['RevisarFuncionamientoIndicadores'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisarFuncionamientoIndicadores" value="no" {% if checklist['RevisarFuncionamientoIndicadores'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisarFuncionamientoIndicadores" value="na" {% if checklist['RevisarFuncionamientoIndicadores'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisarMotorArranque" id="RevisarMotorArranque" {% if checklist["RevisarMotorArranque"] %}checked{% endif %}>
-            <label for="RevisarMotorArranque">Revisar Motor de Arranque</label>
+            <label for="RevisarMotorArranque">Revisar Motor de Arranque:</label>
+            <input type="radio" name="RevisarMotorArranque" value="si" {% if checklist['RevisarMotorArranque'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisarMotorArranque" value="no" {% if checklist['RevisarMotorArranque'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisarMotorArranque" value="na" {% if checklist['RevisarMotorArranque'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisarArnesEquipo" id="RevisarArnesEquipo" {% if checklist["RevisarArnesEquipo"] %}checked{% endif %}>
-            <label for="RevisarArnesEquipo">Revisar Arnés del Equipo</label>
+            <label for="RevisarArnesEquipo">Revisar Arnés del Equipo:</label>
+            <input type="radio" name="RevisarArnesEquipo" value="si" {% if checklist['RevisarArnesEquipo'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisarArnesEquipo" value="no" {% if checklist['RevisarArnesEquipo'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisarArnesEquipo" value="na" {% if checklist['RevisarArnesEquipo'] is none %} checked {% endif %}> N/A
         </div>
-
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisarSistemaCarga" id="RevisarSistemaCarga" {% if checklist["RevisarSistemaCarga"] %}checked{% endif %}>
-            <label for="RevisarSistemaCarga">Revisar Sistema de Carga</label>
+            <label for="RevisarSistemaCarga">Revisar Sistema de Carga:</label>
+            <input type="radio" name="RevisarSistemaCarga" value="si" {% if checklist['RevisarSistemaCarga'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisarSistemaCarga" value="no" {% if checklist['RevisarSistemaCarga'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisarSistemaCarga" value="na" {% if checklist['RevisarSistemaCarga'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="SocarTerminalBateria" id="SocarTerminalBateria" {% if checklist["SocarTerminalBateria"] %}checked{% endif %}>
-            <label for="SocarTerminalBateria">Socar Terminal de Batería</label>
+            <label for="SocarTerminalBateria">Socar Terminal de Batería:</label>
+            <input type="radio" name="SocarTerminalBateria" value="si" {% if checklist['SocarTerminalBateria'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="SocarTerminalBateria" value="no" {% if checklist['SocarTerminalBateria'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="SocarTerminalBateria" value="na" {% if checklist['SocarTerminalBateria'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionAmpBateria" id="RevisionAmpBateria" {% if checklist["RevisionAmpBateria"] %}checked{% endif %}>
-            <label for="RevisionAmpBateria">Revisión de Amperaje de Batería</label>
+            <label for="RevisionAmpBateria">Revisión de Amperaje de Batería:</label>
+            <input type="radio" name="RevisionAmpBateria" value="si" {% if checklist['RevisionAmpBateria'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionAmpBateria" value="no" {% if checklist['RevisionAmpBateria'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionAmpBateria" value="na" {% if checklist['RevisionAmpBateria'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionTaponColadorPolvo" id="RevisionTaponColadorPolvo" {% if checklist["RevisionTaponColadorPolvo"] %}checked{% endif %}>
-            <label for="RevisionTaponColadorPolvo">Revisión del Tapón y Colador de Polvo</label>
+            <label for="RevisionTaponColadorPolvo">Revisión del Tapón y Colador de Polvo:</label>
+            <input type="radio" name="RevisionTaponColadorPolvo" value="si" {% if checklist['RevisionTaponColadorPolvo'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionTaponColadorPolvo" value="no" {% if checklist['RevisionTaponColadorPolvo'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionTaponColadorPolvo" value="na" {% if checklist['RevisionTaponColadorPolvo'] is none %} checked {% endif %}> N/A
         </div>
     </div>
+
     <div class="checkbox-section">
         <h3 class="section-header">Sistema de Direccion</h3>
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionBombasFreno" id="RevisionBombasFreno" {% if checklist["RevisionBombasFreno"] %}checked{% endif %}>
-            <label for="RevisionBombasFreno">Revisión de Bombas de Freno</label>
+            <label for="RevisionBombasFreno">Revisión de Bombas de Freno:</label>
+            <input type="radio" name="RevisionBombasFreno" value="si" {% if checklist['RevisionBombasFreno'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionBombasFreno" value="no" {% if checklist['RevisionBombasFreno'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionBombasFreno" value="na" {% if checklist['RevisionBombasFreno'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionFricciones" id="RevisionFricciones" {% if checklist["RevisionFricciones"] %}checked{% endif %}>
-            <label for="RevisionFricciones">Revisión de Fricciones</label>
+            <label for="RevisionFricciones">Revisión de Fricciones:</label>
+            <input type="radio" name="RevisionFricciones" value="si" {% if checklist['RevisionFricciones'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionFricciones" value="no" {% if checklist['RevisionFricciones'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionFricciones" value="na" {% if checklist['RevisionFricciones'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionBalinerasRetenedores" id="RevisionBalinerasRetenedores" {% if checklist["RevisionBalinerasRetenedores"] %}checked{% endif %}>
-            <label for="RevisionBalinerasRetenedores">Revisión de Balineras y Retenedores</label>
+            <label for="RevisionBalinerasRetenedores">Revisión de Balineras y Retenedores:</label>
+            <input type="radio" name="RevisionBalinerasRetenedores" value="si" {% if checklist['RevisionBalinerasRetenedores'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionBalinerasRetenedores" value="no" {% if checklist['RevisionBalinerasRetenedores'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionBalinerasRetenedores" value="na" {% if checklist['RevisionBalinerasRetenedores'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionEjeDireccion" id="RevisionEjeDireccion" {% if checklist["RevisionEjeDireccion"] %}checked{% endif %}>
-            <label for="RevisionEjeDireccion">Revisión de Eje de Dirección</label>
+            <label for="RevisionEjeDireccion">Revisión de Eje de Dirección:</label>
+            <input type="radio" name="RevisionEjeDireccion" value="si" {% if checklist['RevisionEjeDireccion'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionEjeDireccion" value="no" {% if checklist['RevisionEjeDireccion'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionEjeDireccion" value="na" {% if checklist['RevisionEjeDireccion'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="AjustesPedalesFreno" id="AjustesPedalesFreno" {% if checklist["AjustesPedalesFreno"] %}checked{% endif %}>
-            <label for="AjustesPedalesFreno">Ajustes de Pedales de Freno</label>
+            <label for="AjustesPedalesFreno">Ajustes de Pedales de Freno:</label>
+            <input type="radio" name="AjustesPedalesFreno" value="si" {% if checklist['AjustesPedalesFreno'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="AjustesPedalesFreno" value="no" {% if checklist['AjustesPedalesFreno'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="AjustesPedalesFreno" value="na" {% if checklist['AjustesPedalesFreno'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisarLubricarEjesDelanteros" id="RevisarLubricarEjesDelanteros" {% if checklist["RevisarLubricarEjesDelanteros"] %}checked{% endif %}>
-            <label for="RevisarLubricarEjesDelanteros">Revisar y Lubricar Ejes Delanteros</label>
+            <label for="RevisarLubricarEjesDelanteros">Revisar y Lubricar Ejes Delanteros:</label>
+            <input type="radio" name="RevisarLubricarEjesDelanteros" value="si" {% if checklist['RevisarLubricarEjesDelanteros'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisarLubricarEjesDelanteros" value="no" {% if checklist['RevisarLubricarEjesDelanteros'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisarLubricarEjesDelanteros" value="na" {% if checklist['RevisarLubricarEjesDelanteros'] is none %} checked {% endif %}>N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionTambor" id="RevisionTambor" {% if checklist["RevisionTambor"] %}checked{% endif %}>
-            <label for="RevisionTambor">Revisión del Tambor</label>
+            <label for="RevisionTambor">Revisión del Tambor:</label>
+            <input type="radio" name="RevisionTambor" value="si" {% if checklist['RevisionTambor'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionTambor" value="no" {% if checklist['RevisionTambor'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionTambor" value="na" {% if checklist['RevisionTambor'] is none %} checked {% endif %}> N/A
         </div>
     </div>
     <div class="checkbox-section">
         <h3 class="section-header">Sistema de Seguridad</h3>
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionSistemaLucesDelanteras" id="RevisionSistemaLucesDelanteras" {% if checklist["RevisionSistemaLucesDelanteras"] %}checked{% endif %}>
-            <label for="RevisionSistemaLucesDelanteras">Revisión del Sistema de Luces Delanteras</label>
+            <label for="RevisionSistemaLucesDelanteras">Revisión del Sistema de Luces Delanteras:</label>
+            <input type="radio" name="RevisionSistemaLucesDelanteras" value="si" {% if checklist['RevisionSistemaLucesDelanteras'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionSistemaLucesDelanteras" value="no" {% if checklist['RevisionSistemaLucesDelanteras'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionSistemaLucesDelanteras" value="na" {% if checklist['RevisionSistemaLucesDelanteras'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisionSistemaLucesTraseras" id="RevisionSistemaLucesTraseras" {% if checklist["RevisionSistemaLucesTraseras"] %}checked{% endif %}>
-            <label for="RevisionSistemaLucesTraseras">Revisión del Sistema de Luces Traseras</label>
+            <label for="RevisionSistemaLucesTraseras">Revisión del Sistema de Luces Traseras:</label>
+            <input type="radio" name="RevisionSistemaLucesTraseras" value="si" {% if checklist['RevisionSistemaLucesTraseras'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisionSistemaLucesTraseras" value="no" {% if checklist['RevisionSistemaLucesTraseras'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisionSistemaLucesTraseras" value="na" {% if checklist['RevisionSistemaLucesTraseras'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="LucesStop" id="LucesStop" {% if checklist["LucesStop"] %}checked{% endif %}>
-            <label for="LucesStop">Luces de Stop</label>
+            <label for="LucesStop">Luces de Stop:</label>
+            <input type="radio" name="LucesStop" value="si" {% if checklist['LucesStop'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="LucesStop" value="no" {% if checklist['LucesStop'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="LucesStop" value="na" {% if checklist['LucesStop'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="ViasDireccionales" id="ViasDireccionales" {% if checklist["ViasDireccionales"] %}checked{% endif %}>
-            <label for="ViasDireccionales">Vías Direccional</label>
+            <label for="ViasDireccionales">Vías Direccional:</label>
+            <input type="radio" name="ViasDireccionales" value="si" {% if checklist['ViasDireccionales'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="ViasDireccionales" value="no" {% if checklist['ViasDireccionales'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="ViasDireccionales" value="na" {% if checklist['ViasDireccionales'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="LucesRetroceso" id="LucesRetroceso" {% if checklist["LucesRetroceso"] %}checked{% endif %}>
-            <label for="LucesRetroceso">Luces de Retroceso</label>
+            <label for="LucesRetroceso">Luces de Retroceso:</label>
+            <input type="radio" name="LucesRetroceso" value="si" {% if checklist['LucesRetroceso'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="LucesRetroceso" value="no" {% if checklist['LucesRetroceso'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="LucesRetroceso" value="na" {% if checklist['LucesRetroceso'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="AlarmaRetroceso" id="AlarmaRetroceso" {% if checklist["AlarmaRetroceso"] %}checked{% endif %}>
-            <label for="AlarmaRetroceso">Alarma de Retroceso</label>
+            <label for="AlarmaRetroceso">Alarma de Retroceso:</label>
+            <input type="radio" name="AlarmaRetroceso" value="si" {% if checklist['AlarmaRetroceso'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="AlarmaRetroceso" value="no" {% if checklist['AlarmaRetroceso'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="AlarmaRetroceso" value="na" {% if checklist['AlarmaRetroceso'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="LuzEstroboscopico" id="LuzEstroboscopico" {% if checklist["LuzEstroboscopico"] %}checked{% endif %}>
-            <label for="LuzEstroboscopico">Luz Estroboscópica</label>
+            <label for="LuzEstroboscopico">Luz Estroboscópica:</label>
+            <input type="radio" name="LuzEstroboscopico" value="si" {% if checklist['LuzEstroboscopico'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="LuzEstroboscopico" value="no" {% if checklist['LuzEstroboscopico'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="LuzEstroboscopico" value="na" {% if checklist['LuzEstroboscopico'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="Claxon" id="Claxon" {% if checklist["Claxon"] %}checked{% endif %}>
-            <label for="Claxon">Claxon</label>
+            <label for="Claxon">Claxon:</label>
+            <input type="radio" name="Claxon" value="si" {% if checklist['Claxon'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="Claxon" value="no" {% if checklist['Claxon'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="Claxon" value="na" {% if checklist['Claxon'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="CinturonSeguridad" id="CinturonSeguridad" {% if checklist["CinturonSeguridad"] %}checked{% endif %}>
-            <label for="CinturonSeguridad">Cinturón de Seguridad</label>
+            <label for="CinturonSeguridad">Cinturón de Seguridad:</label>
+            <input type="radio" name="CinturonSeguridad" value="si" {% if checklist['CinturonSeguridad'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CinturonSeguridad" value="no" {% if checklist['CinturonSeguridad'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CinturonSeguridad" value="na" {% if checklist['CinturonSeguridad'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="Retrovisores" id="Retrovisores" {% if checklist["Retrovisores"] %}checked{% endif %}>
-            <label for="Retrovisores">Retrovisores</label>
+            <label for="Retrovisores">Retrovisores:</label>
+            <input type="radio" name="Retrovisores" value="si" {% if checklist['Retrovisores'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="Retrovisores" value="no" {% if checklist['Retrovisores'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="Retrovisores" value="na" {% if checklist['Retrovisores'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="Extintor" id="Extintor" {% if checklist["Extintor"] %}checked{% endif %}>
-            <label for="Extintor">Extintor</label>
+            <label for="Extintor">Extintor:</label>
+            <input type="radio" name="Extintor" value="si" {% if checklist['Extintor'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="Extintor" value="no" {% if checklist['Extintor'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="Extintor" value="na" {% if checklist['Extintor'] is none %} checked {% endif %}> N/A
         </div>
+        
     </div>
     <div class="checkbox-section">
         <h3 class="section-header">Otros</h3>
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisarTensionCadena" id="RevisarTensionCadena" {% if checklist["RevisarTensionCadena"] %}checked{% endif %}>
-            <label for="RevisarTensionCadena">Revisar Tensión de Cadena</label>
+            <label for="RevisarTensionCadena">Revisar Tensión de Cadena:</label>
+            <input type="radio" name="RevisarTensionCadena" value="si" {% if checklist['RevisarTensionCadena'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisarTensionCadena" value="no" {% if checklist['RevisarTensionCadena'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisarTensionCadena" value="na" {% if checklist['RevisarTensionCadena'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="RevisarAjustesEmergencias" id="RevisarAjustesEmergencias" {% if checklist["RevisarAjustesEmergencias"] %}checked{% endif %}>
-            <label for="RevisarAjustesEmergencias">Revisar Ajustes de Emergencias</label>
+            <label for="RevisarAjustesEmergencias">Revisar Ajustes de Emergencias:</label>
+            <input type="radio" name="RevisarAjustesEmergencias" value="si" {% if checklist['RevisarAjustesEmergencias'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="RevisarAjustesEmergencias" value="no" {% if checklist['RevisarAjustesEmergencias'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="RevisarAjustesEmergencias" value="na" {% if checklist['RevisarAjustesEmergencias'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="LavadoGeneral" id="LavadoGeneral" {% if checklist["LavadoGeneral"] %}checked{% endif %}>
-            <label for="LavadoGeneral">Lavado General</label>
+            <label for="LavadoGeneral">Lavado General:</label>
+            <input type="radio" name="LavadoGeneral" value="si" {% if checklist['LavadoGeneral'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="LavadoGeneral" value="no" {% if checklist['LavadoGeneral'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="LavadoGeneral" value="na" {% if checklist['LavadoGeneral'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="LubricacionEngraseTorreCadena" id="LubricacionEngraseTorreCadena" {% if checklist["LubricacionEngraseTorreCadena"] %}checked{% endif %}>
-            <label for="LubricacionEngraseTorreCadena">Lubricación y Engrase de Torre y Cadena</label>
+            <label for="LubricacionEngraseTorreCadena">Lubricación y Engrase de Torre y Cadena:</label>
+            <input type="radio" name="LubricacionEngraseTorreCadena" value="si" {% if checklist['LubricacionEngraseTorreCadena'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="LubricacionEngraseTorreCadena" value="no" {% if checklist['LubricacionEngraseTorreCadena'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="LubricacionEngraseTorreCadena" value="na" {% if checklist['LubricacionEngraseTorreCadena'] is none %} checked {% endif %}> N/A
         </div>
+        
         <div class="checkbox-container">
-            <input type="checkbox" name="CalibracionValvulaMotor" id="CalibracionValvulaMotor" {% if checklist["CalibracionValvulaMotor"] %}checked{% endif %}>
-            <label for="CalibracionValvulaMotor">Calibración de Válvula del Motor</label>
+            <label for="CalibracionValvulaMotor">Calibración de Válvula del Motor:</label>
+            <input type="radio" name="CalibracionValvulaMotor" value="si" {% if checklist['CalibracionValvulaMotor'] == 1 %} checked {% endif %}> Sí
+            <input type="radio" name="CalibracionValvulaMotor" value="no" {% if checklist['CalibracionValvulaMotor'] == 0 %} checked {% endif %}> No
+            <input type="radio" name="CalibracionValvulaMotor" value="na" {% if checklist['CalibracionValvulaMotor'] is none %} checked {% endif %}> N/A
         </div>
+        
     </div>
     
         <div>
@@ -282,19 +464,29 @@
             <textarea name="AdditionalNotes" id="AdditionalNotes" rows="4" cols="50">{{ checklist["AdditionalNotes"] }}</textarea>
         </div>
         <div>
-            <label for="MechanicPinCode">Mechanic PIN Code:</label><br>
+            <label for="MechanicPinCode">PIN de Mecanico:</label><br>
             <input type="password" name="MechanicPinCode" id="MechanicPinCode">
             <span id="mechanicName" style="margin-left: 10px;">{{ checklist['MechanicName'] }}</span>
-            <input type="hidden" name="MechanicID" id="MechanicID" value="{{ checklist['MechanicID'] }}"><p></p>
+            <input type="hidden" name="MechanicID" id="MechanicID" value="{{ checklist['MechanicID'] or '' }}"><p></p>
+
+            <label for="BossPinCode">PIN de Jefe:</label><br>
+            <input type="password" name="BossPinCode" id="BossPinCode">
+            <span id="bossName" style="margin-left: 10px;">{{ checklist['BossName'] }}</span>
+            <input type="hidden" name="BossID" id="BossID" value="{{ checklist['BossID'] or '' }}"><p></p>
         </div>
     </div>  
-        <input type="submit" value="Submit Checklist">
+        <input type="submit" value="Guardar Checklist">
     </form>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var mechanicID = document.getElementById('MechanicID').value;
             if (mechanicID) {
                 fetchMechanicName(mechanicID);
+            }
+    
+            var bossID = document.getElementById('BossID').value;
+            if (bossID) {
+                fetchBossName(bossID);
             }
         });
     
@@ -303,7 +495,7 @@
             if (pinCode.length === 3) { // Assuming the PIN code is 3 digits
                 fetch('/validate_mechanic_pin?pin=' + pinCode)
                     .then(response => response.json())
-                    .then(data => {
+                   .then(data => {
                         document.getElementById('mechanicName').textContent = data.name || 'Invalid PIN';
                         document.getElementById('MechanicID').value = data.id || '';
                     });
@@ -312,9 +504,21 @@
                 document.getElementById('MechanicID').value = '';
             }
         });
-        
-        
-        
+    
+        document.getElementById('BossPinCode').addEventListener('input', function() {
+            var pinCode = this.value;
+            if (pinCode.length === 4) { // Assuming the PIN code is 4 digits
+                fetch('/validate_boss_pin?pin=' + pinCode)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('bossName').textContent = data.name || 'Invalid PIN';
+                        document.getElementById('BossID').value = data.id || '';
+                    });
+            } else {
+                document.getElementById('bossName').textContent = '';
+                document.getElementById('BossID').value = '';
+            }
+        });
     
         function fetchMechanicName(mechanicID) {
             fetch('/get_mechanic_name?id=' + mechanicID)
@@ -325,7 +529,18 @@
                     }
                 });
         }
+    
+        function fetchBossName(bossID) {
+            fetch('/get_boss_name?id=' + bossID)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.name) {
+                        document.getElementById('bossName').textContent = data.name;
+                    }
+                });
+        }
     </script>
+    
     
 </body>
 </html>

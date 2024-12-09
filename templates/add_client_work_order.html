@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Orden de Trabajo para Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/new_order.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+        <a href="/">Inicio</a>
+    </div>
+    <div class="container">
+        <h1>Añadir Orden de Trabajo para Cliente</h1>
+        <form method="POST" action="{{ url_for('add_client_work_order', company=company) }}">
+            <div class="form-group">
+                <label for="cliente_codigo_sap">Cliente</label>
+                <input type="text" id="myInputClient" onkeyup="filterFunction('client-dropdown', 'myInputClient')" class="form-control" placeholder="Buscar cliente...">
+                <select class="form-control" id="client-dropdown" name="cliente_codigo_sap" onchange="this.form.submit()">
+                    <option value="">Seleccione un Cliente</option>
+                    {% for client in clientes %}
+                        <option value="{{ client[0] }}" {% if selected_cliente == client[0] %}selected{% endif %}>{{ client[0] }} - {{ client[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </form>
+
+        {% if vehicles %}
+            <form method="POST" action="{{ url_for('add_client_work_order', company=company) }}">
+                <input type="hidden" name="cliente_codigo_sap" value="{{ selected_cliente }}">
+                <div class="form-group">
+                    <label for="vehicle_id">Vehículo</label>
+                    <input type="text" id="myInputVehicle" onkeyup="filterFunction('vehicle-dropdown', 'myInputVehicle')" class="form-control" placeholder="Buscar vehículo...">
+                    <select class="form-control" id="vehicle-dropdown" name="vehicle_id">
+                        {% for vehicle in vehicles %}
+                            <option value="{{ vehicle[0] }}">{{ vehicle[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="work_type">Tipo de Trabajo</label>
+                    <select class="form-control" id="work_type" name="work_type" required>
+                        <option value="Reparo por fallo">Reparo por fallo</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción</label>
+                    <textarea class="form-control" id="description" name="description" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Crear Orden de Trabajo</button>
+            </form>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.full.min.js"></script>
+    <script>
+        function filterFunction(dropdownId, inputId) {
+            var input, filter, select, options, i;
+            input = document.getElementById(inputId);
+            filter = input.value.toUpperCase();
+            select = document.getElementById(dropdownId);
+            options = select.getElementsByTagName("option");
+
+            for (i = 0; i < options.length; i++) {
+                txtValue = options[i].textContent || options[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    options[i].style.display = "";
+                } else {
+                    options[i].style.display = "none";
+                }
+            }
+        }
+
+        $(document).ready(function() {
+            $('#client-dropdown, #vehicle-dropdown').select2({
+                width: '100%',
+                placeholder: "Seleccione una opción",
+                allowClear: true
+            });
+        });
+    </script>
+</body>
+</html>

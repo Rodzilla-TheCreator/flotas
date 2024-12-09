@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Operator Quality Checklist</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/MQCStyle.css">
+</head>
+<body>
+
+    {% if checklist['HoraRegreso'] %}
+    <button class="return-button" onclick="window.location.href='{{ url_for('departure_order_record_detail', company=company, order_id=order_id) }}'">Regresar a Orden de Salida</button>
+{% else %}
+    <button class="return-button" onclick="window.location.href='{{ url_for('departure_order_detail', company=company, order_id=order_id) }}'">Regresar a Orden de Salida</button>
+{% endif %}
+    <header>
+        <img src="/static/logo.png" alt="Company Logo" class="center-logo">
+    </header>
+
+    <h1>Checklist de Calidad de Operador #{{ order_id }}</h1>
+
+    <form action="{{ url_for('update_operator_quality_checklist', order_id=order_id) }}" method="post">
+
+        <!-- Add a hidden field for the order ID -->
+        <input type="hidden" name="company" value="{{ company }}">
+        <input type="hidden" name="order_id" value="{{ order_id }}">
+
+        <div class="checkbox-section">
+            <h3 class="section-header">Sistema Electrico</h3>
+            <div class="checkbox-container">
+                <label for="AlarmaDePrecaucion">Alarma De Precaución:</label>
+                <input type="radio" name="AlarmaDePrecaucion" value="si" {% if checklist['AlarmaDePrecaucion'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="AlarmaDePrecaucion" value="no" {% if checklist['AlarmaDePrecaucion'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="AlarmaDePrecaucion" value="na" {% if checklist['AlarmaDePrecaucion'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="BotonDeEmergencia">Botón De Emergencia:</label>
+                <input type="radio" name="BotonDeEmergencia" value="si" {% if checklist['BotonDeEmergencia'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="BotonDeEmergencia" value="no" {% if checklist['BotonDeEmergencia'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="BotonDeEmergencia" value="na" {% if checklist['BotonDeEmergencia'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="LuzEstroboscopica">Luz Estroboscópica:</label>
+                <input type="radio" name="LuzEstroboscopica" value="si" {% if checklist['LuzEstroboscopica'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="LuzEstroboscopica" value="no" {% if checklist['LuzEstroboscopica'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="LuzEstroboscopica" value="na" {% if checklist['LuzEstroboscopica'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="LucesDeTrabajo">Luces De Trabajo:</label>
+                <input type="radio" name="LucesDeTrabajo" value="si" {% if checklist['LucesDeTrabajo'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="LucesDeTrabajo" value="no" {% if checklist['LucesDeTrabajo'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="LucesDeTrabajo" value="na" {% if checklist['LucesDeTrabajo'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="LucesDeStop">Luces De Stop:</label>
+                <input type="radio" name="LucesDeStop" value="si" {% if checklist['LucesDeStop'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="LucesDeStop" value="no" {% if checklist['LucesDeStop'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="LucesDeStop" value="na" {% if checklist['LucesDeStop'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="LucesDeVias">Luces De Vías:</label>
+                <input type="radio" name="LucesDeVias" value="si" {% if checklist['LucesDeVias'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="LucesDeVias" value="no" {% if checklist['LucesDeVias'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="LucesDeVias" value="na" {% if checklist['LucesDeVias'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Baterias">Baterías:</label>
+                <input type="radio" name="Baterias" value="si" {% if checklist['Baterias'] == 1 %} checked {% endif %}> Sí
+                   <input type="radio" name="Baterias" value="no" {% if checklist['Baterias'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Baterias" value="na" {% if checklist['Baterias'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Pito">Pito:</label>
+                <input type="radio" name="Pito" value="si" {% if checklist['Pito'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Pito" value="no" {% if checklist['Pito'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Pito" value="na" {% if checklist['Pito'] is none %} checked {% endif %}> N/A
+            </div>
+            
+           
+        </div>
+        <div class="checkbox-section">
+            <h3 class="section-header">Revisión General</h3>
+            <!-- Items for Revision General -->
+            <div class="checkbox-container">
+                <label for="TaponDeCombustible">Tapón De Combustible:</label>
+                <input type="radio" name="TaponDeCombustible" value="si" {% if checklist['TaponDeCombustible'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="TaponDeCombustible" value="no" {% if checklist['TaponDeCombustible'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="TaponDeCombustible" value="na" {% if checklist['TaponDeCombustible'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="LubricacionYEngrase">Lubricación Y Engrase:</label>
+                <input type="radio" name="LubricacionYEngrase" value="si" {% if checklist['LubricacionYEngrase'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="LubricacionYEngrase" value="no" {% if checklist['LubricacionYEngrase'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="LubricacionYEngrase" value="na" {% if checklist['LubricacionYEngrase'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="SistemaHidraulico">Sistema Hidráulico:</label>
+                <input type="radio" name="SistemaHidraulico" value="si" {% if checklist['SistemaHidraulico'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="SistemaHidraulico" value="no" {% if checklist['SistemaHidraulico'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="SistemaHidraulico" value="na" {% if checklist['SistemaHidraulico'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="BandasDeMotor">Bandas De Motor:</label>
+                <input type="radio" name="BandasDeMotor" value="si" {% if checklist['BandasDeMotor'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="BandasDeMotor" value="no" {% if checklist['BandasDeMotor'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="BandasDeMotor" value="na" {% if checklist['BandasDeMotor'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="FugasDeAceites">Fugas De Aceites:</label>
+                <input type="radio" name="FugasDeAceites" value="si" {% if checklist['FugasDeAceites'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="FugasDeAceites" value="no" {% if checklist['FugasDeAceites'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="FugasDeAceites" value="na" {% if checklist['FugasDeAceites'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="TorreCompleta">Torre Completa:</label>
+                <input type="radio" name="TorreCompleta" value="si" {% if checklist['TorreCompleta'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="TorreCompleta" value="no" {% if checklist['TorreCompleta'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="TorreCompleta" value="na" {% if checklist['TorreCompleta'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="LavadoGeneral">Lavado General:</label>
+                <input type="radio" name="LavadoGeneral" value="si" {% if checklist['LavadoGeneral'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="LavadoGeneral" value="no" {% if checklist['LavadoGeneral'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="LavadoGeneral" value="na" {% if checklist['LavadoGeneral'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="FrenosGeneral">Frenos General:</label>
+                <input type="radio" name="FrenosGeneral" value="si" {% if checklist['FrenosGeneral'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="FrenosGeneral" value="no" {% if checklist['FrenosGeneral'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="FrenosGeneral" value="na" {% if checklist['FrenosGeneral'] is none %} checked {% endif %}> N/A
+            </div>
+            
+            <div class="checkbox-container">
+                <label for="CilindroDeGas">Cilindro De Gas:</label>
+                <input type="radio" name="CilindroDeGas" value="si" {% if checklist['CilindroDeGas'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="CilindroDeGas" value="no" {% if checklist['CilindroDeGas'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="CilindroDeGas" value="na" {% if checklist['CilindroDeGas'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Mangueras">Mangueras:</label>
+                <input type="radio" name="Mangueras" value="si" {% if checklist['Mangueras'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Mangueras" value="no" {% if checklist['Mangueras'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Mangueras" value="na" {% if checklist['Mangueras'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Cuchillas">Cuchillas:</label>
+                <input type="radio" name="Cuchillas" value="si" {% if checklist['Cuchillas'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Cuchillas" value="no" {% if checklist['Cuchillas'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Cuchillas" value="na" {% if checklist['Cuchillas'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Balineras">Balineras:</label>
+                <input type="radio" name="Balineras" value="si" {% if checklist['Balineras'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Balineras" value="no" {% if checklist['Balineras'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Balineras" value="na" {% if checklist['Balineras'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Palancas">Palancas:</label>
+                <input type="radio" name="Palancas" value="si" {% if checklist['Palancas'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Palancas" value="no" {% if checklist['Palancas'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Palancas" value="na" {% if checklist['Palancas'] is none %} checked {% endif %}> N/A
+            </div>
+            
+            <div class="checkbox-container">
+                <label for="Pistones">Pistones:</label>
+                <input type="radio" name="Pistones" value="si" {% if checklist['Pistones'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Pistones" value="no" {% if checklist['Pistones'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Pistones" value="na" {% if checklist['Pistones'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Shifter">Shifter:</label>
+                <input type="radio" name="Shifter" value="si" {% if checklist['Shifter'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Shifter" value="no" {% if checklist['Shifter'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Shifter" value="na" {% if checklist['Shifter'] is none %} checked {% endif %}> N/A
+            </div>
+            
+        </div>
+        <div class="checkbox-section">
+            <h3 class="section-header">Estructura</h3>
+            <!-- Items for Estructura -->
+            <div class="checkbox-container">
+                <label for="GolpesOAbolladuras">Golpes o Abolladuras:</label>
+                <input type="radio" name="GolpesOAbolladuras" value="si" {% if checklist['GolpesOAbolladuras'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="GolpesOAbolladuras" value="no" {% if checklist['GolpesOAbolladuras'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="GolpesOAbolladuras" value="na" {% if checklist['GolpesOAbolladuras'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="IndicadoresTablero">Indicadores del Tablero:</label>
+                <input type="radio" name="IndicadoresTablero" value="si" {% if checklist['IndicadoresTablero'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="IndicadoresTablero" value="no" {% if checklist['IndicadoresTablero'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="IndicadoresTablero" value="na" {% if checklist['IndicadoresTablero'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="CamaraFrontal">Cámara Frontal:</label>
+                <input type="radio" name="CamaraFrontal" value="si" {% if checklist['CamaraFrontal'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="CamaraFrontal" value="no" {% if checklist['CamaraFrontal'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="CamaraFrontal" value="na" {% if checklist['CamaraFrontal'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="CamaraTrasera">Cámara Trasera:</label>
+                <input type="radio" name="CamaraTrasera" value="si" {% if checklist['CamaraTrasera'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="CamaraTrasera" value="no" {% if checklist['CamaraTrasera'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="CamaraTrasera" value="na" {% if checklist['CamaraTrasera'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="PantallaVisual">Pantalla Visual:</label>
+                <input type="radio" name="PantallaVisual" value="si" {% if checklist['PantallaVisual'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="PantallaVisual" value="no" {% if checklist['PantallaVisual'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="PantallaVisual" value="na" {% if checklist['PantallaVisual'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="PinturaGeneral">Pintura General:</label>
+                <input type="radio" name="PinturaGeneral" value="si" {% if checklist['PinturaGeneral'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="PinturaGeneral" value="no" {% if checklist['PinturaGeneral'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="PinturaGeneral" value="na" {% if checklist['PinturaGeneral'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Cinturones">Cinturones:</label>
+                <input type="radio" name="Cinturones" value="si" {% if checklist['Cinturones'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Cinturones" value="no" {% if checklist['Cinturones'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Cinturones" value="na" {% if checklist['Cinturones'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Asientos">Asientos:</label>
+                <input type="radio" name="Asientos" value="si" {% if checklist['Asientos'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Asientos" value="no" {% if checklist['Asientos'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Asientos" value="na" {% if checklist['Asientos'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Extintor">Extintor:</label>
+                <input type="radio" name="Extintor" value="si" {% if checklist['Extintor'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Extintor" value="no" {% if checklist['Extintor'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Extintor" value="na" {% if checklist['Extintor'] is none %} checked {% endif %}> N/A
+            </div>
+            
+        </div>
+        <div class="checkbox-section">
+            <h3 class="section-header">Accesorios</h3>
+            <!-- Items for Accesorios -->
+            <div class="checkbox-container">
+                <label for="ExtensionesHorquilla">Extensiones Horquilla:</label>
+                <input type="radio" name="ExtensionesHorquilla" value="si" {% if checklist['ExtensionesHorquilla'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="ExtensionesHorquilla" value="no" {% if checklist['ExtensionesHorquilla'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="ExtensionesHorquilla" value="na" {% if checklist['ExtensionesHorquilla'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="LlavesDeEncendido">Llaves de Encendido:</label>
+                <input type="radio" name="LlavesDeEncendido" value="si" {% if checklist['LlavesDeEncendido'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="LlavesDeEncendido" value="no" {% if checklist['LlavesDeEncendido'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="LlavesDeEncendido" value="na" {% if checklist['LlavesDeEncendido'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="KitAntiderrame">Kit Antiderrame:</label>
+                <input type="radio" name="KitAntiderrame" value="si" {% if checklist['KitAntiderrame'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="KitAntiderrame" value="no" {% if checklist['KitAntiderrame'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="KitAntiderrame" value="na" {% if checklist['KitAntiderrame'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Cadenas">Cadenas:</label>
+                <input type="radio" name="Cadenas" value="si" {% if checklist['Cadenas'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Cadenas" value="no" {% if checklist['Cadenas'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Cadenas" value="na" {% if checklist['Cadenas'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Conos">Conos:</label>
+                <input type="radio" name="Conos" value="si" {% if checklist['Conos'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Conos" value="no" {% if checklist['Conos'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Conos" value="na" {% if checklist['Conos'] is none %} checked {% endif %}> N/A
+            </div>
+            
+        </div>
+
+        <div class="checkbox-section">
+            <h3 class="section-header">Niveles</h3>
+            <!-- Items for Niveles -->
+            <div class="checkbox-container">
+                <label for="RefrigeranteCoolant">Refrigerante/Coolant:</label>
+                <input type="radio" name="RefrigeranteCoolant" value="si" {% if checklist['RefrigeranteCoolant'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="RefrigeranteCoolant" value="no" {% if checklist['RefrigeranteCoolant'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="RefrigeranteCoolant" value="na" {% if checklist['RefrigeranteCoolant'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="LiquidoDeFrenos">Líquido de Frenos:</label>
+                <input type="radio" name="LiquidoDeFrenos" value="si" {% if checklist['LiquidoDeFrenos'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="LiquidoDeFrenos" value="no" {% if checklist['LiquidoDeFrenos'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="LiquidoDeFrenos" value="na" {% if checklist['LiquidoDeFrenos'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="AceiteHidraulico">Aceite Hidráulico:</label>
+                <input type="radio" name="AceiteHidraulico" value="si" {% if checklist['AceiteHidraulico'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="AceiteHidraulico" value="no" {% if checklist['AceiteHidraulico'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="AceiteHidraulico" value="na" {% if checklist['AceiteHidraulico'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="AceiteMotor">Aceite Motor:</label>
+                <input type="radio" name="AceiteMotor" value="si" {% if checklist['AceiteMotor'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="AceiteMotor" value="no" {% if checklist['AceiteMotor'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="AceiteMotor" value="na" {% if checklist['AceiteMotor'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Combustible">Combustible:</label>
+                <input type="radio" name="Combustible" value="si" {% if checklist['Combustible'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Combustible" value="no" {% if checklist['Combustible'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Combustible" value="na" {% if checklist['Combustible'] is none %} checked {% endif %}> N/A
+            </div>
+            
+        </div>
+        <div class="checkbox-section">
+            <h3 class="section-header">Genies</h3>
+            <!-- Items for Electrical Components -->
+            <div class="checkbox-container">
+                <label for="ConectoresDeCorriente">Conectores de Corriente:</label>
+                <input type="radio" name="ConectoresDeCorriente" value="si" {% if checklist['ConectoresDeCorriente'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="ConectoresDeCorriente" value="no" {% if checklist['ConectoresDeCorriente'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="ConectoresDeCorriente" value="na" {% if checklist['ConectoresDeCorriente'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="CableDeEmergencia">Cable de Emergencia:</label>
+                <input type="radio" name="CableDeEmergencia" value="si" {% if checklist['CableDeEmergencia'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="CableDeEmergencia" value="no" {% if checklist['CableDeEmergencia'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="CableDeEmergencia" value="na" {% if checklist['CableDeEmergencia'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Cargador">Cargador:</label>
+                <input type="radio" name="Cargador" value="si" {% if checklist['Cargador'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Cargador" value="no" {% if checklist['Cargador'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Cargador" value="na" {% if checklist['Cargador'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Botones">Botones:</label>
+                <input type="radio" name="Botones" value="si" {% if checklist['Botones'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Botones" value="no" {% if checklist['Botones'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Botones" value="na" {% if checklist['Botones'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Canasta">Canasta:</label>
+                <input type="radio" name="Canasta" value="si" {% if checklist['Canasta'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Canasta" value="no" {% if checklist['Canasta'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Canasta" value="na" {% if checklist['Canasta'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Joystick">Joystick:</label>
+                <input type="radio" name="Joystick" value="si" {% if checklist['Joystick'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Joystick" value="no" {% if checklist['Joystick'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Joystick" value="na" {% if checklist['Joystick'] is none %} checked {% endif %}> N/A
+            </div>
+            <div class="checkbox-container">
+                <label for="Switch">Switch:</label>
+                <input type="radio" name="Switch" value="si" {% if checklist['Switch'] == 1 %} checked {% endif %}> Sí
+                <input type="radio" name="Switch" value="no" {% if checklist['Switch'] == 0 %} checked {% endif %}> No
+                <input type="radio" name="Switch" value="na" {% if checklist['Switch'] is none %} checked {% endif %}> N/A
+            </div>
+            
+        </div>
+                                        
+        <div>
+            <label for="AdditionalNotes">Comentarios:</label><br>
+            <textarea name="AdditionalNotes" id="AdditionalNotes" rows="4" cols="50">{{ checklist["AdditionalNotes"] }}</textarea>
+            <p></p>
+        </div>
+        <div>
+            <label for="OperatorPinCode">Operator PIN Code:</label><br>
+            <input type="password" name="OperatorPinCode" id="OperatorPinCode" maxlength="3">
+            <span id="operatorName" style="margin-left: 10px;">{{ checklist['OperatorName'] }}</span>
+            <input type="hidden" name="IdOperador" id="OperatorID" value="{{ checklist['OperatorID']  or '' }}">
+<p></p>
+
+            <label for="BossPinCode">PIN de Jefe:</label><br>
+            <input type="password" name="BossPinCode" id="BossPinCode">
+            <span id="bossName" style="margin-left: 10px;">{{ checklist['BossName'] }}</span>
+            <input type="hidden" name="BossID" id="BossID" value="{{ checklist['BossID'] or ''  }}"><p></p>
+        </div>
+        
+
+   
+        
+
+
+        <input type="submit" value="Submit Checklist">
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var operatorID = document.getElementById('OperatorID').value;
+            if (operatorID) {
+                fetchOperatorName(operatorID);
+            }
+        });
+    
+        document.getElementById('OperatorPinCode').addEventListener('input', function() {
+            var pinCode = this.value;
+            if (pinCode.length === 3) { // Assuming the PIN code is 3 digits
+                fetch('/validate_operator_pin?pin=' + pinCode)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('operatorName').textContent = data.name || 'Invalid PIN';
+                        document.getElementById('OperatorID').value = data.id || '';
+                    });
+            } else {
+                document.getElementById('operatorName').textContent = '';
+                document.getElementById('OperatorID').value = '';
+            }
+        });
+    
+        function fetchOperatorName(operatorID) {
+            fetch('/get_operator_name?id=' + operatorID)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.name) {
+                        document.getElementById('operatorName').textContent = data.name;
+                    }
+                });
+        }
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var bossID = document.getElementById('BossID').value;
+            if (bossID) {
+                fetchBossName(bossID);
+            }
+        });
+    
+        document.getElementById('BossPinCode').addEventListener('input', function() {
+            var pinCode = this.value;
+            if (pinCode.length === 4) { // Assuming the PIN code is 4 digits
+                fetch('/validate_boss_pin?pin=' + pinCode)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('bossName').textContent = data.name || 'Invalid PIN';
+                        document.getElementById('BossID').value = data.id || '';
+                    });
+            } else {
+                document.getElementById('bossName').textContent = '';
+                document.getElementById('BossID').value = '';
+            }
+        });
+    
+        function fetchBossName(bossID) {
+            fetch('/get_boss_name?id=' + bossID)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.name) {
+                        document.getElementById('bossName').textContent = data.name;
+                    }
+                });
+        }
+    </script>
+    
+</body>
+</html>

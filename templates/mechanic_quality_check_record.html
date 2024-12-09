@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Checklist de Mecánicos</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/MQCRStyle.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=checklist['Empresa']) }}">Órdenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=checklist['Empresa']) }}">Vehículos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=checklist['Empresa']) }}">Resumen de Mecánicos</a>
+        <a href="{{ url_for('supply_status_update', company=checklist['Empresa']) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=checklist['Empresa']) }}">Órdenes de Salida</a>
+        <a href="/">Inicio</a>
+    </div>
+
+    <button class="return-button" onclick="window.location.href='{{ url_for('work_order_record_detail', company=company, order_id=order_id) }}'">Regresar a Orden de Trabajo</button>
+
+    <header>
+        <img src="/static/logo.png" alt="Company Logo" class="center-logo">
+    </header>
+
+    <h1>Registro de Checklist de Mecánicos #{{ order_id }}</h1>
+    <h2>Vehículo: {{ vehicle_name }}</h2> 
+
+    <div class="checkbox-sections-container">
+        <div class="checkbox-section">
+            <h3 class="section-header">Motor</h3>
+            <div class="checkbox-container">
+                <label for="CambioAceiteMotor">Cambio de Aceite del Motor:</label>
+                <p>{{ 'Sí' if checklist['CambioAceiteMotor'] == 1 else 'No' if checklist['CambioAceiteMotor'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CambioFiltroMotor">Cambio de Filtro del Motor:</label>
+                <p>{{ 'Sí' if checklist['CambioFiltroMotor'] == 1 else 'No' if checklist['CambioFiltroMotor'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CambioFiltroAire">Cambio de Filtro de Aire:</label>
+                <p>{{ 'Sí' if checklist['CambioFiltroAire'] == 1 else 'No' if checklist['CambioFiltroAire'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CambioFiltroCombustible">Cambio de Filtro de Combustible:</label>
+                <p>{{ 'Sí' if checklist['CambioFiltroCombustible'] == 1 else 'No' if checklist['CambioFiltroCombustible'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionCambioBandaMotor">Revisión y Cambio de Banda del Motor:</label>
+                <p>{{ 'Sí' if checklist['RevisionCambioBandaMotor'] == 1 else 'No' if checklist['RevisionCambioBandaMotor'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CambioRefrigeranteRadiador">Cambio de Refrigerante del Radiador:</label>
+                <p>{{ 'Sí' if checklist['CambioRefrigeranteRadiador'] == 1 else 'No' if checklist['CambioRefrigeranteRadiador'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CambioTapaderaDistribuidorRotor">Cambio de Tapadera y Distribuidor del Rotor:</label>
+                <p>{{ 'Sí' if checklist['CambioTapaderaDistribuidorRotor'] == 1 else 'No' if checklist['CambioTapaderaDistribuidorRotor'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CambioCandelas">Cambio de Candelas:</label>
+                <p>{{ 'Sí' if checklist['CambioCandelas'] == 1 else 'No' if checklist['CambioCandelas'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CambioCableCandela">Cambio de Cable de Candela:</label>
+                <p>{{ 'Sí' if checklist['CambioCableCandela'] == 1 else 'No' if checklist['CambioCableCandela'] == 0 else 'N/A' }}</p>
+            </div>
+        </div>
+        
+        <div class="checkbox-section">
+            <h3 class="section-header">Sistema Hidráulico</h3>
+            <div class="checkbox-container">
+                <label for="CambioDeAceiteHidraulico">Cambio de Aceite Hidráulico:</label>
+                <p>{{ 'Sí' if checklist['CambioDeAceiteHidraulico'] == 1 else 'No' if checklist['CambioDeAceiteHidraulico'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CambioDeFiltroHidraulico">Cambio de Filtro Hidráulico:</label>
+                <p>{{ 'Sí' if checklist['CambioDeFiltroHidraulico'] == 1 else 'No' if checklist['CambioDeFiltroHidraulico'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="LimpiezaDeFiltroDeMalla">Limpieza del Filtro de Malla:</label>
+                <p>{{ 'Sí' if checklist["LimpiezaDeFiltroDeMalla"] == 1 else 'No' if checklist["LimpiezaDeFiltroDeMalla"] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CambioDeEmpaqueDeTapadera">Cambio de Empaque de Tapadera:</label>
+                <p>{{ 'Sí' if checklist["CambioDeEmpaqueDeTapadera"] == 1 else 'No' if checklist["CambioDeEmpaqueDeTapadera"] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisarYPruebaDeSistemaHidraulico">Revisar y Prueba del Sistema Hidráulico:</label>
+                <p>{{ 'Sí' if checklist["RevisarYPruebaDeSistemaHidraulico"] == 1 else 'No' if checklist["RevisarYPruebaDeSistemaHidraulico"] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionGeneralDeManguerasHidraulicas">Revisión General de Mangueras Hidráulicas:</label>
+                <p>{{ 'Sí' if checklist["RevisionGeneralDeManguerasHidraulicas"] == 1 else 'No' if checklist["RevisionGeneralDeManguerasHidraulicas"] == 0 else 'N/A' }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="checkbox-sections-container">
+        <div class="checkbox-section">
+            <h3 class="section-header">Revisión</h3>    
+            <div class="checkbox-container">
+                <label for="RevisionSoporteMotor">Revisión de Soporte del Motor:</label>
+                <p>{{ 'Sí' if checklist['RevisionSoporteMotor'] == 1 else 'No' if checklist['RevisionSoporteMotor'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionInyectores">Revisión de Inyectores:</label>
+                <p>{{ 'Sí' if checklist['RevisionInyectores'] == 1 else 'No' if checklist['RevisionInyectores'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionTiempoMotor">Revisión del Tiempo del Motor:</label>
+                <p>{{ 'Sí' if checklist['RevisionTiempoMotor'] == 1 else 'No' if checklist['RevisionTiempoMotor'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionTermostato">Revisión del Termostato:</label>
+                <p>{{ 'Sí' if checklist['RevisionTermostato'] == 1 else 'No' if checklist['RevisionTermostato'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionMultipleAdmision">Revisión del Múltiple de Admisión:</label>
+                <p>{{ 'Sí' if checklist['RevisionMultipleAdmision'] == 1 else 'No' if checklist['RevisionMultipleAdmision'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionTornillosManifold">Revisión de Tornillos del Manifold:</label>
+                <p>{{ 'Sí' if checklist['RevisionTornillosManifold'] == 1 else 'No' if checklist['RevisionTornillosManifold'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionRPM">Revisión de RPM:</label>
+                <p>{{ 'Sí' if checklist['RevisionRPM'] == 1 else 'No' if checklist['RevisionRPM'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionCargaAlternador">Revisión de Carga del Alternador:</label>
+                <p>{{ 'Sí' if checklist['RevisionCargaAlternador'] == 1 else 'No' if checklist['RevisionCargaAlternador'] == 0 else 'N/A' }}</p>
+            </div>
+        </div>
+    
+        <div class="checkbox-section">
+            <h3 class="section-header">Transmisión</h3>
+            <div class="checkbox-container">
+                <label for="CambioAceiteTransmision">Cambio de Aceite de Transmisión:</label>
+                <p>{{ 'Sí' if checklist['CambioAceiteTransmision'] == 1 else 'No' if checklist['CambioAceiteTransmision'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CambioFiltroTransmision">Cambio de Filtro de Transmisión:</label>
+                <p>{{ 'Sí' if checklist['CambioFiltroTransmision'] == 1 else 'No' if checklist['CambioFiltroTransmision'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CambioAceiteDiferencial">Cambio de Aceite del Diferencial:</label>
+                <p>{{ 'Sí' if checklist['CambioAceiteDiferencial'] == 1 else 'No' if checklist['CambioAceiteDiferencial'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionCambioManguera">Revisión y Cambio de Manguera:</label>
+                <p>{{ 'Sí' if checklist['RevisionCambioManguera'] == 1 else 'No' if checklist['RevisionCambioManguera'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionFugas">Revisión de Fugas:</label>
+                <p>{{ 'Sí' if checklist['RevisionFugas'] == 1 else 'No' if checklist['RevisionFugas'] == 0 else 'N/A' }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="checkbox-sections-container">
+        <div class="checkbox-section">
+            <h3 class="section-header">Sistema Eléctrico</h3>
+            <div class="checkbox-container">
+                <label for="RevisarFuncionamientoIndicadores">Revisar Funcionamiento de Indicadores:</label>
+                <p>{{ 'Sí' if checklist['RevisarFuncionamientoIndicadores'] == 1 else 'No' if checklist['RevisarFuncionamientoIndicadores'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisarMotorArranque">Revisar Motor de Arranque:</label>
+                <p>{{ 'Sí' if checklist['RevisarMotorArranque'] == 1 else 'No' if checklist['RevisarMotorArranque'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisarArnesEquipo">Revisar Arnés del Equipo:</label>
+                <p>{{ 'Sí' if checklist['RevisarArnesEquipo'] == 1 else 'No' if checklist['RevisarArnesEquipo'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisarSistemaCarga">Revisar Sistema de Carga:</label>
+                <p>{{ 'Sí' if checklist['RevisarSistemaCarga'] == 1 else 'No' if checklist['RevisarSistemaCarga'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="SocarTerminalBateria">Socar Terminal de Batería:</label>
+                <p>{{ 'Sí' if checklist['SocarTerminalBateria'] == 1 else 'No' if checklist['SocarTerminalBateria'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionAmpBateria">Revisión de Amperaje de Batería:</label>
+                <p>{{ 'Sí' if checklist['RevisionAmpBateria'] == 1 else 'No' if checklist['RevisionAmpBateria'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionTaponColadorPolvo">Revisión del Tapón y Colador de Polvo:</label>
+                <p>{{ 'Sí' if checklist['RevisionTaponColadorPolvo'] == 1 else 'No' if checklist['RevisionTaponColadorPolvo'] == 0 else 'N/A' }}</p>
+            </div>
+        </div>
+
+        <div class="checkbox-section">
+            <h3 class="section-header">Sistema de Dirección</h3>
+            <div class="checkbox-container">
+                <label for="RevisionBombasFreno">Revisión de Bombas de Freno:</label>
+                <p>{{ 'Sí' if checklist['RevisionBombasFreno'] == 1 else 'No' if checklist['RevisionBombasFreno'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionFricciones">Revisión de Fricciones:</label>
+                <p>{{ 'Sí' if checklist['RevisionFricciones'] == 1 else 'No' if checklist['RevisionFricciones'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionBalinerasRetenedores">Revisión de Balineras y Retenedores:</label>
+                <p>{{ 'Sí' if checklist['RevisionBalinerasRetenedores'] == 1 else 'No' if checklist['RevisionBalinerasRetenedores'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionEjeDireccion">Revisión de Eje de Dirección:</label>
+                <p>{{ 'Sí' if checklist['RevisionEjeDireccion'] == 1 else 'No' if checklist['RevisionEjeDireccion'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="AjustesPedalesFreno">Ajustes de Pedales de Freno:</label>
+                <p>{{ 'Sí' if checklist['AjustesPedalesFreno'] == 1 else 'No' if checklist['AjustesPedalesFreno'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisarLubricarEjesDelanteros">Revisar y Lubricar Ejes Delanteros:</label>
+                <p>{{ 'Sí' if checklist['RevisarLubricarEjesDelanteros'] == 1 else 'No' if checklist['RevisarLubricarEjesDelanteros'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionTambor">Revisión del Tambor:</label>
+                <p>{{ 'Sí' if checklist['RevisionTambor'] == 1 else 'No' if checklist['RevisionTambor'] == 0 else 'N/A' }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="checkbox-sections-container">
+        <div class="checkbox-section">
+            <h3 class="section-header">Sistema de Seguridad</h3>
+            <div class="checkbox-container">
+                <label for="RevisionSistemaLucesDelanteras">Revisión del Sistema de Luces Delanteras:</label>
+                <p>{{ 'Sí' if checklist['RevisionSistemaLucesDelanteras'] == 1 else 'No' if checklist['RevisionSistemaLucesDelanteras'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisionSistemaLucesTraseras">Revisión del Sistema de Luces Traseras:</label>
+                <p>{{ 'Sí' if checklist['RevisionSistemaLucesTraseras'] == 1 else 'No' if checklist['RevisionSistemaLucesTraseras'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="LucesStop">Luces de Stop:</label>
+                <p>{{ 'Sí' if checklist['LucesStop'] == 1 else 'No' if checklist['LucesStop'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="ViasDireccionales">Vías Direccionales:</label>
+                <p>{{ 'Sí' if checklist['ViasDireccionales'] == 1 else 'No' if checklist['ViasDireccionales'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="LucesRetroceso">Luces de Retroceso:</label>
+                <p>{{ 'Sí' if checklist['LucesRetroceso'] == 1 else 'No' if checklist['LucesRetroceso'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="AlarmaRetroceso">Alarma de Retroceso:</label>
+                <p>{{ 'Sí' if checklist['AlarmaRetroceso'] == 1 else 'No' if checklist['AlarmaRetroceso'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="LuzEstroboscopico">Luz Estroboscópica:</label>
+                <p>{{ 'Sí' if checklist['LuzEstroboscopico'] == 1 else 'No' if checklist['LuzEstroboscopico'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="Claxon">Claxon:</label>
+                <p>{{ 'Sí' if checklist['Claxon'] == 1 else 'No' if checklist['Claxon'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CinturonSeguridad">Cinturón de Seguridad:</label>
+                <p>{{ 'Sí' if checklist['CinturonSeguridad'] == 1 else 'No' if checklist['CinturonSeguridad'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="Retrovisores">Retrovisores:</label>
+                <p>{{ 'Sí' if checklist['Retrovisores'] == 1 else 'No' if checklist['Retrovisores'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="Extintor">Extintor:</label>
+                <p>{{ 'Sí' if checklist['Extintor'] == 1 else 'No' if checklist['Extintor'] == 0 else 'N/A' }}</p>
+            </div>
+        </div>
+
+        <div class="checkbox-section">
+            <h3 class="section-header">Otros</h3>
+            <div class="checkbox-container">
+                <label for="RevisarTensionCadena">Revisar Tensión de Cadena:</label>
+                <p>{{ 'Sí' if checklist['RevisarTensionCadena'] == 1 else 'No' if checklist['RevisarTensionCadena'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="RevisarAjustesEmergencias">Revisar Ajustes de Emergencias:</label>
+                <p>{{ 'Sí' if checklist['RevisarAjustesEmergencias'] == 1 else 'No' if checklist['RevisarAjustesEmergencias'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="LavadoGeneral">Lavado General:</label>
+                <p>{{ 'Sí' if checklist['LavadoGeneral'] == 1 else 'No' if checklist['LavadoGeneral'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="LubricacionEngraseTorreCadena">Lubricación y Engrase de Torre y Cadena:</label>
+                <p>{{ 'Sí' if checklist['LubricacionEngraseTorreCadena'] == 1 else 'No' if checklist['LubricacionEngraseTorreCadena'] == 0 else 'N/A' }}</p>
+            </div>
+            <div class="checkbox-container">
+                <label for="CalibracionValvulaMotor">Calibración de Válvula del Motor:</label>
+                <p>{{ 'Sí' if checklist['CalibracionValvulaMotor'] == 1 else 'No' if checklist['CalibracionValvulaMotor'] == 0 else 'N/A' }}</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <label for="AdditionalNotes">Comentarios:</label><br>
+        <textarea readonly>{{ checklist["AdditionalNotes"] }}</textarea>
+    </div>
+
+    <div class="approval-box">
+        <p>Revisión por: {{ checklist['MechanicName'] }}</p>
+        <p>Aprobado por: {{ checklist['BossName'] }}</p>
+    </div>
+
+</body>
+</html>

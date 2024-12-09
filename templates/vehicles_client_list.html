@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehículos Clientes</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/VehicleStyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+        <a href="/">Inicio</a>
+    </div>
+    
+    <h1>Vehículos Clientes</h1>
+
+    <form method="GET" action="{{ url_for('vehicles_client_list') }}">
+        <input type="hidden" name="company" value="{{ company }}">
+        <div class="dropdown">
+            <input type="text" placeholder="Buscar por Código o Nombre..." id="clientInput" onkeyup="filterClients()">
+            <select id="client-dropdown" name="client_id" onchange="fetchVehicles(this.value)">
+                <option value="">Seleccione un Cliente</option>
+                {% for client in clients %}
+                    <option value="{{ client[0] }}">{{ client[0] }} - {{ client[1] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
+
+    <div id="vehicle-container" style="display: none;">
+        <div class="vehicle-list">
+            <!-- Aquí se llenarán los vehículos con JavaScript -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.full.min.js"></script>
+    <script>
+        function filterClients() {
+            var input = document.getElementById("clientInput").value;
+            $.ajax({
+                url: '/filter_clients',
+                method: 'GET',
+                data: { query: input },
+                success: function(response) {
+                    var select = document.getElementById("client-dropdown");
+                    select.innerHTML = '<option value="">Seleccione un Cliente</option>'; // Limpiar el select antes de agregar opciones filtradas
+                    for (var i = 0; i < response.length; i++) {
+                        var client = response[i];
+                        var option = new Option(client[0] + " - " + client[1], client[0]);
+                        select.options.add(option);
+                    }
+                },
+                error: function(error) {
+                    console.error("Error fetching clients:", error);
+                }
+            });
+        }
+
+        function fetchVehicles(clientId) {
+            if (!clientId) {
+                $('#vehicle-container').hide();
+                return;
+            }
+
+            $.ajax({
+                url: '/get_vehicles/' + clientId,
+                method: 'GET',
+                success: function(response) {
+                    var vehicleContainer = $('#vehicle-container');
+                    var vehicleList = vehicleContainer.find('.vehicle-list');
+                    vehicleList.empty();
+
+                    if (response.length > 0) {
+                        for (var i = 0; i < response.length; i++) {
+                            var vehicle = response[i];
+                            var vehicleHtml = `
+                                <div class="vehicle-container ${getStatusClass(vehicle[7])}">
+                                    <h3>${vehicle[1]} (ID: ${vehicle[0]})</h3>
+                                    <div class="vehicle-info-grid">
+                                        <p><strong>Marca:</strong> ${vehicle[2]}</p>
+                                        <p><strong>Modelo:</strong> ${vehicle[3]}</p>
+                                        <p><strong>Año:</strong> ${vehicle[4]}</p>
+                                        <p><strong>Serie:</strong> ${vehicle[5]}</p>
+                                        <p><strong>Observación:</strong> ${vehicle[6]}</p>
+                                        <p><strong>Status:</strong> ${vehicle[7]}</p>
+                                        <p><strong>Horómetro:</strong> ${vehicle[8]}</p>
+                                        <p><strong>Horas Desde Últ. Mant.:</strong> ${vehicle[9]}</p>
+                                        <p><strong>Fecha Act. Horómetro:</strong> ${vehicle[10]}</p>
+                                        <p><strong>Ubicación:</strong> ${vehicle[11]}</p>
+                                    </div>
+                                </div>
+                            `;
+                            vehicleList.append(vehicleHtml);
+                        }
+                        vehicleContainer.show();
+                    } else {
+                        vehicleList.append('<p>No se encontraron vehículos disponibles para el cliente seleccionado.</p>');
+                        vehicleContainer.show();
+                    }
+                },
+                error: function(error) {
+                    console.error("Error fetching vehicles:", error);
+                    $('#vehicle-container').hide();
+                }
+            });
+        }
+
+        function getStatusClass(status) {
+            switch (status) {
+                case 'Disponible': return 'Disponible';
+                case 'En Renta': return 'EnRenta';
+                case 'En Taller': return 'EnTaller';
+                case 'Reparación Externa': return 'ReparacionExterna';
+                default: return '';
+            }
+        }
+
+        $(document).ready(function() {
+            $('#client-dropdown').select2({
+                width: '100%',
+                placeholder: "Seleccione un Cliente",
+                allowClear: true
+            });
+        });
+    </script>
+</body>
+</html>

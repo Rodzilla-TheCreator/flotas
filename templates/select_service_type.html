@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar Tipo de Servicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Seleccionar Tipo de Servicio</h1>
+        <form method="POST" action="{{ url_for('select_service_type', company=company) }}">
+            <div class="form-group">
+                <label for="service_type">Tipo de Servicio</label>
+                <select class="form-control" id="service_type" name="service_type">
+                    <option value="internal">Servicio Interno</option>
+                    <option value="client">Servicio al Cliente</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Continuar</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Work Orders Record</title>
+    <title>Registro de Órdenes de Trabajo</title>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/static/css/WOStyle.css">
 </head>
 <body>
     <div class="navbar">
-        <div class="navbar">
-            <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
-            <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
-            <a href="{{url_for('mechanic_work_hours_summary',company=company) }}">Resumen de Mecanicos</a>
-            <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
-            <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
-            <a href="/">Inicio</a>
-        </div>
-        </div>
-    <h1>Work Orders Record</h1>
+        <a href="{{ url_for('work_orders', company=company) }}">Órdenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=company) }}">Resumen de Mecánicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Órdenes de Salida</a>
+        <a href="/">Inicio</a>
+    </div>
+
+    <h1>Registro de Órdenes de Trabajo</h1>
+
     <div class="top-section">
         <form method="GET" action="{{ url_for('work_orders_record', company=company) }}" class="search-form">
             <div>
-                <label for="order_id">Order ID:</label>
+                <label for="order_id">ID de Orden:</label>
                 <select id="order_id" name="order_id">
-                    <option value="">Select Order ID</option>
+                    <option value="">Seleccionar ID de Orden</option>
                     {% for id in order_ids %}
                     <option value="{{ id }}" {% if selected_order_id == id %} selected {% endif %}>{{ id }}</option>
                     {% endfor %}
                 </select>
             </div>
 
-            <!-- Vehicle Name Dropdown -->
             <div>
-                <label for="vehicle_name">Vehicle Name:</label>
+                <label for="vehicle_name">Nombre del Vehículo:</label>
                 <select id="vehicle_name" name="vehicle_name">
-                    <option value="">Select Vehicle Name</option>
+                    <option value="">Seleccionar Nombre del Vehículo</option>
                     {% for name in vehicle_names %}
                     <option value="{{ name }}" {% if selected_vehicle_name == name %} selected {% endif %}>{{ name }}</option>
                     {% endfor %}
@@ -41,42 +40,91 @@
             </div>
 
             <div>
-                <label for="description">Description:</label>
-                <input type="text" id="description" name="description" placeholder="Search by Description">
+                <label for="description">Descripción:</label>
+                <input type="text" id="description" name="description" placeholder="Buscar por Descripción" value="{{ selected_description }}">
             </div>
             
             <div>
-                <label for="start_date">Start Date:</label>
-                <input type="date" id="start_date" name="start_date">
+                <label for="start_date">Fecha de Inicio:</label>
+                <input type="date" id="start_date" name="start_date" value="{{ start_date_query }}">
             </div>
             
             <div>
-                <label for="end_date">End Date:</label>
-                <input type="date" id="end_date" name="end_date">
+                <label for="end_date">Fecha de Fin:</label>
+                <input type="date" id="end_date" name="end_date" value="{{ end_date_query }}">
             </div>
             
-
-            <input type="submit" value="Search" class="btn btn-primary">
+            <input type="submit" value="Buscar" class="btn btn-primary">
         </form>
 
-        <a href="{{ url_for('work_orders', company=company) }}" class="btn btn-secondary">Regresar a Ordenes de Trabajo Activas</a>
-
+        <a href="{{ url_for('work_orders', company=company) }}" class="btn btn-secondary">Regresar a Órdenes de Trabajo Activas</a>
     </div>
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('work_orders_record', company=company, page=1, order_id=selected_order_id, vehicle_name=selected_vehicle_name, description=selected_description, start_date=start_date_query, end_date=end_date_query) }}">&laquo; Primera</a>
+            <a href="{{ url_for('work_orders_record', company=company, page=page-1, order_id=selected_order_id, vehicle_name=selected_vehicle_name, description=selected_description, start_date=start_date_query, end_date=end_date_query) }}">&lt; Anterior</a>
+        {% endif %}
+
+        {% for p in range(1, total_pages + 1) %}
+            {% if p == page %}
+                <span class="current">{{ p }}</span>
+            {% elif p in [1, total_pages] or (p >= page - 2 and p <= page + 2) %}
+                <a href="{{ url_for('work_orders_record', company=company, page=p, order_id=selected_order_id, vehicle_name=selected_vehicle_name, description=selected_description, start_date=start_date_query, end_date=end_date_query) }}">{{ p }}</a>
+            {% elif p == page - 3 or p == page + 3 %}
+                ...
+            {% endif %}
+        {% endfor %}
+
+        {% if page < total_pages %}
+            <a href="{{ url_for('work_orders_record', company=company, page=page+1, order_id=selected_order_id, vehicle_name=selected_vehicle_name, description=selected_description, start_date=start_date_query, end_date=end_date_query) }}">Siguiente &gt;</a>
+            <a href="{{ url_for('work_orders_record', company=company, page=total_pages, order_id=selected_order_id, vehicle_name=selected_vehicle_name, description=selected_description, start_date=start_date_query, end_date=end_date_query) }}">Última &raquo;</a>
+        {% endif %}
+    </div><p></p>
+
     <div class="work-order-record-list">
         {% for order in work_orders %}
-            <div class="work-order-record">
-                <a href="{{ url_for('work_order_record_detail', company=company, order_id=order[0]) }}" class="work-order-record-link">
-                    <h2>Work Order ID: {{ order[0] }}</h2>
-                    <p>Vehicle Name: {{ order[2] }}</p>
-                    <p>Work Type: {{ order[3] }}</p>
-                    <p>Description: {{ order[4] }}</p>
-                    <p>Start Date: {{ order[5] }}</p>
-                    <p>End Date: {{ order[6] }}</p>
+            <div class="work-order-container default">
+                <span class="order-number">{{ order[0] }}</span>
+                <a class="work-order-record-link" href="{{ url_for('work_order_record_detail', company=company, order_id=order[0]) }}">
+                    <div class="work-order-summary">
+                        <h2>{{ order[2] }}</h2>
+                        <p>{% if order[3] == 'Repair' %}Reparo por Defecto{% elif order[3] == 'Maintenance' %}Mantenimiento Preventivo{% else %}{{ order[3] }}{% endif %}</p>
+                        <p>{{ order[4] }}</p>
+                        <p>{{ order[5] }}</p>
+                        <p>{{ order[6] }}</p>
+                    </div>
                 </a>
             </div>
         {% else %}
-            <p>No work orders found.</p>
+            <p>No se encontraron órdenes de trabajo.</p>
         {% endfor %}
+    </div>
+    
+
+    
+    
+
+    <!-- Paginación -->
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('work_orders_record', company=company, page=1, order_id=selected_order_id, vehicle_name=selected_vehicle_name, description=selected_description, start_date=start_date_query, end_date=end_date_query) }}">&laquo; Primera</a>
+            <a href="{{ url_for('work_orders_record', company=company, page=page-1, order_id=selected_order_id, vehicle_name=selected_vehicle_name, description=selected_description, start_date=start_date_query, end_date=end_date_query) }}">&lt; Anterior</a>
+        {% endif %}
+
+        {% for p in range(1, total_pages + 1) %}
+            {% if p == page %}
+                <span class="current">{{ p }}</span>
+            {% elif p in [1, total_pages] or (p >= page - 2 and p <= page + 2) %}
+                <a href="{{ url_for('work_orders_record', company=company, page=p, order_id=selected_order_id, vehicle_name=selected_vehicle_name, description=selected_description, start_date=start_date_query, end_date=end_date_query) }}">{{ p }}</a>
+            {% elif p == page - 3 or p == page + 3 %}
+                ...
+            {% endif %}
+        {% endfor %}
+
+        {% if page < total_pages %}
+            <a href="{{ url_for('work_orders_record', company=company, page=page+1, order_id=selected_order_id, vehicle_name=selected_vehicle_name, description=selected_description, start_date=start_date_query, end_date=end_date_query) }}">Siguiente &gt;</a>
+            <a href="{{ url_for('work_orders_record', company=company, page=total_pages, order_id=selected_order_id, vehicle_name=selected_vehicle_name, description=selected_description, start_date=start_date_query, end_date=end_date_query) }}">Última &raquo;</a>
+        {% endif %}
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

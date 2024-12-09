@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle del Vehículo</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/vehicledetail.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+        <a href="/">Inicio</a>
+    </div>
+
+    <h1>Detalle del Vehículo - {{ vehicle_name }}</h1>
+    
+    <button class="return-button" onclick="window.location.href='{{ url_for('vehicles_list', company=company) }}'">Regresar a Vehiculos</button>
+
+    <form method="POST" action="{{ url_for('save_vehicle_details_route', company=company, vehicle_name=vehicle_name) }}" class="form-container">
+        <div class="vehicle-detail-card">
+            <div class="field-card">
+                <label for="type">Marca:</label>
+                <input type="text" id="type" name="type" value="{{ vehicle_details['Type'] }}" readonly>
+            </div>
+            <div class="field-card">
+                <label for="marca">Tipo:</label>
+                <input type="text" id="marca" name="marca" value="{{ vehicle_details['Marca'] }}" readonly>
+            </div>
+            <div class="field-card">
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" name="modelo" value="{{ vehicle_details['Modelo'] }}" readonly>
+            </div>
+            <div class="field-card">
+                <label for="ano">Año:</label>
+                <input type="text" id="ano" name="ano" value="{{ vehicle_details['Ano'] }}" readonly>
+            </div>
+            <div class="field-card">
+                <label for="serie">Serie:</label>
+                <input type="text" id="serie" name="serie" value="{{ vehicle_details['Serie'] }}" readonly>
+            </div>
+            <div class="field-card">
+                <label for="vehicle_name">Nombre del Vehículo:</label>
+                <input type="text" id="vehicle_name" name="vehicle_name" value="{{ vehicle_details['VehicleName'] }}" readonly>
+            </div>
+            <div class="field-card">
+                <label for="observacion">Observación:</label>
+                <input type="text" id="observacion" name="observacion" value="{{ vehicle_details['Observacion'] }}">
+            </div>
+            <div class="field-card">
+                <label for="capacidadKG">Capacidad (KG):</label>
+                <input type="text" id="capacidadKG" name="capacidadKG" value="{{ vehicle_details['CapacidadKG'] }}">
+            </div>
+
+            <div class="field-card">
+                <label for="status">Estado:</label>
+                {% if vehicle_details['Status'] in ['Disponible', 'Deshabilitado', 'Vendido'] %}
+                <select id="status" name="status">
+                    <option value="Disponible" {% if vehicle_details['Status'] == 'Disponible' %}selected{% endif %}>Disponible</option>
+                    <option value="Deshabilitado" {% if vehicle_details['Status'] == 'Deshabilitado' %}selected{% endif %}>Deshabilitado</option>
+                    <option value="Vendido" {% if vehicle_details['Status'] == 'Vendido' %}selected{% endif %}>Vendido</option>
+                </select>
+                {% else %}
+                <input type="text" id="status" name="status" value="{{ vehicle_details['Status'] }}" readonly>
+                {% endif %}
+            </div>
+            
+            <div class="field-card">
+                <label for="horometro">Horómetro:</label>
+                <input type="text" id="horometro" name="horometro" value="{{ vehicle_details['Horometro'] }}" readonly>
+            </div>
+            <div class="field-card">
+                <label for="horometro_desde_ultimo_mantenimiento">Horómetro Desde Último Mantenimiento:</label>
+                <input type="text" id="horometro_desde_ultimo_mantenimiento" name="horometro_desde_ultimo_mantenimiento" value="{{ vehicle_details['HorometroDesdeUltimoMantenimiento'] }}">
+            </div>
+            <div class="field-card">
+                <label for="fecha_actualizacion_horometro">Fecha Actualización Horómetro:</label>
+                <input type="text" id="fecha_actualizacion_horometro" name="fecha_actualizacion_horometro" value="{{ vehicle_details['FechaActualizacionHorometro'] }}" readonly>
+            </div>
+            <div class="field-card">
+                <label for="ubicacion">Ubicación:</label>
+                <input type="text" id="ubicacion" name="ubicacion" value="{{ vehicle_details['Ubicacion'] }}">
+            </div>
+            <div class="field-card">
+                <label for="empresa">Empresa:</label>
+                <input type="text" id="empresa" name="empresa" value="{{ vehicle_details['Empresa'] }}" readonly>
+            </div>
+            <div class="field-card">
+                <label for="capacidad_maxima">Capacidad Máxima:</label>
+                <input type="text" id="capacidad_maxima" name="capacidad_maxima" value="{{ vehicle_details['Capacidad Maxima'] }}">
+            </div>
+            <div class="field-card">
+                <label for="altura_max_elevado">Altura Máx. Elevado:</label>
+                <input type="text" id="altura_max_elevado" name="altura_max_elevado" value="{{ vehicle_details['Altura Max. Elevado'] }}">
+            </div>
+            <div class="field-card">
+                <label for="peso_bruto">Peso Bruto:</label>
+                <input type="text" id="peso_bruto" name="peso_bruto" value="{{ vehicle_details['Peso Bruto'] }}">
+            </div>
+            <div class="field-card">
+                <label for="ancho">Ancho:</label>
+                <input type="text" id="ancho" name="ancho" value="{{ vehicle_details['Ancho'] }}">
+            </div>
+            <div class="field-card">
+                <label for="largo">Largo:</label>
+                <input type="text" id="largo" name="largo" value="{{ vehicle_details['Largo'] }}">
+            </div>
+            <div class="field-card">
+                <label for="altura">Altura:</label>
+                <input type="text" id="altura" name="altura" value="{{ vehicle_details['Altura'] }}">
+            </div>
+            <div class="field-card">
+                <label for="motor">Motor:</label>
+                <input type="text" id="motor" name="motor" value="{{ vehicle_details['Motor'] }}">
+            </div>
+            <div class="field-card">
+                <label for="tipo_llantas">Tipo de Llantas:</label>
+                <input type="text" id="tipo_llantas" name="tipo_llantas" value="{{ vehicle_details['Tipo de Llantas'] }}">
+            </div>
+            <div class="field-card">
+                <label for="horquillas_estandar">Horquillas Estándar:</label>
+                <input type="text" id="horquillas_estandar" name="horquillas_estandar" value="{{ vehicle_details['Horquillas Estándar'] }}">
+            </div>
+            <div class="field-card">
+                <label for="extintor">Extintor:</label>
+                <input type="checkbox" id="extintor" name="extintor" {% if vehicle_details['Extintor'] %}checked{% endif %}>
+            </div>
+            <div class="field-card">
+                <label for="luz_estroboscopica">Luz Estroboscopica:</label>
+                <input type="checkbox" id="luz_estroboscopica" name="luz_estroboscopica" {% if vehicle_details['Luz Estroboscopica'] %}checked{% endif %}>
+            </div>
+            <div class="field-card">
+                <label for="luces_trabajo">Luces de Trabajo delantera, trasera, vias:</label>
+                <input type="checkbox" id="luces_trabajo" name="luces_trabajo" {% if vehicle_details['Luces de Trabajo delantera, trasera, vias'] %}checked{% endif %}>
+            </div>
+            <div class="field-card">
+                <label for="retrovisores">Retrovisores:</label>
+                <input type="checkbox" id="retrovisores" name="retrovisores" {% if vehicle_details['Retrovisores'] %}checked{% endif %}>
+            </div>
+            <div class="field-card">
+                <label for="asiento_ergonomico">Asiento Ergonomico:</label>
+                <input type="checkbox" id="asiento_ergonomico" name="asiento_ergonomico" {% if vehicle_details['Asiento Ergonomico'] %}checked{% endif %}>
+            </div>
+            <div class="field-card">
+                <label for="cinturon_seguridad">Cinturon de Seguridad:</label>
+                <input type="checkbox" id="cinturon_seguridad" name="cinturon_seguridad" {% if vehicle_details['Cinturon de Seguridad'] %}checked{% endif %}>
+            </div>
+            <div class="field-card">
+                <label for="capote">Capote:</label>
+                <input type="checkbox" id="capote" name="capote" {% if vehicle_details['Capote'] %}checked{% endif %}>
+            </div>
+        </div>
+
+        <input type="submit" value="Guardar" class="submit-button">
+    </form>
+    <div class="field-card">
+        <form method="POST" action="{{ url_for('update_horometros') }}" class="horometro-update-form">
+            <input type="hidden" name="vehicle_id" value="{{ vehicle_id }}">
+            <input type="hidden" name="company" value="{{ company }}">
+            <input type="hidden" name="vehicle_name" value="{{ vehicle_name }}">
+            <label for="new_horometro">Actualizar Horómetro:</label>
+            <input type="number" name="new_horometro" placeholder="Introduce nuevo horómetro">
+            <input type="submit" value="Actualizar Horómetro">
+            {% if error_message %}
+            <div class="error-message">{{ error_message }}</div>
+            {% endif %}
+        </form>
+    </div>
+    
+
+</body>
+</html>
+

@@ -2,36 +2,101 @@
 <html>
 <head>
     <title>Crear Orden de Salida</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/new_order.css">
 </head>
 <body>
-    <h1>Crear Orden de Salida</h1>
+    <div class="navbar">
+        <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
+        <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
+        <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
+        <a href="/">Inicio</a>
+    </div>
 
-    {% if message %}
-        <div style="color: red;">{{ message }}</div>
-    {% endif %}
+    <div class="container">
+        <h1>Crear Orden de Salida</h1>
 
-    <form method="post" action="{{ url_for('add_departure_order', company=company) }}">
-        <label for="vehicle_id">Vehículo:</label>
-        <select id="vehicle_id" name="vehicle_id" required>
-            {% for vehicle in available_vehicles %}
-                <option value="{{ vehicle[0] }}">{{ vehicle[1] }}</option>
-            {% endfor %}
-        </select><br><br>
+        {% if message %}
+            <div style="color: red;">{{ message }}</div>
+        {% endif %}
 
-        <label for="operator_id">Operador:</label>
-        <select id="operator_id" name="operator_id" required>
-            {% for operator in operadores %}
-                <option value="{{ operator[0] }}">{{ operator[1] }}</option>
-            {% endfor %}
-        </select><br><br>
+        <form method="post" action="{{ url_for('add_departure_order', company=company) }}">
+            <div class="form-group">
+                <label for="cliente_id">Cliente:</label>
+                <input type="text" id="myInputClient" onkeyup="filterFunction('client-dropdown', 'myInputClient')" class="form-control" placeholder="Buscar cliente...">
+                <select id="client-dropdown" name="cliente_id" class="form-control" required>
+                    <option value="">Seleccione un Cliente</option>
+                    {% for client in clientes %}
+                        <option value="{{ client[0] }}">{{ client[0] }} - {{ client[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-        <label for="location">Ubicación:</label>
-        <input type="text" id="location" name="location" required><br><br>
+            <div class="form-group">
+                <label for="vehicle_id">Vehículo:</label>
+                <select id="vehicle_id" name="vehicle_id" class="form-control" required>
+                    {% for vehicle in available_vehicles %}
+                        <option value="{{ vehicle[0] }}">{{ vehicle[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-        <label for="comments">Comentarios:</label>
-        <textarea id="comments" name="comments"></textarea><br><br>
+            <div class="form-group">
+                <label for="operator_id">Operador:</label>
+                <select id="operator_id" name="operator_id" class="form-control" required>
+                    {% for operator in operadores %}
+                        <option value="{{ operator[0] }}">{{ operator[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-        <input type="submit" value="Crear Orden de Salida">
-    </form>
+            <div class="form-group">
+                <label for="location">Ubicación:</label>
+                <input type="text" id="location" name="location" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="orden_de_sap">Orden de SAP:</label>
+                <input type="text" id="orden_de_sap" name="orden_de_sap" class="form-control" maxlength="10" required>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Comentarios:</label>
+                <textarea id="comments" name="comments" class="form-control"></textarea>
+            </div>
+
+            <input type="submit" value="Crear Orden de Salida" class="btn">
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.full.min.js"></script>
+    <script>
+        function filterFunction(dropdownId, inputId) {
+            var input, filter, select, options, i;
+            input = document.getElementById(inputId);
+            filter = input.value.toUpperCase();
+            select = document.getElementById(dropdownId);
+            options = select.getElementsByTagName("option");
+
+            for (i = 0; i < options.length; i++) {
+                txtValue = options[i].textContent || options[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    options[i].style.display = "";
+                } else {
+                    options[i].style.display = "none";
+                }
+            }
+        }
+
+        $(document).ready(function() {
+            $('#client-dropdown, #vehicle_id, #operator_id').select2({
+                width: '100%',
+                placeholder: "Seleccione una opción",
+                allowClear: true
+            });
+        });
+    </script>
 </body>
 </html>

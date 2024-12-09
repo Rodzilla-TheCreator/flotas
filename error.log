@@ -1,0 +1,1474 @@
+2024-07-23 08:49:29,503 ERROR: Unhandled Exception: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2439, in complete_work_order
+    current_status = cursor.fetchone()[0]
+                     ~~~~~~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:48]
+2024-07-23 08:49:29,503 ERROR: Unhandled Exception: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2439, in complete_work_order
+    current_status = cursor.fetchone()[0]
+                     ~~~~~~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:48]
+2024-07-23 08:50:24,847 ERROR: Unhandled Exception: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2439, in complete_work_order
+    current_status = cursor.fetchone()[0]
+                     ~~~~~~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:48]
+2024-07-23 08:50:24,847 ERROR: Unhandled Exception: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2439, in complete_work_order
+    current_status = cursor.fetchone()[0]
+                     ~~~~~~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:48]
+2024-07-23 08:59:24,524 ERROR: Unhandled Exception: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2439, in complete_work_order
+    current_status = cursor.fetchone()[0]
+                     ~~~~~~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:48]
+2024-07-23 08:59:24,524 ERROR: Unhandled Exception: 'NoneType' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2439, in complete_work_order
+    current_status = cursor.fetchone()[0]
+                     ~~~~~~~~~~~~~~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:48]
+2024-07-23 18:23:08,176 ERROR: Unhandled Exception: name 'Font' is not defined
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3537, in download_active_order
+    sheet[cell].font = Font(size=20)
+                       ^^^^
+NameError: name 'Font' is not defined
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:48]
+2024-07-23 18:23:08,176 ERROR: Unhandled Exception: name 'Font' is not defined
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3537, in download_active_order
+    sheet[cell].font = Font(size=20)
+                       ^^^^
+NameError: name 'Font' is not defined
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:48]
+2024-07-24 11:30:21,702 ERROR: Unhandled Exception: 'MergedCell' object attribute 'value' is read-only
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3524, in download_active_order
+    fill_data(sheet, data)
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3554, in fill_data
+    sheet['D9'] = data['NumeroVehiculo']
+    ~~~~~^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\openpyxl\worksheet\worksheet.py", line 317, in __setitem__
+    self[key].value = value
+    ^^^^^^^^^^^^^^^
+AttributeError: 'MergedCell' object attribute 'value' is read-only
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-24 11:30:21,702 ERROR: Unhandled Exception: 'MergedCell' object attribute 'value' is read-only
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3524, in download_active_order
+    fill_data(sheet, data)
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3554, in fill_data
+    sheet['D9'] = data['NumeroVehiculo']
+    ~~~~~^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\openpyxl\worksheet\worksheet.py", line 317, in __setitem__
+    self[key].value = value
+    ^^^^^^^^^^^^^^^
+AttributeError: 'MergedCell' object attribute 'value' is read-only
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-24 11:32:03,339 ERROR: Unhandled Exception: 'NoneType' object has no attribute 'split'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3524, in download_active_order
+    fill_data(sheet, data)
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3570, in fill_data
+    diagnostico_lines = wrap_text(data['Diagnostico'], 65)  # Adjust max_chars as necessary
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3431, in wrap_text
+    words = text.split()
+            ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'split'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-24 11:32:03,339 ERROR: Unhandled Exception: 'NoneType' object has no attribute 'split'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3524, in download_active_order
+    fill_data(sheet, data)
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3570, in fill_data
+    diagnostico_lines = wrap_text(data['Diagnostico'], 65)  # Adjust max_chars as necessary
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3431, in wrap_text
+    words = text.split()
+            ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'split'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-24 11:37:29,454 ERROR: Unhandled Exception: (-2147221005, 'Invalid class string', None, None)
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\win32com\client\dynamic.py", line 84, in _GetGoodDispatch
+    IDispatch = pythoncom.connect(IDispatch)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147221005, 'Invalid class string', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3534, in download_active_order
+    save_as_pdf(output_excel_path, output_pdf_path)
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3612, in save_as_pdf
+    excel = win32com.client.Dispatch("Excel.Application")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\win32com\client\__init__.py", line 118, in Dispatch
+    dispatch, userName = dynamic._GetGoodDispatchAndUserName(dispatch, userName, clsctx)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\win32com\client\dynamic.py", line 104, in _GetGoodDispatchAndUserName
+    return (_GetGoodDispatch(IDispatch, clsctx), userName)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\win32com\client\dynamic.py", line 86, in _GetGoodDispatch
+    IDispatch = pythoncom.CoCreateInstance(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147221005, 'Invalid class string', None, None)
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-24 11:37:29,454 ERROR: Unhandled Exception: (-2147221005, 'Invalid class string', None, None)
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\win32com\client\dynamic.py", line 84, in _GetGoodDispatch
+    IDispatch = pythoncom.connect(IDispatch)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147221005, 'Invalid class string', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3534, in download_active_order
+    save_as_pdf(output_excel_path, output_pdf_path)
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3612, in save_as_pdf
+    excel = win32com.client.Dispatch("Excel.Application")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\win32com\client\__init__.py", line 118, in Dispatch
+    dispatch, userName = dynamic._GetGoodDispatchAndUserName(dispatch, userName, clsctx)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\win32com\client\dynamic.py", line 104, in _GetGoodDispatchAndUserName
+    return (_GetGoodDispatch(IDispatch, clsctx), userName)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\win32com\client\dynamic.py", line 86, in _GetGoodDispatch
+    IDispatch = pythoncom.CoCreateInstance(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pywintypes.com_error: (-2147221005, 'Invalid class string', None, None)
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-24 11:46:45,876 ERROR: Unhandled Exception: 'MergedCell' object attribute 'value' is read-only
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3508, in download_active_order
+    sheet['O9'] = data['NumeroVehiculo']
+    ~~~~~^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\openpyxl\worksheet\worksheet.py", line 317, in __setitem__
+    self[key].value = value
+    ^^^^^^^^^^^^^^^
+AttributeError: 'MergedCell' object attribute 'value' is read-only
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-24 11:46:45,876 ERROR: Unhandled Exception: 'MergedCell' object attribute 'value' is read-only
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3508, in download_active_order
+    sheet['O9'] = data['NumeroVehiculo']
+    ~~~~~^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\openpyxl\worksheet\worksheet.py", line 317, in __setitem__
+    self[key].value = value
+    ^^^^^^^^^^^^^^^
+AttributeError: 'MergedCell' object attribute 'value' is read-only
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-24 11:48:11,345 ERROR: Unhandled Exception: 'NoneType' object has no attribute 'split'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3535, in download_active_order
+    diagnostico_lines = split_text(data['Diagnostico'], 60)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3517, in split_text
+    words = text.split(' ')
+            ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'split'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-24 11:48:11,345 ERROR: Unhandled Exception: 'NoneType' object has no attribute 'split'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3535, in download_active_order
+    diagnostico_lines = split_text(data['Diagnostico'], 60)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3517, in split_text
+    words = text.split(' ')
+            ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'split'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-24 12:21:55,940 ERROR: Unhandled Exception: 'NoneType' object has no attribute 'split'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3536, in download_active_order
+    diagnostico_lines = split_text(data['Diagnostico'], 60)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3518, in split_text
+    words = text.split(' ')
+            ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'split'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-24 12:21:55,940 ERROR: Unhandled Exception: 'NoneType' object has no attribute 'split'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3536, in download_active_order
+    diagnostico_lines = split_text(data['Diagnostico'], 60)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3518, in split_text
+    words = text.split(' ')
+            ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'split'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 09:26:16,167 ERROR: Unhandled Exception: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 323, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3306' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1024, in vehicles_list
+    conn = get_db_connection()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 74, in get_db_connection
+    return mysql.connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 140, in __init__
+    self.connect(**kwargs)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\abstracts.py", line 1363, in connect
+    self._open_connection()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 328, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 09:26:16,167 ERROR: Unhandled Exception: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 323, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3306' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1024, in vehicles_list
+    conn = get_db_connection()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 74, in get_db_connection
+    return mysql.connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 140, in __init__
+    self.connect(**kwargs)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\abstracts.py", line 1363, in connect
+    self._open_connection()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 328, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 09:34:42,937 ERROR: Unhandled Exception: 405 Method Not Allowed: The method is not allowed for the requested URL.
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 844, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 453, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 619, in match
+    raise MethodNotAllowed(valid_methods=list(e.have_match_for)) from None
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 09:34:42,937 ERROR: Unhandled Exception: 405 Method Not Allowed: The method is not allowed for the requested URL.
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 844, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 453, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 619, in match
+    raise MethodNotAllowed(valid_methods=list(e.have_match_for)) from None
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 14:12:44,290 ERROR: Unhandled Exception: 405 Method Not Allowed: The method is not allowed for the requested URL.
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 844, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 453, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 619, in match
+    raise MethodNotAllowed(valid_methods=list(e.have_match_for)) from None
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 14:12:44,290 ERROR: Unhandled Exception: 405 Method Not Allowed: The method is not allowed for the requested URL.
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 844, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 453, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 619, in match
+    raise MethodNotAllowed(valid_methods=list(e.have_match_for)) from None
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 14:12:49,978 ERROR: Unhandled Exception: 405 Method Not Allowed: The method is not allowed for the requested URL.
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 844, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 453, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 619, in match
+    raise MethodNotAllowed(valid_methods=list(e.have_match_for)) from None
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 14:12:49,978 ERROR: Unhandled Exception: 405 Method Not Allowed: The method is not allowed for the requested URL.
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 844, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 453, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 619, in match
+    raise MethodNotAllowed(valid_methods=list(e.have_match_for)) from None
+werkzeug.exceptions.MethodNotAllowed: 405 Method Not Allowed: The method is not allowed for the requested URL.
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 18:00:55,594 ERROR: Unhandled Exception: 'order_id' is undefined
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2948, in departure_order_detail
+    return render_template('departure_order_detail.html', order=order_detail, operadores=operadores, company=company)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\templates\departure_order_detail.html", line 71, in top-level template code
+    <button class="btn-quality-check" onclick="window.location.href='{{ url_for('operator_quality_check', order_id=order_id) }}'">Checklist de Operadores</button>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1063, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 917, in build
+    rv = self._partial_build(endpoint, values, method, append_unknown)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 796, in _partial_build
+    rv = self._partial_build(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 809, in _partial_build
+    build_rv = rule.build(values, append_unknown)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\rules.py", line 831, in build
+    return self._build_unknown(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<werkzeug routing>", line 1, in <builder:'/operator_quality_check/<int:order_id>'>
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\converters.py", line 163, in to_url
+    value = str(self.num_convert(value))
+                ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'order_id' is undefined
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 18:00:55,594 ERROR: Unhandled Exception: 'order_id' is undefined
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2948, in departure_order_detail
+    return render_template('departure_order_detail.html', order=order_detail, operadores=operadores, company=company)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\templates\departure_order_detail.html", line 71, in top-level template code
+    <button class="btn-quality-check" onclick="window.location.href='{{ url_for('operator_quality_check', order_id=order_id) }}'">Checklist de Operadores</button>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1063, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 917, in build
+    rv = self._partial_build(endpoint, values, method, append_unknown)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 796, in _partial_build
+    rv = self._partial_build(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 809, in _partial_build
+    build_rv = rule.build(values, append_unknown)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\rules.py", line 831, in build
+    return self._build_unknown(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<werkzeug routing>", line 1, in <builder:'/operator_quality_check/<int:order_id>'>
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\converters.py", line 163, in to_url
+    value = str(self.num_convert(value))
+                ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'order_id' is undefined
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 18:06:14,073 ERROR: Unhandled Exception: 1146 (42S02): Table 'mechanicorganizationalsystem.operatorqualitychecklist' doesn't exist
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 661, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Table 'mechanicorganizationalsystem.operatorqualitychecklist' doesn't exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2423, in operator_quality_check
+    cursor.execute('''
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 374, in execute
+    result = self._cnx.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 74, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 669, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'mechanicorganizationalsystem.operatorqualitychecklist' doesn't exist
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 18:06:14,073 ERROR: Unhandled Exception: 1146 (42S02): Table 'mechanicorganizationalsystem.operatorqualitychecklist' doesn't exist
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 661, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Table 'mechanicorganizationalsystem.operatorqualitychecklist' doesn't exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2423, in operator_quality_check
+    cursor.execute('''
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 374, in execute
+    result = self._cnx.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 74, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 669, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'mechanicorganizationalsystem.operatorqualitychecklist' doesn't exist
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 18:08:33,697 ERROR: Unhandled Exception: operator_quality_check.html
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2437, in operator_quality_check
+    return render_template('operator_quality_check.html', checklist=checklist, order_id=order_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 125, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: operator_quality_check.html
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 18:08:33,697 ERROR: Unhandled Exception: operator_quality_check.html
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2437, in operator_quality_check
+    return render_template('operator_quality_check.html', checklist=checklist, order_id=order_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 125, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: operator_quality_check.html
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 18:09:33,622 ERROR: Unhandled Exception: unexpected char '?' at 261
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2437, in operator_quality_check
+    return render_template('operator_checklist.html', checklist=checklist, order_id=order_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 137, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\templates\operator_checklist.html", line 9, in template
+    <button class="return-button" onclick="window.location.href='{{ checklist['HoraRegreso'] ? url_for('departure_order_detail', company=company, order_id=order_id) : url_for('departure_order_record_detail', company=company, order_id=order_id) }}'">Regresar a Orden de Salida</button>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: unexpected char '?' at 261
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 18:09:33,622 ERROR: Unhandled Exception: unexpected char '?' at 261
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2437, in operator_quality_check
+    return render_template('operator_checklist.html', checklist=checklist, order_id=order_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 137, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\templates\operator_checklist.html", line 9, in template
+    <button class="return-button" onclick="window.location.href='{{ checklist['HoraRegreso'] ? url_for('departure_order_detail', company=company, order_id=order_id) : url_for('departure_order_record_detail', company=company, order_id=order_id) }}'">Regresar a Orden de Salida</button>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: unexpected char '?' at 261
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 18:11:08,667 ERROR: Unhandled Exception: Could not build url for endpoint 'departure_order_detail' with values ['order_id']. Did you forget to specify values ['company']?
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2497, in update_operator_quality_checklist
+    return redirect(url_for('departure_order_detail', order_id=order_id))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 220, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1074, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1063, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'departure_order_detail' with values ['order_id']. Did you forget to specify values ['company']?
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 18:11:08,667 ERROR: Unhandled Exception: Could not build url for endpoint 'departure_order_detail' with values ['order_id']. Did you forget to specify values ['company']?
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2497, in update_operator_quality_checklist
+    return redirect(url_for('departure_order_detail', order_id=order_id))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\helpers.py", line 220, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1074, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1063, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'departure_order_detail' with values ['order_id']. Did you forget to specify values ['company']?
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 18:12:21,151 ERROR: Page not found: http://172.16.1.33/departure_order_detail//146
+404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:55]
+2024-07-29 18:12:21,151 ERROR: Page not found: http://172.16.1.33/departure_order_detail//146
+404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:55]
+2024-07-29 18:14:20,948 ERROR: Page not found: http://172.16.1.33/departure_order_detail//146
+404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:55]
+2024-07-29 18:14:20,948 ERROR: Page not found: http://172.16.1.33/departure_order_detail//146
+404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:55]
+2024-07-29 18:17:46,666 ERROR: Unhandled Exception: operator_quality_check.html
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2442, in operator_quality_check
+    return render_template('operator_quality_check.html', checklist=checklist, order_id=order_id, company=company)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 125, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: operator_quality_check.html
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-29 18:17:46,666 ERROR: Unhandled Exception: operator_quality_check.html
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2442, in operator_quality_check
+    return render_template('operator_quality_check.html', checklist=checklist, order_id=order_id, company=company)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 125, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: operator_quality_check.html
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:49]
+2024-07-30 14:45:02,905 ERROR: Unhandled Exception: name 'logger' is not defined
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 121, in send_email
+    logger.debug("Entered send_email route")
+    ^^^^^^
+NameError: name 'logger' is not defined
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:50]
+2024-07-30 14:45:02,905 ERROR: Unhandled Exception: name 'logger' is not defined
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 121, in send_email
+    logger.debug("Entered send_email route")
+    ^^^^^^
+NameError: name 'logger' is not defined
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:50]
+2024-07-30 14:45:50,378 ERROR: Error occurred: Connection unexpectedly closed [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:133]
+2024-07-30 14:45:50,378 ERROR: Error occurred: Connection unexpectedly closed [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:133]
+2024-07-30 14:49:39,669 ERROR: SMTP Server Disconnected: Connection unexpectedly closed [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:142]
+2024-07-30 14:49:39,669 ERROR: SMTP Server Disconnected: Connection unexpectedly closed [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:142]
+2024-07-30 14:50:44,888 ERROR: SMTP Server Disconnected: Connection unexpectedly closed [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:143]
+2024-07-30 14:50:44,888 ERROR: SMTP Server Disconnected: Connection unexpectedly closed [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:143]
+2024-07-30 16:25:16,748 ERROR: Unhandled Exception: Could not build url for endpoint 'send_email'. Did you mean 'send_vehicle_report' instead?
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2872, in mechanic_work_hours
+    return render_template('mechanic_work_hours.html', work_hours=work_hours, mechanics=mechanics)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\templates\mechanic_work_hours.html", line 9, in top-level template code
+    <button onclick="window.location.href='{{ url_for('send_email') }}'">Send Email</button>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1074, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1063, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'send_email'. Did you mean 'send_vehicle_report' instead?
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:52]
+2024-07-30 16:25:16,748 ERROR: Unhandled Exception: Could not build url for endpoint 'send_email'. Did you mean 'send_vehicle_report' instead?
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2872, in mechanic_work_hours
+    return render_template('mechanic_work_hours.html', work_hours=work_hours, mechanics=mechanics)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\templates\mechanic_work_hours.html", line 9, in top-level template code
+    <button onclick="window.location.href='{{ url_for('send_email') }}'">Send Email</button>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1074, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1063, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'send_email'. Did you mean 'send_vehicle_report' instead?
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:52]
+2024-08-14 16:12:11,651 ERROR: Unhandled Exception: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 323, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3306' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1175, in vehicles_list
+    conn = get_db_connection()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 79, in get_db_connection
+    return mysql.connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 140, in __init__
+    self.connect(**kwargs)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\abstracts.py", line 1363, in connect
+    self._open_connection()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 328, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:53]
+2024-08-14 16:12:11,651 ERROR: Unhandled Exception: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 323, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3306' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1175, in vehicles_list
+    conn = get_db_connection()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 79, in get_db_connection
+    return mysql.connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 140, in __init__
+    self.connect(**kwargs)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\abstracts.py", line 1363, in connect
+    self._open_connection()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 328, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:53]
+2024-08-14 16:12:17,077 ERROR: Unhandled Exception: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 323, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3306' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1175, in vehicles_list
+    conn = get_db_connection()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 79, in get_db_connection
+    return mysql.connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 140, in __init__
+    self.connect(**kwargs)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\abstracts.py", line 1363, in connect
+    self._open_connection()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 328, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:53]
+2024-08-14 16:12:17,077 ERROR: Unhandled Exception: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 323, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on 'localhost:3306' (10061)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1175, in vehicles_list
+    conn = get_db_connection()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 79, in get_db_connection
+    return mysql.connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 140, in __init__
+    self.connect(**kwargs)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\abstracts.py", line 1363, in connect
+    self._open_connection()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 328, in _open_connection
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (10061)
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:53]
+2024-09-24 11:49:45,054 ERROR: Unhandled Exception: Unread result found
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1366, in vehicle_detail
+    vehicle_details = get_vehicle_details(company, vehicle_name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1323, in get_vehicle_details
+    cursor.close()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 541, in close
+    self._cnx.handle_unread_result()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 990, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-09-24 11:49:45,054 ERROR: Unhandled Exception: Unread result found
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1366, in vehicle_detail
+    vehicle_details = get_vehicle_details(company, vehicle_name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1323, in get_vehicle_details
+    cursor.close()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 541, in close
+    self._cnx.handle_unread_result()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 990, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-09-24 11:50:13,963 ERROR: Page not found: http://172.16.1.33/vehicle_detail/MontasaCR
+404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:64]
+2024-09-24 11:50:13,963 ERROR: Page not found: http://172.16.1.33/vehicle_detail/MontasaCR
+404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:64]
+2024-09-24 11:50:33,066 ERROR: Unhandled Exception: Unread result found
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1366, in vehicle_detail
+    vehicle_details = get_vehicle_details(company, vehicle_name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1323, in get_vehicle_details
+    cursor.close()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 541, in close
+    self._cnx.handle_unread_result()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 990, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-09-24 11:50:33,066 ERROR: Unhandled Exception: Unread result found
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1366, in vehicle_detail
+    vehicle_details = get_vehicle_details(company, vehicle_name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 1323, in get_vehicle_details
+    cursor.close()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 541, in close
+    self._cnx.handle_unread_result()
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 990, in handle_unread_result
+    raise InternalError("Unread result found")
+mysql.connector.errors.InternalError: Unread result found
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-21 13:04:02,123 ERROR: Unhandled Exception: [Errno 2] No such file or directory: 'C:\\Users\\rodrigo.monterroso\\Downloads\\flotas first running 7.9.2024\\flotas Upload 30 6 24\\Flotas\\Orden_195_generico DISTRIBUCIONES INTERNACIONALES SA CV/DINTER.xlsx'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3988, in download_active_order
+    wb.save(output_path)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\openpyxl\writer\excel.py", line 291, in save_workbook
+    archive = ZipFile(filename, 'w', ZIP_DEFLATED, allowZip64=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\zipfile\__init__.py", line 1323, in __init__
+    self.fp = io.open(file, filemode)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\rodrigo.monterroso\\Downloads\\flotas first running 7.9.2024\\flotas Upload 30 6 24\\Flotas\\Orden_195_generico DISTRIBUCIONES INTERNACIONALES SA CV/DINTER.xlsx'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-21 13:04:02,123 ERROR: Unhandled Exception: [Errno 2] No such file or directory: 'C:\\Users\\rodrigo.monterroso\\Downloads\\flotas first running 7.9.2024\\flotas Upload 30 6 24\\Flotas\\Orden_195_generico DISTRIBUCIONES INTERNACIONALES SA CV/DINTER.xlsx'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3988, in download_active_order
+    wb.save(output_path)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\openpyxl\writer\excel.py", line 291, in save_workbook
+    archive = ZipFile(filename, 'w', ZIP_DEFLATED, allowZip64=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\zipfile\__init__.py", line 1323, in __init__
+    self.fp = io.open(file, filemode)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\rodrigo.monterroso\\Downloads\\flotas first running 7.9.2024\\flotas Upload 30 6 24\\Flotas\\Orden_195_generico DISTRIBUCIONES INTERNACIONALES SA CV/DINTER.xlsx'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-22 14:43:11,040 ERROR: Unhandled Exception: [Errno 2] No such file or directory: 'C:\\Users\\rodrigo.monterroso\\Downloads\\flotas first running 7.9.2024\\flotas Upload 30 6 24\\Flotas\\Orden_195_generico DISTRIBUCIONES INTERNACIONALES SA CV/DINTER.xlsx'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3988, in download_active_order
+    wb.save(output_path)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\openpyxl\writer\excel.py", line 291, in save_workbook
+    archive = ZipFile(filename, 'w', ZIP_DEFLATED, allowZip64=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\zipfile\__init__.py", line 1323, in __init__
+    self.fp = io.open(file, filemode)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\rodrigo.monterroso\\Downloads\\flotas first running 7.9.2024\\flotas Upload 30 6 24\\Flotas\\Orden_195_generico DISTRIBUCIONES INTERNACIONALES SA CV/DINTER.xlsx'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-22 14:43:11,040 ERROR: Unhandled Exception: [Errno 2] No such file or directory: 'C:\\Users\\rodrigo.monterroso\\Downloads\\flotas first running 7.9.2024\\flotas Upload 30 6 24\\Flotas\\Orden_195_generico DISTRIBUCIONES INTERNACIONALES SA CV/DINTER.xlsx'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3988, in download_active_order
+    wb.save(output_path)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\openpyxl\writer\excel.py", line 291, in save_workbook
+    archive = ZipFile(filename, 'w', ZIP_DEFLATED, allowZip64=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\zipfile\__init__.py", line 1323, in __init__
+    self.fp = io.open(file, filemode)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\rodrigo.monterroso\\Downloads\\flotas first running 7.9.2024\\flotas Upload 30 6 24\\Flotas\\Orden_195_generico DISTRIBUCIONES INTERNACIONALES SA CV/DINTER.xlsx'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 11:56:58,553 ERROR: Unhandled Exception: float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2248, in work_order_record_detail
+    mechanic_time_seconds = float(mechanic[2])
+                            ^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 11:56:58,553 ERROR: Unhandled Exception: float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2248, in work_order_record_detail
+    mechanic_time_seconds = float(mechanic[2])
+                            ^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 11:57:01,145 ERROR: Unhandled Exception: float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2248, in work_order_record_detail
+    mechanic_time_seconds = float(mechanic[2])
+                            ^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 11:57:01,145 ERROR: Unhandled Exception: float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2248, in work_order_record_detail
+    mechanic_time_seconds = float(mechanic[2])
+                            ^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 11:57:12,379 ERROR: Unhandled Exception: float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2248, in work_order_record_detail
+    mechanic_time_seconds = float(mechanic[2])
+                            ^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 11:57:12,379 ERROR: Unhandled Exception: float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2248, in work_order_record_detail
+    mechanic_time_seconds = float(mechanic[2])
+                            ^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 11:57:15,739 ERROR: Unhandled Exception: float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2248, in work_order_record_detail
+    mechanic_time_seconds = float(mechanic[2])
+                            ^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 11:57:15,739 ERROR: Unhandled Exception: float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2248, in work_order_record_detail
+    mechanic_time_seconds = float(mechanic[2])
+                            ^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 11:57:45,608 ERROR: Unhandled Exception: float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2248, in work_order_record_detail
+    mechanic_time_seconds = float(mechanic[2])
+                            ^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 11:57:45,608 ERROR: Unhandled Exception: float() argument must be a string or a real number, not 'NoneType'
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 2248, in work_order_record_detail
+    mechanic_time_seconds = float(mechanic[2])
+                            ^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 14:14:24,881 ERROR: Unhandled Exception: could not convert string to float: ''
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3627, in update_horometros
+    new_horometro = float(new_horometro)
+                    ^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 14:14:24,881 ERROR: Unhandled Exception: could not convert string to float: ''
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3627, in update_horometros
+    new_horometro = float(new_horometro)
+                    ^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 16:03:08,939 ERROR: Unhandled Exception: could not convert string to float: ''
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3627, in update_horometros
+    new_horometro = float(new_horometro)
+                    ^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]
+2024-11-27 16:03:08,939 ERROR: Unhandled Exception: could not convert string to float: ''
+Traceback (most recent call last):
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py", line 3627, in update_horometros
+    new_horometro = float(new_horometro)
+                    ^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: ''
+ [in C:\Users\rodrigo.monterroso\Downloads\flotas first running 7.9.2024\flotas Upload 30 6 24\Flotas\app.py:58]

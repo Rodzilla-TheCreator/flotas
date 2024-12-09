@@ -52,16 +52,18 @@ input[type="number"], input[type="submit"] {
 }
 
 .vehicle-container.Disponible {
-    background-color: #e0f8d8; /* Verde claro para vehículos disponibles */
+    background-color: #63fc30; /* Verde claro para vehículos disponibles */
 }
 
 .vehicle-container.EnTaller {
-    background-color: #f8d7da; /* Rojo claro para vehículos en taller */
+    background-color: #ff0015; /* Rojo claro para vehículos en taller */
 }
 
 .vehicle-container.EnRenta {
-    background-color: #fff3cd; /* Amarillo claro para vehículos en renta */
+    background-color: #daaa0c; /* Amarillo claro para vehículos en renta */
 }
+
+
 
 form {
     margin-top: 20px;
@@ -155,3 +157,18 @@ input[type="submit"]:hover {
   body {
     padding-top: 50px; /* Equal to the height of the navbar */
   }
+  .vehicle-button {
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.vehicle-button:hover {
+    background-color: #45a049;
+}

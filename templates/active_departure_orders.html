@@ -3,33 +3,41 @@
 <head>
     <title>Órdenes de Salida Activas</title>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/static/css/WOStyle.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/active_departure_orders.css">
 </head>
 <body>
 
     <div class="navbar">
         <a href="{{ url_for('work_orders', company=company) }}">Ordenes de Trabajo</a>
         <a href="{{ url_for('vehicles_list', company=company) }}">Vehículos</a>
-        <a href="{{ url_for('mechanic_work_hours_summary',company=company) }}">Resumen de Mecanicos</a>
+        <a href="{{ url_for('mechanic_work_hours_summary', company=company) }}">Resumen de Mecanicos</a>
         <a href="{{ url_for('supply_status_update', company=company) }}">Pedidos</a>
         <a href="{{ url_for('active_departure_orders', company=company) }}">Ordenes de Salida</a>
         <a href="/">Inicio</a>
         <!-- Add more links as needed -->
-      </div>
-      
+    </div>
+
     <h1>Órdenes de Salida Activas</h1>
 
     <!-- Agregar un formulario de búsqueda si es necesario -->
-
     <div class="top-section">
         <form action="{{ url_for('active_departure_orders', company=company) }}" method="get">
-            <label for="vehicle_name">Nombre del Vehículo:</label>
+            <label for="vehicle_name">Vehículo:</label>
             <select id="vehicle_name" name="vehicle_name">
                 <option value="">Todos los vehículos</option>
                 {% for vehicle in vehicle_names %}
                 <option value="{{ vehicle.VehicleName }}" {% if selected_vehicle_name == vehicle.VehicleName %}selected{% endif %}>{{ vehicle.VehicleName }}</option>
                 {% endfor %}
             </select>
+            
+            <label for="client_id">Cliente:</label>
+            <select id="client_id" name="client_id">
+                <option value="">Todos los clientes</option>
+                {% for client in client_names %}
+                <option value="{{ client.ClienteID }}" {% if selected_client_id == client.ClienteID %}selected{% endif %}>{{ client.Nombre }}</option>
+                {% endfor %}
+            </select>
+            
             <label for="start_date">Desde:</label>
             <input type="date" name="start_date" id="start_date" value="{{ start_date }}">
         
@@ -40,31 +48,79 @@
         <!-- Botones u opciones adicionales -->
         <div class="buttons-container">
             <!-- Botón existente para crear una nueva orden de salida -->
-            <form action="{{ url_for('add_departure_order',company=company) }}" method="get">
+            <form action="{{ url_for('add_departure_order', company=company) }}" method="get">
                 <input type="submit" value="Crear Orden de Salida" class="btn btn-primary" />
             </form>
         
             <!-- Nuevo botón para ir al registro de órdenes de salida -->
-            <a href="{{ url_for('departure_orders_record',company=company) }}" class="btn btn-secondary">Registro de Órdenes de Salida</a>
+            <a href="{{ url_for('departure_orders_record', company=company) }}" class="btn btn-secondary">Registro de Órdenes de Salida</a>
         </div>
     </div>
 
-    {% for order in active_departure_orders %}
-        <div class="work-order-container">
-            <!-- Puedes cambiar 'work_order_detail' por la ruta que muestre detalles de la orden de salida -->
-            <a href="{{ url_for('departure_order_detail', company=company, order_id=order['IdOrdenSalida']) }}" class="work-order-link">
-                <div class="work-order-summary">
-                    <h2>ID Orden: {{ order['IdOrdenSalida'] }}</h2>
-                    <p>Vehículo: {{ order['VehicleName'] }}</p>
-                    <p>Operador: {{ order['NombreOperador'] }}</p>
-                    <!-- Añade más información de resumen si es necesario -->
-                </div>
-            </a>
-        </div>
-    {% else %}
-        <p>No hay órdenes de salida activas.</p>
-    {% endfor %}
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('active_departure_orders', company=company, page=1, vehicle_name=selected_vehicle_name, client_id=selected_client_id, start_date=start_date, end_date=end_date) }}">&laquo; Primera</a>
+            <a href="{{ url_for('active_departure_orders', company=company, page=page-1, vehicle_name=selected_vehicle_name, client_id=selected_client_id, start_date=start_date, end_date=end_date) }}">&lt; Anterior</a>
+        {% endif %}
+    
+        {% for p in range(1, total_pages + 1) %}
+            {% if p == page %}
+                <span class="current">{{ p }}</span>
+            {% elif p in [1, total_pages] or (p >= page - 2 and p <= page + 2) %}
+                <a href="{{ url_for('active_departure_orders', company=company, page=p, vehicle_name=selected_vehicle_name, client_id=selected_client_id, start_date=start_date, end_date=end_date) }}">{{ p }}</a>
+            {% elif p == page - 3 or p == page + 3 %}
+                ...
+            {% endif %}
+        {% endfor %}
+    
+        {% if page < total_pages %}
+            <a href="{{ url_for('active_departure_orders', company=company, page=page+1, vehicle_name=selected_vehicle_name, client_id=selected_client_id, start_date=start_date, end_date=end_date) }}">Siguiente &gt;</a>
+            <a href="{{ url_for('active_departure_orders', company=company, page=total_pages, vehicle_name=selected_vehicle_name, client_id=selected_client_id, start_date=start_date, end_date=end_date) }}">Última &raquo;</a>
+        {% endif %}
+    </div>
 
+    <div class="orders-container">
+        {% for order in active_departure_orders %}
+            <div class="work-order-container">
+                <!-- Puedes cambiar 'work_order_detail' por la ruta que muestre detalles de la orden de salida -->
+                <a href="{{ url_for('departure_order_detail', company=company, order_id=order['IdOrdenSalida']) }}" class="work-order-link">
+                    <div class="work-order-summary">
+                        <h2>{{ order['VehicleName'] }}</h2>
+                        <h2>{{ order['ClienteNombre'] }}</h2>
+                        <p>Ubicacion: {{ order['Ubicacion'] }}</p>
+                        <p>Operador: {{ order['NombreOperador'] }}</p>
+                        <p>Orden de SAP: {{ order['OrdenDeSAP'] }}</p>
+                        <!-- Añade más información de resumen si es necesario -->
+                    </div>
+                </a>
+            </div>
+        {% else %}
+            <p>No hay órdenes de salida activas.</p>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('active_departure_orders', company=company, page=1, vehicle_name=selected_vehicle_name, client_id=selected_client_id, start_date=start_date, end_date=end_date) }}">&laquo; Primera</a>
+            <a href="{{ url_for('active_departure_orders', company=company, page=page-1, vehicle_name=selected_vehicle_name, client_id=selected_client_id, start_date=start_date, end_date=end_date) }}">&lt; Anterior</a>
+        {% endif %}
+    
+        {% for p in range(1, total_pages + 1) %}
+            {% if p == page %}
+                <span class="current">{{ p }}</span>
+            {% elif p in [1, total_pages] or (p >= page - 2 and p <= page + 2) %}
+                <a href="{{ url_for('active_departure_orders', company=company, page=p, vehicle_name=selected_vehicle_name, client_id=selected_client_id, start_date=start_date, end_date=end_date) }}">{{ p }}</a>
+            {% elif p == page - 3 or p == page + 3 %}
+                ...
+            {% endif %}
+        {% endfor %}
+    
+        {% if page < total_pages %}
+            <a href="{{ url_for('active_departure_orders', company=company, page=page+1, vehicle_name=selected_vehicle_name, client_id=selected_client_id, start_date=start_date, end_date=end_date) }}">Siguiente &gt;</a>
+            <a href="{{ url_for('active_departure_orders', company=company, page=total_pages, vehicle_name=selected_vehicle_name, client_id=selected_client_id, start_date=start_date, end_date=end_date) }}">Última &raquo;</a>
+        {% endif %}
+    </div>
+    
     <!-- Scripts para Select2 y otras funcionalidades -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.full.min.js"></script>
@@ -73,5 +129,6 @@
             $('select').select2();
         });
     </script>
-</body>
-</html>
+    </body>
+    </html>
+    

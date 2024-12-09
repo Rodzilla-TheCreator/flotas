@@ -1,50 +1,84 @@
 body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #008ece;
+    color: #333;
     padding: 20px;
-    background-color: #008ece; 
-}
-
-h1 {
+    margin: 0;
+  }
+  
+  h1 {
     text-align: center;
+    color: #ffffff;
     margin-bottom: 30px;
-}
-
-
-form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
-    grid-gap: 1rem;
-   }
-
-
-.center-logo {
+  }
+  
+  h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  /* Navigation bar styles */
+  .navbar {
+    background-color: #333; /* Dark background color */
+    overflow: hidden; /* Clear floats */
+    position: fixed; /* Make it stick at the top */
+    top: 0; /* Position at the top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Sit on top of other content */
+  }
+  
+  /* Navigation links */
+  .navbar a {
+    float: left; /* Position the links to the left */
+    display: block; /* Change from inline to block */
+    color: #f2f2f2; /* White color for links */
+    text-align: center; /* Center text */
+    padding: 14px 16px; /* Some padding */
+    text-decoration: none; /* No underline */
+  }
+  
+  /* Change color on hover */
+  .navbar a:hover {
+    background-color: #ddd; /* Light grey background on hover */
+    color: black; /* Black text on hover */
+  }
+  
+  /* Add padding to body to make space for fixed navbar */
+  body {
+    padding-top: 50px; /* Equal to the height of the navbar */
+  }
+  
+  .center-logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
-   }
-
-label {
+  }
+  
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Ensuring equal distribution */
+    gap: 20px;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    grid-gap: 1rem;
+  }
+  
+  label {
     display: block;
     margin-bottom: 5px;
-}
-
-input[type="password"],
-input[type="checkbox"],
-textarea {
-    
-    padding: 5px;
-    font-size: 16px;
-}
-
-input[type="submit"] {
+  }
+  
+  /* Ensuring that inputs do not overflow their container */
+  input[type="password"], input[type="checkbox"], textarea {
+    width: 100%; /* Makes input fields take full width of the container */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+  }
+  
+  input[type="submit"] {
     grid-column: 1 / 3;
     margin-top: 20px;
     padding: 10px 20px;
@@ -53,53 +87,68 @@ input[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-input[type="submit"]:hover {
+  }
+  
+  input[type="submit"]:hover {
     background-color: #45a049;
-}
-
-.checkbox-section {
+  }
+  
+  .checkbox-section {
     margin-bottom: 10px; /* Space between sections */
     padding: 10px; /* Padding inside each section */
     border: 1px solid #ccc; /* Border around each section */
     border-radius: 5px; /* Rounded corners for the section */
     background-color: #6dbd98; /* Background color for the section */
-}
-
-.section-header {
+  }
+  
+  .section-header {
     font-size: 1.2em; /* Larger text for headers */
     margin-bottom: 10px; /* Space below the header */
     color: #333; /* Color for the header text */
     text-align: center; /* Center the section headers */
-}
-
-.checkbox-container {
+  }
+  
+  .checkbox-container {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Ensure content is spaced out evenly */
-    margin-bottom: 30px;
-}
-
-.checkbox-container input[type="checkbox"] {
+    justify-content: space-between;
+    margin-bottom: 10px; /* Adjusted for tighter spacing */
+  }
+  
+  .checkbox-container input[type="checkbox"] {
     /* Align checkbox to the start */
     margin-right: 10px; /* Space between the checkbox and the label */
-}
-
-.checkbox-container label {
+  }
+  
+  .checkbox-container label {
     margin: 0;
     flex-grow: 1; /* Label takes up remaining space */
     text-align: left;
     font-size: 23px; /* Adjust the size as needed */
-}
-
-
-textarea {
+  }
+  
+  textarea {
     resize: vertical;
-}
-
-@media (max-width: 600px) {
+  }
+  
+  @media (max-width: 800px) {
     form {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr; /* Stack them on smaller screens */
     }
-}
+  }
+  
+  /* Style for the return button */
+  .return-button {
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .return-button:hover {
+    background-color: #444;
+  }
+  
